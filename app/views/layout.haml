@@ -24,17 +24,18 @@
       #header
         -# %img{ :src => "/logo-50-red.png", :class => 'logo', :alt => 'çekimi logo' }
         -# = link_to( image_tag( "/logo-50-red.png", {:class => 'logo',:alt => 'çekimi logo'} ) , '/', { :title => "main page" } )
-        %h1 Drill Sergent
+        %h3 Drill Sergent
         -# = link_to( image_tag( "/turk-flag-50.png", {:class => 'flag',:alt => 'türk flag & national anthem'} ) , '/istiklal-marsi.ogg', {:target => "_blank"} )
         -# %img{ :src => "/turk-flag-50.png", :class => 'flag', :alt => 'türk flag' }
       
-      #actionbox
-        %p
-          action box
+      #wrapper
+        #actionbox
+          %p
+            action box
 
-      #content
-        != yield
-      
+        #content
+          != yield
+        
       #footer
         %p
           &copy;&nbsp;
