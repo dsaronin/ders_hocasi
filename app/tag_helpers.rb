@@ -1,5 +1,5 @@
 # code hoovered from different places to cobble together some outdated
-# sinatra view helpers
+# sinatra html tag helpers
 # ------------------------------------------------------
 
 module Sinatra
@@ -17,12 +17,12 @@ module Sinatra
 
 # ------------------------------------------------------
 # ------------------------------------------------------
-      def send_data(data, options={})
-        status       options[:status]   if options[:status]
-        attachment   options[:filename] if options[:disposition] == 'attachment'
-        content_type options[:type]     if options[:type]
-        halt data
-      end
+    def send_data(data, options={})
+      status       options[:status]   if options[:status]
+      attachment   options[:filename] if options[:disposition] == 'attachment'
+      content_type options[:type]     if options[:type]
+      halt data
+    end
 
 # ------------------------------------------------------
 # ------------------------------------------------------

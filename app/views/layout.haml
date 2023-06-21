@@ -20,17 +20,23 @@
     %title Ders Hocası
 
   %body
-    #header
-      -# %img{ :src => "/logo-50-red.png", :class => 'logo', :alt => 'çekimi logo' }
-      -# = link_to( image_tag( "/logo-50-red.png", {:class => 'logo',:alt => 'çekimi logo'} ) , '/', { :title => "main page" } )
-      %p Drill Sergent
-      -# = link_to( image_tag( "/turk-flag-50.png", {:class => 'flag',:alt => 'türk flag & national anthem'} ) , '/istiklal-marsi.ogg', {:target => "_blank"} )
-      -# %img{ :src => "/turk-flag-50.png", :class => 'flag', :alt => 'türk flag' }
-    
-    != yield
-    
-    #footer
-      %p
-        &copy;&nbsp;
-        =link_to("Copyright 2023 David S. Anderson, All rights reserved ","/about")
-        &emsp;&bull;&emsp;v 1.01 &ensp;
+    .container
+      #header
+        -# %img{ :src => "/logo-50-red.png", :class => 'logo', :alt => 'çekimi logo' }
+        -# = link_to( image_tag( "/logo-50-red.png", {:class => 'logo',:alt => 'çekimi logo'} ) , '/', { :title => "main page" } )
+        %h1 Drill Sergent
+        -# = link_to( image_tag( "/turk-flag-50.png", {:class => 'flag',:alt => 'türk flag & national anthem'} ) , '/istiklal-marsi.ogg', {:target => "_blank"} )
+        -# %img{ :src => "/turk-flag-50.png", :class => 'flag', :alt => 'türk flag' }
+      
+      #actionbox
+        %p
+          action box
+
+      #content
+        != yield
+      
+      #footer
+        %p
+          &copy;&nbsp;
+          =link_to("Copyright 2023 David S. Anderson, All rights reserved ","/about")
+          &emsp;&bull;&emsp;v 1.01 &ensp;

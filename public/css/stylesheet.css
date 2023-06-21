@@ -173,34 +173,29 @@ textarea {
   width: 100%;
 }
 
-#wrapper {
-  width: 95%;
-}
-
 #header {
-  width: 100%;
   margin: 0 auto;
+  width: 100%;
   background-color: #140078;
-  height: 1vh;
+  height: 5vh;
 }
-#header p {
+#header h1, #header h2, #header h3 {
   color: #FF6F00;
-  padding: 8px 2px;
-  font-size: medium;
+  padding: 0.2em 0.3em;
+  font-size: 100%;
   font-weight: bold;
-  float: left;
 }
 
 #footer {
-  width: 100%;
   margin: 0 auto;
+  width: 100%;
   background-color: #140078;
   position: fixed;
   bottom: 0;
 }
 #footer p, #footer a {
   color: #455A64;
-  padding: 4px;
+  padding: 0.1em;
   font-size: x-small;
   text-align: center;
   font-weight: bold;
@@ -208,11 +203,13 @@ textarea {
 }
 
 #content {
-  width: 100%;
+  width: 95%;
 }
 
-#sidebar {
+#actionbox {
   width: 100%;
+  padding: 0.3em 0.3em;
+  font-size: 90%;
 }
 
 html, body {
@@ -250,7 +247,7 @@ h6 {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: Tahoma, Arial, sans-serif;
+  font-family: "Roboto", Tahoma, Arial, sans-serif;
   font-weight: 400;
   margin: 10px 0;
 }

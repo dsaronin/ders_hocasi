@@ -2,7 +2,7 @@
 // --------------------------------------------------------
 // dimensions
 // --------------------------------------------------------
-$HEADER_HEIGHT: 1vh
+$HEADER_HEIGHT: 5vh
 // --------------------------------------------------------
 
 html
@@ -147,42 +147,38 @@ textarea
   height: 100%
   width: 100%
  
-#wrapper
-  width: 95%
-
 #header
-  width: 100%
   margin: 0 auto
+  width: 100%
   background-color: colors.$BG_HEADER
   height: $HEADER_HEIGHT
-  p
+  h1, h2, h3
     color: colors.$FG_HEADER
-    padding: 8px 2px
-    font-size: medium
+    padding: 0.2em 0.3em
+    font-size: 100%
     font-weight: bold
-    float: left
-
  
 #footer
-  width: 100%
   margin: 0 auto
+  width: 100%
   background-color: colors.$BG_HEADER
   position: fixed
   bottom: 0
   p, a
     color: colors.$FG_FOOTER
-    padding: 4px
+    padding: 0.1em
     font-size: x-small
     text-align: center
     font-weight: bold
     text-transform: uppercase
-
  
 #content
-  width: 100%
+  width: 95%
 
-#sidebar
+#actionbox
   width: 100%
+  padding: 0.3em 0.3em
+  font-size: 90%
 
 html, body
   font-family: "Roboto",Verdana,sans-serif
@@ -211,7 +207,7 @@ h6
   font-size: 16px
 
 h1, h2, h3, h4, h5, h6
-  font-family: Tahoma, Arial,sans-serif
+  font-family: "Roboto", Tahoma, Arial,sans-serif
   font-weight: 400
   margin: 10px 0
 
