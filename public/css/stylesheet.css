@@ -1,3 +1,37 @@
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, i, a, blockquote, pre, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, dd, dl, dt, li, ol, ul, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-weight: inherit;
+  font-style: inherit;
+  font-size: inherit;
+  font-family: inherit;
+  line-height: 1;
+  text-align: left;
+  vertical-align: baseline;
+}
+
+a img, :link img, :visited img {
+  border: 0;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+ol, li {
+  list-style: none;
+}
+
+q:before, q:after {
+  content: "";
+}
+
+blockquote:before, blockquote:after {
+  content: "";
+}
+
 html {
   box-sizing: border-box;
   -ms-text-size-adjust: 100%;
@@ -9,11 +43,6 @@ html {
 }
 *:before, *:after {
   box-sizing: inherit;
-}
-
-body {
-  height: 100vh;
-  width: 100vw;
 }
 
 article, aside, details, figcaption, figure, footer, header, main, menu, nav, section {
@@ -53,19 +82,6 @@ b, strong {
   font-weight: bolder;
 }
 
-dfn {
-  font-style: italic;
-}
-
-mark {
-  background: #ff0;
-  color: #000;
-}
-
-small {
-  font-size: 80%;
-}
-
 sub, sup {
   font-size: 75%;
   line-height: 0;
@@ -81,26 +97,8 @@ sup {
   top: -0.5em;
 }
 
-figure {
-  margin: 1em 40px;
-}
-
-img {
-  width: 100%;
-  max-width: 100%;
-  height: auto;
-  border-style: none;
-}
-
-hr {
-  box-sizing: content-box;
-  height: 0;
-  overflow: visible;
-}
-
-button, input, select, textarea {
-  font: inherit;
-  margin: 0;
+dfn {
+  font-style: italic;
 }
 
 button, input {
@@ -124,14 +122,23 @@ button:-moz-focusring, [type=button]:-moz-focusring, [type=reset]:-moz-focusring
   outline: 1px dotted ButtonText;
 }
 
-fieldset {
-  border: 1px solid #c0c0c0;
-  margin: 0 2px;
-  padding: 0.35em 0.625em 0.75em;
+button, input, select, textarea {
+  font: inherit;
+  margin: 0;
 }
 
-textarea {
-  overflow: auto;
+small {
+  font-size: 80%;
+}
+
+figure {
+  margin: 1em 2em;
+}
+
+hr {
+  box-sizing: content-box;
+  height: 0;
+  overflow: visible;
 }
 
 [type=checkbox], [type=radio] {
@@ -162,6 +169,28 @@ textarea {
   height: 0;
   clear: both;
   visibility: hidden;
+}
+
+img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  border-style: none;
+}
+
+fieldset {
+  border: 1px solid #c0c0c0;
+  margin: 0 0.1em;
+  padding: 0.35em 0.625em 0.75em;
+}
+
+textarea {
+  overflow: auto;
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
 }
 
 html {
@@ -241,6 +270,7 @@ img.logo {
   color: #FFD54F;
   padding: 0.2em 0.2em;
   font-weight: bold;
+  font-family: "Roboto", Tahoma, Arial, sans-serif;
 }
 
 #footer {
@@ -256,6 +286,7 @@ img.logo {
   font-size: x-small;
   text-align: center;
   font-weight: bold;
+  font-family: Arial, sans-serif;
   text-transform: uppercase;
 }
 
