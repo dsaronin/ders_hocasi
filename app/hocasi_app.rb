@@ -20,6 +20,11 @@ class HocasiApp < Sinatra::Application
     haml :index
   end
 
+
+  get '/about' do
+    haml :about
+  end
+
   #  ------------------------------------------------------------
   #  ------------------------------------------------------------
 end  # HocasiApp 

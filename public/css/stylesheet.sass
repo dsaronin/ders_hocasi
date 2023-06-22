@@ -180,10 +180,16 @@ h1, h2, h3, h4, h5, h6
   font-family: "Roboto", Tahoma, Arial,sans-serif
   font-weight: bold
 
+img.logo
+  margin: 0.3em 0.3em 
+  width: 7vw
+  float: left
+
 .container
   margin: 0 auto
   height: 100%
   width: 100%
+  background-color: colors.$colorSecondary025
  
 #wrapper
   margin: 0 auto
@@ -216,14 +222,24 @@ h1, h2, h3, h4, h5, h6
   margin: 0 auto
   width: 98%
   padding: 0.2em
-
+  h1, h2, h3, h4, h5, h6
+    padding: 0.2em 0
+    font-weight: bold
+  p
+    padding: 0.2em 0
+    font-size: 85%
+    line-height: 1.3
+  a
+    font-size: 100%
+ 
 #actionbox
   width: 100%
   min-height: 8vh
   display: block
-  float: left
-  border: 1px solid #eee
+  border: 1px solid colors.$colorBGray100
+  background-color: colors.$colorBGray050
   p, i, a
+    color: colors.$BG_HEADER
     padding: 0.2em
 
 // PORTRAIT
