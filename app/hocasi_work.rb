@@ -1,4 +1,4 @@
-# DersHocası: A Drill Sergent for language students
+# DrillTutor: A Drill Sergent for language students
 # Copyright (c) 2023 David S Anderson, All Rights Reserved
 #
 # class HocasiWork -- main work module for doing everything
@@ -6,6 +6,9 @@
 
 class HocasiWork
   require_relative 'environ'
+  require_relative 'topics'
+  require_relative 'sentences'
+  require_relative 'flash_cards'
  
   #  ------------------------------------------------------------
   #  initialize  -- creates a new object
@@ -32,6 +35,7 @@ class HocasiWork
   #  ------------------------------------------------------------
   def setup_work()
     Environ.log_info( "starting..." )
+    Environ.put_info FlashCards.show_defaults
   end
 
   #  ------------------------------------------------------------
@@ -39,7 +43,7 @@ class HocasiWork
   #  CLI usage only
   #  ------------------------------------------------------------
   def do_work()
-    Environ.put_message "\n\t#{ Environ.app_name }: A Drill Sergent for language students.\n"
+    Environ.put_message "\n\t#{ Environ.app_name }: A Drill Sergent for language learners.\n"
       # loop for command prompt & user input
     begin
       Environ.put_prompt("\n#{ Environ.app_name } > ")  

@@ -17,7 +17,7 @@ class Environ
   include Singleton
   
 # constants ... #TODO replace with config file?
-  APP_NAME = "Hocasi"
+  APP_NAME = "DrillTutor"
   APP_NAME_HEAD = APP_NAME + ": "
   HOCASI_VERSION = "0.01"
   HOCASI_HELP = "status (s), options (o), help (h), quit (q), exit (x)"
