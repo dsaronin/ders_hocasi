@@ -12,8 +12,8 @@ class FlashCards
   require 'pp'
 
   SOURCE_TYPES   = %w{topics vocabulary sentences phrases dictionary dialog articles}
-  SELECTOR_TYPES = %w{all random issues new}
-  SIZER_TYPES    = %w{all 5 10 20 50}
+  SELECTOR_TYPES = %w{ordered random issues new}
+  SIZER_TYPES    = %w{5 10 20 50 all}
   SIDE_TYPES     = %w{front back shuffle}
   ANSWER_TYPES   = %w{typed multiple-choice none}
   SPEED_TYPES    = %w{slow medium fast}
