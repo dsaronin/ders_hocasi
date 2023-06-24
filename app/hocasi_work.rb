@@ -137,7 +137,7 @@ class HocasiWork
   #  ------------------------------------------------------------
   def do_flashcards( list )
     begin
-      fm = FlashManager( list.first )
+      fm = FlashManager.new( list.first )
       fm.show_cards
     rescue ArgumentError
       Environ.put_and_log_error( ">>  " + $!.message )

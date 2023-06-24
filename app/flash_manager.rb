@@ -16,7 +16,7 @@ class FlashManager
  
   SOURCE_TYPES   = %w{topics vocabulary sentences phrases dictionary dialog articles}
   SELECTOR_TYPES = %w{ordered random issues new}
-  SIZER_TYPES    = %w{5 10 20 50 all}
+  SIZER_TYPES    = %w{5 10 25}
   SIDE_TYPES     = %w{front back shuffle}
   ANSWER_TYPES   = %w{typed multiple-choice none}
   SPEED_TYPES    = %w{slow medium fast}
@@ -64,6 +64,16 @@ class FlashManager
   def show_cards
     puts "SHOW CARDS for topic: #{@my_settings[:topic]}; " +
       "vocab items: #{@my_topic.vocabulary.length}"
+
+    fc = FlashCard.new(
+      @my_topic, 
+      @my_topic.vocabulary, 
+      @my_settings[:sizer],
+      @my_settings[:side]
+    )
+
+    fp = Player.new(fc)
+    fp.play
   end
  
 end  # FlashManager
