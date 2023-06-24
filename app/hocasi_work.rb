@@ -6,9 +6,7 @@
 
 class HocasiWork
   require_relative 'environ'
-  require_relative 'topics'
-  require_relative 'sentences'
-  require_relative 'flash_cards'
+  require_relative 'flash_manager'
  
   #  ------------------------------------------------------------
   #  initialize  -- creates a new object
@@ -35,7 +33,7 @@ class HocasiWork
   #  ------------------------------------------------------------
   def setup_work()
     Environ.log_info( "starting..." )
-    Environ.put_info FlashCards.show_defaults
+    Environ.put_info FlashManager.show_defaults
   end
 
   #  ------------------------------------------------------------
@@ -77,7 +75,7 @@ class HocasiWork
 
       when  ""               then  loop = true   # empty line; NOP
       else        
-        true   # NOP
+        do_flashcards( cmdlist )
     end
 
     return loop
@@ -134,6 +132,18 @@ class HocasiWork
     Environ.put_info  sts  
     return sts
   end
+
+  #  ------------------------------------------------------------
+  #  ------------------------------------------------------------
+  def do_flashcards( list )
+    begin
+      fm = FlashManager( list.first )
+      fm.show_cards
+    rescue ArgumentError
+      Environ.put_and_log_error( ">>  " + $!.message )
+    end  # exception handling
+  end
+
 
   #  ------------------------------------------------------------
   #  ------------------------------------------------------------

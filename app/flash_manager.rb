@@ -2,15 +2,18 @@
 # DrillTutor: A Drill Sergent for language students
 # Copyright (c) 2023 David S Anderson, All Rights Reserved
 #   
-# FlashCards manages the big picture of generating and
-# formatting flash card objects
+# FlashManager manages the big picture of flash card objects
 #
   #  ------------------------------------------------------------
   #  ------------------------------------------------------------
 
-class FlashCards
+class FlashManager
   require 'pp'
-
+  require_relative 'topics'
+  require_relative 'sentences'
+  require_relative 'player'
+  require_relative 'flash_card'
+ 
   SOURCE_TYPES   = %w{topics vocabulary sentences phrases dictionary dialog articles}
   SELECTOR_TYPES = %w{ordered random issues new}
   SIZER_TYPES    = %w{5 10 20 50 all}
@@ -36,14 +39,20 @@ class FlashCards
     :player   => PLAYER_TYPES[0]
   }
 
-  def FlashCards.show_defaults()
+  def FlashManager.show_defaults()
     return @@defaults.inspect
   end
 
   #  ------------------------------------------------------------
   #  ------------------------------------------------------------
-  def initialize()
+  def initialize( key )
     @my_settings = @@defaults.clone   # set my settings from defaults
+    topic = ( key =~ /^def(ault)?$/  ?  @my_settings[:topic]  : key )
+    @my_topic = Topics.find( topic )
+    if @my_topic.nil?
+      raise ArgumentError, "Topics: #{topic} not found"
+    end
+    @my_settings[:topic] = topic  # replace topic in settings
   end
 
   #  ------------------------------------------------------------
@@ -51,6 +60,11 @@ class FlashCards
   #  instance methods
   #  ------------------------------------------------------------
   #  ------------------------------------------------------------
+
+  def show_cards
+    puts "SHOW CARDS for topic: #{@my_settings[:topic]}; " +
+      "vocab items: #{@my_topic.vocabulary.length}"
+  end
  
-end  # FlashCards
+end  # FlashManager
 
