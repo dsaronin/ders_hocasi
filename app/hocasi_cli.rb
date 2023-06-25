@@ -3,10 +3,9 @@
 #
 # class HocasiCLI -- 'controller' for CLI
 #
-require_relative 'hocasi_work'
-
 
 class HocasiCLI
+  require_relative 'hocasi_work'
 
     HOCASI = HocasiWork.new 
 
@@ -15,9 +14,7 @@ class HocasiCLI
   #  ------------------------------------------------------------
   def cli()
     HOCASI.setup_work()    # initialization of everything
-
     Environ.put_message "\n\t#{ Environ.app_name }: A Drill Sergent for language learners.\n"
-      # loop for command prompt & user input
 
     do_work()      # do the work of çekimi
 
@@ -31,6 +28,7 @@ class HocasiCLI
   #  CLI usage only
   #  ------------------------------------------------------------
   def do_work()
+      # loop for command prompt & user input
     begin
       Environ.put_prompt("\n#{ Environ.app_name } > ")  
     end  while  parse_commands( Environ.get_input_list )
@@ -54,13 +52,21 @@ class HocasiCLI
       when  "q", "quit"      then  loop = false  # exit program
 
       when  ""               then  loop = true   # empty line; NOP
-      else        
-        HOCASI.do_flashcards( cmdlist )
-    end
+      else     
+        fc_player( cmdlist )
+    end  # case
 
     return loop
     end
- 
 
+  #  ------------------------------------------------------------
+  #  fc_player -- cli player control i/f
+  #  ------------------------------------------------------------
+  def fc_player( cmdlist )
+    HOCASI.do_flashcards( cmdlist )
+  end
+
+  #  ------------------------------------------------------------
+  #  ------------------------------------------------------------
 end  # class
 
