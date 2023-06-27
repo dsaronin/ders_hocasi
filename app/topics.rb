@@ -7,9 +7,10 @@
   require "yaml"
 
 class Topics
+  include Sources
 
   attr_accessor :name, :alt_name, :category, :target, :source
-  attr_accessor :description, :summary, :vocabulary
+  attr_accessor :description, :summary
 
   #  ------------------------------------------------------------
   #  ------------------------------------------------------------

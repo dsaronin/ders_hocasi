@@ -9,12 +9,13 @@
 
 class FlashManager
   require 'pp'
+  require_relative 'sources'
   require_relative 'topics'
   require_relative 'sentences'
   require_relative 'player'
   require_relative 'flash_card'
  
-  SOURCE_TYPES   = %w{topics vocabulary sentences phrases dictionary dialog articles}
+  SOURCE_TYPES   = %w{Topics Vocabulary Sentences Phrases Dictionary Dialog Articles}
   SELECTOR_TYPES = %w{ordered random issues new}
   SIZER_TYPES    = %w{5 10 25}
   SIDE_TYPES     = %w{front back shuffle}
@@ -49,6 +50,8 @@ class FlashManager
     @my_settings = @@defaults.clone   # set my settings from defaults
     topic = ( key =~ /^def(ault)?$/  ?  @my_settings[:topic]  : key )
     @my_topic = Topics.find( topic )
+    @my_source = @my_settings[ :source ]
+    # Object.const_get(@my_source).new   to get an object of that class
     if @my_topic.nil?
       raise ArgumentError, "Topics: #{topic} not found"
     end
@@ -63,17 +66,16 @@ class FlashManager
 
   def show_cards
     puts "SHOW CARDS for topic: #{@my_settings[:topic]}; " +
-      "vocab items: #{@my_topic.vocabulary.length}"
+      "fc data items: #{@my_topic.fc_data.length}"
 
     fc = FlashCard.new(
       @my_topic, 
-      @my_topic.vocabulary, 
+      @my_topic.fc_data, 
       @my_settings[:sizer],
       @my_settings[:side]
     )
 
     fp = Player.new(fc)
-    fp.play
   end
  
 end  # FlashManager

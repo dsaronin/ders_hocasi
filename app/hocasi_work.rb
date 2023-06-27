@@ -84,6 +84,8 @@ class HocasiWork
   end
 
   #  ------------------------------------------------------------
+  #  do_flashcards  -- intiates flashcard handling
+  #  returns: flash_manager object, ready for player
   #  ------------------------------------------------------------
   def do_flashcards( list )
     begin
@@ -92,6 +94,8 @@ class HocasiWork
     rescue ArgumentError
       Environ.put_and_log_error( ">>  " + $!.message )
     end  # exception handling
+
+    return fm
   end
 
 

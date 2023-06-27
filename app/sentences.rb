@@ -7,8 +7,9 @@
   require "yaml"
 
 class Sentences
+  include Sources
 
-  attr_accessor :topics, :data
+  attr_accessor :topics
 
   #  ------------------------------------------------------------
   #  ------------------------------------------------------------

@@ -7,7 +7,7 @@
 :quantifiers:
   !ruby/object:Sentences
     topics: quantifiers
-    data:
+    fc_data:
       - ["Bütün kadınlar benim arkamda.", "all women support me." ]
       - ["Herhangi biri mi yoksa hiçbiri mi?", "Any of them or none of them." ]
       - ["Herkes onu çok seviyor.", "Everyone likes him a lot." ]
@@ -62,7 +62,7 @@
 :adverbs:
   !ruby/object:Sentences
     topics: adverbs
-    data:
+    fc_data:
       - ["Ablam hep etek giyer.", "My sister always wears skirts." ]
       - ["Artık içeriye kar yağıyor.", "It's snowing inside now." ]
       - ["Artık eve seninle beraber gidiyorum.", "I'm going home with you now." ]

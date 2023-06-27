@@ -3,6 +3,8 @@
 # DrillTutor -- topics data notes
 # Copyright (c) 2023 David S Anderson, All Rights Reserved
 #
+# ALL FLASHCARD SOURCE FILES MUST HAVE A "fc_data" element defined
+# which is an array of arrays of [target, native] lang pairs
 # ----------------------------------------------
 :quantifiers:
   !ruby/object:Topics
@@ -13,47 +15,47 @@
     source: english
     description: few, some, all, none, any
     summary: her, bir, hiç, çok, az form the basis of many combinations
-    vocabulary:
-      az: few, slight (neg)
-      bazen: sometimes
-      bazı: some [thing]
-      beraber: together with
-      bir az: some, bit  (uncountable)
-      bir bir yerde: somewhere, someplace
-      bir kaç: some, few (countable)
-      bir çok: many, lots
-      bir önemli değil: no problem, not important
-      bir şey değil: it’s nothing, anything
-      biraz: some, a bit
-      biri: someone, person
-      bu kadar: this amount, so (much)
-      bütün: whole, entire, all
-      fazla: too much, many  (neg)
-      gibi: like, similar to
-      hakkında: about, approx
-      her hangi bir yer: anywhere
-      her hangi bir şey: something, anything
-      her hangi biri: anybody
-      her hangi: any, some
-      her kes: everyone, everybody
-      her şey: everything
-      her: any, all, each
-      hiç bir yerde: nowhere
-      hiç bir şey: nothing
-      hiç bir: neither
-      hiç biri: none, neither
-      hiç kimse…yok: nobody
-      hiç: no, none, never
-      ile: with, and
-      kimse: nobody, anybody
-      son: last, final, end
-      sonra: later, then, after
-      tane: many
-      tüm: whole, entire
-      çift: pair, couple of sth
-      çok az: very little
-      çok fazla: too much, many  (neg)
-      önce: before
+    fc_data:
+      - ["az", "few, slight (neg)"]
+      - ["bazen", "sometimes"]
+      - ["bazı", "some [thing]"]
+      - ["beraber", "together with"]
+      - ["bir az", "some, bit  (uncountable)"]
+      - ["bir bir yerde", "somewhere, someplace"]
+      - ["bir kaç", "some, few (countable)"]
+      - ["bir çok", "many, lots"]
+      - ["bir önemli değil", "no problem, not important"]
+      - ["bir şey değil", "it’s nothing, anything"]
+      - ["biraz", "some, a bit"]
+      - ["biri", "someone, person"]
+      - ["bu kadar", "this amount, so (much)"]
+      - ["bütün", "whole, entire, all"]
+      - ["fazla", "too much, many  (neg)"]
+      - ["gibi", "like, similar to"]
+      - ["hakkında", "about, approx"]
+      - ["her hangi bir yer", "anywhere"]
+      - ["her hangi bir şey", "something, anything"]
+      - ["her hangi biri", "anybody"]
+      - ["her hangi", "any, some"]
+      - ["her kes", "everyone, everybody"]
+      - ["her şey", "everything"]
+      - ["her", "any, all, each"]
+      - ["hiç bir yerde", "nowhere"]
+      - ["hiç bir şey", "nothing"]
+      - ["hiç bir", "neither"]
+      - ["hiç biri", "none, neither"]
+      - ["hiç kimse…yok", "nobody"]
+      - ["hiç", "no, none, never"]
+      - ["ile", "with, and"]
+      - ["kimse", "nobody, anybody"]
+      - ["son", "last, final, end"]
+      - ["sonra", "later, then, after"]
+      - ["tane", "many"]
+      - ["tüm", "whole, entire"]
+      - ["çift", "pair, couple of sth"]
+      - ["çok az", "very little"]
+      - ["çok fazla", "too much, many  (neg)"]
+      - ["önce", "before"]
 
 :adverbs:
   !ruby/object:Topics
@@ -64,39 +66,39 @@
     source: english
     description: tells how much, what degree, how sth done
     summary: adverbs modify the action similar to adjectives modifying nouns
-    vocabulary:
-      artık: from now on (poz), anymore (neg)
-      asla: never
-      aslında: actually, in fact
-      bazen: sometimes
-      benten daha…: more <adj> than me
-      bile: even
-      bir kere daha: one more time
-      biraz daha: more
-      bütün: all
-      çoğunlukla: usually, mostly (habit/custom)
-      daha: yet, more, than
-      daha sonra: later
-      en: most, best
-      genelde: usually, generally (timewise)
-      gerçekten: really, totally
-      genellikle: generally, usually
-      göre: according to, opinion
-      hala: still, yet (poz)
-      henüz: still, yet, so far (neg)
-      hep: always
-      kesinlikle: definitely, certainly
-      nadiren: rarely, seldom
-      neredeyse: almost, nearly
-      oldukça: quite, rather, fairly
-      özellikle: especially, particularly
-      sonunda: finally, after, in the end
-      tam olarak: exactly
-      sadece: only, just
-      sık sık: frequently, often
-      tamamen: completely, totally
-      tekrar: again, once more
-      yine: again, once more
-      yeterince: enough
-      yeterli: sufficient
+    fc_data:
+      - ["artık", "from now on (poz), anymore (neg)"]
+      - ["asla", "never"]
+      - ["aslında", "actually, in fact"]
+      - ["bazen", "sometimes"]
+      - ["benten daha…", "more <adj> than me"]
+      - ["bile", "even"]
+      - ["bir kere daha", "one more time"]
+      - ["biraz daha", "more"]
+      - ["bütün", "all"]
+      - ["çoğunlukla", "usually, mostly (habit/custom)"]
+      - ["daha", "yet, more, than"]
+      - ["daha sonra", "later"]
+      - ["en", "most, best"]
+      - ["genelde", "usually, generally (timewise)"]
+      - ["gerçekten", "really, totally"]
+      - ["genellikle", "generally, usually"]
+      - ["göre", "according to, opinion"]
+      - ["hala", "still, yet (poz)"]
+      - ["henüz", "still, yet, so far (neg)"]
+      - ["hep", "always"]
+      - ["kesinlikle", "definitely, certainly"]
+      - ["nadiren", "rarely, seldom"]
+      - ["neredeyse", "almost, nearly"]
+      - ["oldukça", "quite, rather, fairly"]
+      - ["özellikle", "especially, particularly"]
+      - ["sonunda", "finally, after, in the end"]
+      - ["tam olarak", "exactly"]
+      - ["sadece", "only, just"]
+      - ["sık sık", "frequently, often"]
+      - ["tamamen", "completely, totally"]
+      - ["tekrar", "again, once more"]
+      - ["yine", "again, once more"]
+      - ["yeterince", "enough"]
+      - ["yeterli", "sufficient"]
 

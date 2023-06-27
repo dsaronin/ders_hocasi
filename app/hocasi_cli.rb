@@ -63,7 +63,8 @@ class HocasiCLI
   #  fc_player -- cli player control i/f
   #  ------------------------------------------------------------
   def fc_player( cmdlist )
-    HOCASI.do_flashcards( cmdlist )
+    fm = HOCASI.do_flashcards( cmdlist )
+    # player output ctl goes here
   end
 
   #  ------------------------------------------------------------
