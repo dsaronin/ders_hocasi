@@ -6,13 +6,42 @@
 #
 
 module Sources
-
-  def self.find( key )
-    return @@database || self.new
+  def self.included(klass)
+    klass.extend(ClassMethods)
   end
+
+  #  ------------------------------------------------------------
+  #  ------------------------------------------------------------
+  #  ClassMethods -- will be extended into receiving class
+  #  ------------------------------------------------------------
+  #  ------------------------------------------------------------
+
+  module ClassMethods
+
+    def find( key )
+      return @@database 
+    end
+
+    def find_or_new( key )
+      obj = self.find( key ) || allocate
+      obj.send(:initialize, key)
+      @@database ||= obj
+      return obj
+    end
+
+  end  # ClassMethods
+
+  #  ------------------------------------------------------------
+  #  ------------------------------------------------------------
+  #  instance methods  -- will be included into receiving class
+  #  ------------------------------------------------------------
+  #  ------------------------------------------------------------
 
   def fc_data
     return @fc_data  || []
+  end
+
+  def initialize( topic )
   end
 
 end  # module

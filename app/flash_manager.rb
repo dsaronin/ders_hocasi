@@ -50,12 +50,14 @@ class FlashManager
     @my_settings = @@defaults.clone   # set my settings from defaults
     topic = ( key =~ /^def(ault)?$/  ?  @my_settings[:topic]  : key )
     @my_topic = Topics.find( topic )
-    @my_source = @my_settings[ :source ]
-    # Object.const_get(@my_source).new   to get an object of that class
     if @my_topic.nil?
       raise ArgumentError, "Topics: #{topic} not found"
     end
     @my_settings[:topic] = topic  # replace topic in settings
+        # get the source obj
+    @my_source = Module.const_get( @my_settings[:source] ).new( topic )
+    puts @my_topic.inspect
+    puts @my_source.inspect
   end
 
   #  ------------------------------------------------------------
@@ -66,11 +68,11 @@ class FlashManager
 
   def show_cards
     puts "SHOW CARDS for topic: #{@my_settings[:topic]}; " +
-      "fc data items: #{@my_topic.fc_data.length}"
+      "fc data items: #{@my_source.fc_data.length}"
 
     fc = FlashCard.new(
       @my_topic, 
-      @my_topic.fc_data, 
+      @my_source.fc_data, 
       @my_settings[:sizer],
       @my_settings[:side]
     )
