@@ -64,18 +64,18 @@ class FlashManager
   #  ------------------------------------------------------------
   #  ------------------------------------------------------------
 
-  def show_cards
+  def start_card_player
     puts "SHOW CARDS for topic: #{@my_settings[:topic]}; " +
       "fc data items: #{@my_source.fc_data.length}"
 
     fc = FlashCard.new(
       @my_topic, 
-      @my_source.fc_data, 
+      @my_source,
       @my_settings[:sizer],
       @my_settings[:side]
     )
 
-    fp = Player.new(fc)
+    return  Player.new(fc)
   end
  
 end  # FlashManager

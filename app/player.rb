@@ -37,10 +37,50 @@ class Player
   #  ------------------------------------------------------------
   #  ------------------------------------------------------------
 
-    def play
-      puts "PLAYER starting for topic"
- 
-    end
+  #  ------------------------------------------------------------
+  #  commands  -- player command interface
+  #  returns [loop,display]
+  #  ------------------------------------------------------------
+  def commands( cmdlist )        
+    loop = true                 # user input loop while true
+
+        # parse command
+    show = case ( cmdlist.first || ""  ).chomp
+
+      when  "f", "flip"      then  do_flip
+      when  "b", "back"      then  do_back
+      when  "n", "next"      then  do_next
+      when  ""               then  do_next
+      when  "s", "shuffle"   then  do_shuffle
+      when  "x", "exit"      then  loop = false; []  # exit program
+      when  "q", "quit"      then  loop = false; [] # exit program
+      else     
+       do_next 
+    end  # case
+
+    return [loop, show]
+  end
+
+
+  #  ------------------------------------------------------------
+  def do_flip
+    return ["FLIP Reverse Side","FLIP Starting player"]
+  end
+
+  #  ------------------------------------------------------------
+  def do_back
+    return ["BACK Starting player","BACK Reverse Side"]
+  end
+
+  #  ------------------------------------------------------------
+  def do_next
+    return ["NEXT Starting player","NEXT Reverse Side"]
+  end
+
+  #  ------------------------------------------------------------
+  def do_shuffle
+    return ["SHUFFLE Starting player","SHUFFLE Reverse Side"]
+  end
 
   #  ------------------------------------------------------------
   #  ------------------------------------------------------------

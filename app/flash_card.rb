@@ -15,11 +15,12 @@ class FlashCard
   #  ------------------------------------------------------------
   #  ------------------------------------------------------------
   
-  def initialize( topic, set, size, side )
-    @topic = topic
-    @set   = set
-    @size  = size
-    @side  = side
+  def initialize( topic, source, size, side )
+    @topic  = topic
+    @source = source
+    @size   = size
+    @side   = side
+    @cur_ptr = 0
     self.reset
   end
 

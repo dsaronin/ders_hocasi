@@ -63,9 +63,15 @@ class HocasiCLI
   #  fc_player -- cli player control i/f
   #  ------------------------------------------------------------
   def fc_player( cmdlist )
-    fm = HOCASI.do_flashcards( cmdlist )
+    player = HOCASI.do_flashcards( cmdlist )
     # player output ctl goes here
-  end
+    (loop, show) = player.commands( ["n"]  )
+    begin
+      Environ.put_info show[0] unless show.empty?
+      Environ.put_prompt("\nPlayer > ")  
+      (loop, show) = player.commands( Environ.get_input_list )
+    end  while loop 
+   end
 
   #  ------------------------------------------------------------
   #  ------------------------------------------------------------

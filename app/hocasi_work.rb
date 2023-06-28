@@ -85,17 +85,16 @@ class HocasiWork
 
   #  ------------------------------------------------------------
   #  do_flashcards  -- intiates flashcard handling
-  #  returns: flash_manager object, ready for player
+  #  returns: player obj or nil if exception
   #  ------------------------------------------------------------
   def do_flashcards( list )
     begin
-      fm = FlashManager.new( list.first )
-      fm.show_cards
+      return FlashManager.new( list.first ).start_card_player
     rescue ArgumentError
       Environ.put_and_log_error( ">>  " + $!.message )
+      return nil
     end  # exception handling
 
-    return fm
   end
 
 
