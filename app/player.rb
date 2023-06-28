@@ -9,15 +9,22 @@
 
 class Player
 
-    PCMD_EXIT     = :exit
+    PCMD_CURR     = :curr
     PCMD_FLIP     = :flip
-    PCMD_PREV1    = :prev
-    PCMD_NEXT1    = :next
-    PCMD_STOP     = :stop
-    PCMD_START    = :start
-    PCMD_HEAD     = :head
-    PCMD_NEXT_GRP = :group
+    PCMD_PREV     = :prev
+    PCMD_NEXT     = :next
     PCMD_SHUFFLE  = :shfl
+    PCMD_UNSHFLE  = :unsh
+
+    PCMD_RESET    = :reset
+    PCMD_NEXT_GRP = :gplus
+    PCMD_PREV_GRP = :gminus
+    PCMD_GHEAD    = :ghead
+
+    PCMD_QUIT     = :quit
+
+    PCMD_STOP     = :stop      # unused
+    PCMD_START    = :start     # unused
 
 
   #  ------------------------------------------------------------
@@ -47,27 +54,25 @@ class Player
         # parse command
     show = case ( cmdlist.first || ""  ).chomp
 
-      when  "c", "curr"      then  do_current
-      when  "f", "flip"      then  do_flip
-      when  "p", "prev"      then  do_back
-      when  "n", "next"      then  do_next
-      when  "s", "shuffle"   then  do_shuffle
-      when  "u", "unshuf"    then  do_unshuffle
+      when  "c", PCMD_CURR      then  do_current
+      when  "f", PCMD_FLIP      then  do_flip
+      when  "p", PCMD_PREV      then  do_back
+      when  "n", PCMD_NEXT      then  do_next
+      when  "s", PCMD_SHUFFLE   then  do_shuffle
+      when  "u", PCMD_UNSHFLE   then  do_unshuffle
 
-      when  "0", "gplus"     then  do_start_over
-      when  "+", "gplus"     then  do_next_group
-      when  "-", "gminus"    then  do_prev_group
-      when  "g", "gminus"    then  do_group_head
+      when  "0", PCMD_RESET     then  do_start_over
+      when  "+", PCMD_NEXT_GRP  then  do_next_group
+      when  "-", PCMD_PREV_GRP  then  do_prev_group
+      when  "g", PCMD_GHEAD     then  do_group_head
 
-      when  "x", "exit"      then  loop = false; []  # exit program
-      when  "q", "quit"      then  loop = false; [] # exit program
+      when  "q", PCMD_QUIT      then  loop = false; [] # exit program
       else     
        do_next 
     end  # case
 
     return [loop, show]
   end
-
 
   #  ------------------------------------------------------------
   def do_current

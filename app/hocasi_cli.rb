@@ -67,7 +67,7 @@ class HocasiCLI
     # player output ctl goes here
     (loop, show) = player.commands( ["c"]  )
     begin
-      Environ.put_info show[0] unless show.empty?
+      Environ.put_data "\t" + show[0] unless show.empty?
       Environ.put_prompt("\nPlayer > ")  
       (loop, show) = player.commands( Environ.get_input_list )
     end  while loop 
