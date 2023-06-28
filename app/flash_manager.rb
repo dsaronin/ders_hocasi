@@ -55,9 +55,7 @@ class FlashManager
     end
     @my_settings[:topic] = topic  # replace topic in settings
         # get the source obj
-    @my_source = Module.const_get( @my_settings[:source] ).new( topic )
-    puts @my_topic.inspect
-    puts @my_source.inspect
+    @my_source = Module.const_get( @my_settings[:source] ).find_or_new( topic )
   end
 
   #  ------------------------------------------------------------

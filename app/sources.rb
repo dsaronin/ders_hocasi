@@ -2,11 +2,15 @@
 # Copyright (c) 2023 David S Anderson, All Rights Reserved
 #
 # module Sources -- loosely defines an interface for all Hocasi sources
-#
+# 
+# makes initialize and new private; altho an extending class can
+# define.
+# DESIRED way to create an object: find_or_new( key )
 #
 
 module Sources
   def self.included(klass)
+    klass.private_class_method :new
     klass.extend(ClassMethods)
   end
 
@@ -40,6 +44,8 @@ module Sources
   def fc_data
     return @fc_data  || []
   end
+
+  private
 
   def initialize( topic )
   end
