@@ -11,7 +11,7 @@ class Player
 
     PCMD_EXIT     = :exit
     PCMD_FLIP     = :flip
-    PCMD_BACK1    = :back
+    PCMD_PREV1    = :prev
     PCMD_NEXT1    = :next
     PCMD_STOP     = :stop
     PCMD_START    = :start
@@ -47,11 +47,18 @@ class Player
         # parse command
     show = case ( cmdlist.first || ""  ).chomp
 
+      when  "c", "curr"      then  do_current
       when  "f", "flip"      then  do_flip
-      when  "b", "back"      then  do_back
+      when  "p", "prev"      then  do_back
       when  "n", "next"      then  do_next
-      when  ""               then  do_next
       when  "s", "shuffle"   then  do_shuffle
+      when  "u", "unshuf"    then  do_unshuffle
+
+      when  "0", "gplus"     then  do_start_over
+      when  "+", "gplus"     then  do_next_group
+      when  "-", "gminus"    then  do_prev_group
+      when  "g", "gminus"    then  do_group_head
+
       when  "x", "exit"      then  loop = false; []  # exit program
       when  "q", "quit"      then  loop = false; [] # exit program
       else     
@@ -63,23 +70,50 @@ class Player
 
 
   #  ------------------------------------------------------------
+  def do_current
+    return @card.current_card
+  end
+
+  #  ------------------------------------------------------------
   def do_flip
-    return ["FLIP Reverse Side","FLIP Starting player"]
+    return @card.current_card.reverse
   end
 
   #  ------------------------------------------------------------
   def do_back
-    return ["BACK Starting player","BACK Reverse Side"]
+    return @card.prev_card
   end
 
   #  ------------------------------------------------------------
   def do_next
-    return ["NEXT Starting player","NEXT Reverse Side"]
+    return @card.next_card
   end
 
   #  ------------------------------------------------------------
   def do_shuffle
-    return ["SHUFFLE Starting player","SHUFFLE Reverse Side"]
+    return @card.shuffle_cards
+  end
+
+  #  ------------------------------------------------------------
+  def do_unshuffle
+    return @card.unshuffle_cards
+  end
+
+  #  ------------------------------------------------------------
+  def do_group_head
+    return @card.head_card
+  end
+
+  def do_next_group
+    return @card.next_group_card
+  end
+
+  def do_prev_group
+    return @card.prev_group_card
+  end
+
+  def do_start_over
+    return @card.reset_cards
   end
 
   #  ------------------------------------------------------------

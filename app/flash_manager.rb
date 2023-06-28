@@ -17,7 +17,7 @@ class FlashManager
  
   SOURCE_TYPES   = %w{Topics Vocabulary Sentences Phrases Dictionary Dialog Articles}
   SELECTOR_TYPES = %w{ordered random issues new}
-  SIZER_TYPES    = %w{5 10 25}
+  SIZER_TYPES    = [5, 10, 15, 25]
   SIDE_TYPES     = %w{front back shuffle}
   ANSWER_TYPES   = %w{typed multiple-choice none}
   SPEED_TYPES    = %w{slow medium fast}

@@ -65,7 +65,7 @@ class HocasiCLI
   def fc_player( cmdlist )
     player = HOCASI.do_flashcards( cmdlist )
     # player output ctl goes here
-    (loop, show) = player.commands( ["n"]  )
+    (loop, show) = player.commands( ["c"]  )
     begin
       Environ.put_info show[0] unless show.empty?
       Environ.put_prompt("\nPlayer > ")  
