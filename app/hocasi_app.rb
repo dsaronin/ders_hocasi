@@ -20,9 +20,26 @@ class HocasiApp < Sinatra::Application
     haml :index
   end
 
-
   get '/about' do
     haml :about
+  end
+
+  get '/start' do
+    player = HOCASI.do_flashcards( ["def"] )
+    (loop, show) = player.commands( [Player::PCMD_CURR]  )
+    
+    if loop
+      @action_box = :action_player   # use special action box
+
+      @front = show[0]
+      @rear = show[1]
+      @topic = "topic"
+      @sample = "sample sentence"
+
+      haml :start_player
+    else
+      redirect '/'
+    end
   end
 
   #  ------------------------------------------------------------

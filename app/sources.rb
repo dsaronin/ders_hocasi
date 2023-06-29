@@ -59,5 +59,6 @@ class Phrases ; include Sources;   end
 class Dictionary ; include Sources;end
 class Dialog ; include Sources;    end
 class Articles ; include Sources;  end
+class Opposites ; include Sources;  end
 
 

@@ -15,7 +15,7 @@ class FlashManager
   require_relative 'player'
   require_relative 'flash_card'
  
-  SOURCE_TYPES   = %w{Topics Vocabulary Sentences Phrases Dictionary Dialog Articles}
+  SOURCE_TYPES   = %w{Topics Vocabulary Sentences Phrases Opposites Dictionary Dialog Articles}
   SELECTOR_TYPES = %w{ordered random issues new}
   SIZER_TYPES    = [5, 10, 15, 25]
   SIDE_TYPES     = %w{front back shuffle}

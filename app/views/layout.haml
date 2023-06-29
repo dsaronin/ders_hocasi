@@ -2,6 +2,8 @@
 -# modifications, from whatever source, become IP of David Anderson
 -# 
 
+- @action_box ||= :action_box   # define partial to default if undefined
+
 !!! 1.1
 %html(xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en") 
   %head
@@ -29,8 +31,7 @@
       
       #wrapper
         #actionbox
-          %p
-            action box
+          = haml @action_box
 
         #content
           != yield
