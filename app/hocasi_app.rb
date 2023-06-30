@@ -30,6 +30,7 @@ class HocasiApp < Sinatra::Application
     
     if loop
       @action_box = :action_player   # use special action box
+      @dark_background = true
 
       @front = show[0]
       @rear = show[1]
