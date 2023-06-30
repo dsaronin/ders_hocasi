@@ -46,13 +46,17 @@ class Player
 
   #  ------------------------------------------------------------
   #  commands  -- player command interface
+  #  args: cmdlist array of strings or symbols for player commands
+  #     only .first is accessed
   #  returns [loop,display]
   #  ------------------------------------------------------------
   def commands( cmdlist )        
-    loop = true                 # user input loop while true
+    loop = true    # user input loop while true
+
+    cmd = cmdlist.first || ""   # efficiency
 
         # parse command
-    show = case ( cmdlist.first || ""  ).chomp
+    show = case ( cmd.is_a?(Symbol)  ?  cmd  :  cmd.chomp )
 
       when  "c", PCMD_CURR      then  do_current
       when  "f", PCMD_FLIP      then  do_flip

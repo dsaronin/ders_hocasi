@@ -335,6 +335,24 @@ img.logo {
   text-align: center;
   line-height: 1.3;
 }
+.flashcard h1#huge, .flashcard h2#huge, .flashcard h3#huge, .flashcard p#huge {
+  font-size: 500%;
+}
+.flashcard h1#large, .flashcard h2#large, .flashcard h3#large, .flashcard p#large {
+  font-size: 375%;
+}
+.flashcard h1#big1, .flashcard h2#big1, .flashcard h3#big1, .flashcard p#big1 {
+  font-size: 250%;
+}
+.flashcard h1#big2, .flashcard h2#big2, .flashcard h3#big2, .flashcard p#big2 {
+  font-size: 200%;
+}
+.flashcard h1#big3, .flashcard h2#big3, .flashcard h3#big3, .flashcard p#big3 {
+  font-size: 150%;
+}
+.flashcard h1#normal, .flashcard h2#normal, .flashcard h3#normal, .flashcard p#normal {
+  font-size: 100%;
+}
 
 @media (min-width: 350px) and (max-width: 419px) {
   html {

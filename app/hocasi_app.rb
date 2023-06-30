@@ -36,6 +36,16 @@ class HocasiApp < Sinatra::Application
       @topic = "topic"
       @sample = "sample sentence"
 
+      @fontsize = case @front.length
+                  when (1..7)   then "huge"
+                  when (8..10)  then "large"
+                  when (11..17) then "big1"
+                  when (18..22) then "big2"
+                  when (23..32) then "big3"
+                  else 
+                    "normal"
+                  end
+
       haml :start_player
     else
       redirect '/'
