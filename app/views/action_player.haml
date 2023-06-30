@@ -1,4 +1,7 @@
 -# flashcard player controls
+- menu1 = %w{prev next curr shfl unsh flip // << >> q}
+- menu2 = %w{rset g+ g- quit}
 
-%p
-  prev next shuffle unshuffle flip
+%dl
+  - menu1.each do |item|
+    %dt= item
