@@ -34,9 +34,8 @@ class Topics
   #  find -- returns the Topics obj associated with a key; else nil
   #  ------------------------------------------------------------
   def Topics.find( key )
-    return @@database[ key.to_sym ]
+    return @@database[ ( key.is_a?(Symbol) ? key : key.to_sym ) ]
   end
-
   #  ------------------------------------------------------------
   #  ------------------------------------------------------------
   #  instance methods

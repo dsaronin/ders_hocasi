@@ -2,7 +2,8 @@
 # DrillTutor: A Drill Sergent for language students
 # Copyright (c) 2023 David S Anderson, All Rights Reserved
 #   
-# FlashManager manages the big picture of flash card objects
+# FlashManager manages constructing and display flashcards
+# also the big picture of selecting settings therefore
 #
   #  ------------------------------------------------------------
   #  ------------------------------------------------------------
@@ -13,7 +14,6 @@ class FlashManager
   require_relative 'topics'
   require_relative 'sentences'
   require_relative 'player'
-  require_relative 'flash_card'
  
   SOURCE_TYPES   = %w{Topics Vocabulary Sentences Phrases Opposites Dictionary Dialog Articles}
   SELECTOR_TYPES = %w{ordered random issues new}
@@ -48,14 +48,18 @@ class FlashManager
   #  ------------------------------------------------------------
   def initialize( key )
     @my_settings = @@defaults.clone   # set my settings from defaults
+
+    key.gsub!( /:/, "")  # remove misguided attemps at making a symbol
     topic = ( key =~ /^def(ault)?$/  ?  @my_settings[:topic]  : key )
     @my_topic = Topics.find( topic )
+
     if @my_topic.nil?
       raise ArgumentError, "Topics: #{topic} not found"
     end
+
     @my_settings[:topic] = topic  # replace topic in settings
-        # get the source obj
     @my_source = Module.const_get( @my_settings[:source] ).find_or_new( topic )
+
   end
 
   #  ------------------------------------------------------------
@@ -68,15 +72,93 @@ class FlashManager
     puts "SHOW CARDS for topic: #{@my_settings[:topic]}; " +
       "fc data items: #{@my_source.fc_data.length}"
 
-    fc = FlashCard.new(
-      @my_topic, 
-      @my_source,
-      @my_settings[:sizer],
-      @my_settings[:side]
-    )
+    reset   # resets internal state of indexes
 
-    return  Player.new(fc)
+    return  Player.new(self)
   end
+
+  #  ------------------------------------------------------------
+  def reset         # --resets all internals
+    unshuffle
+    @group_dex  = 0   # index at start of first group
+  end
+
+  #  ------------------------------------------------------------
+  def unshuffle       # --restore normal index order
+    @cur_ptr    = 0   # current index into @shuffle_indexes
+    @shuffle_indexes = (0..(@my_settings[:sizer]-1)).to_a  # normal order
+  end
+
+  #  ------------------------------------------------------------
+  def unshuffle_cards  
+    unshuffle
+    return current_card
+  end
+
+  #  ------------------------------------------------------------
+  def current_card
+    return @my_source.fc_data[ @shuffle_indexes[@cur_ptr] + @group_dex ]
+  end
+
+  #  ------------------------------------------------------------
+  def reset_cards
+    reset
+    return current_card
+  end
+
+  #  ------------------------------------------------------------
+  def shuffle_cards
+    @shuffle_indexes.shuffle!(random: Random.new(3))
+    @cur_ptr    = 0   # current index into @shuffle_indexes
+    return current_card
+  end
+
+  #  ------------------------------------------------------------
+  def next_card
+    if ( (@cur_ptr += 1) >= @my_settings[:sizer] ) 
+      @cur_ptr = 0
+    end
+    return current_card
+  end
+
+  #  ------------------------------------------------------------
+  def prev_card
+    if ( (@cur_ptr -= 1) < 0 ) 
+      @cur_ptr = @my_settings[:sizer] - 1
+    end
+    return current_card
+  end
+
+  #  ------------------------------------------------------------
+  def head_card
+    @cur_ptr    = 0   # current index into @shuffle_indexes
+    return current_card
+  end
+
+  #  ------------------------------------------------------------
+  def next_group_card
+    len =  @my_source.fc_data.length
+    size = @my_settings[:sizer]
+    if ( ((@group_dex += size) + size) > len)
+      @group_dex = len - size
+    end
+    @cur_ptr    = 0   # current index into @shuffle_indexes
+    return current_card
+  end
+
+  #  ------------------------------------------------------------
+  def prev_group_card
+    if ( (@group_dex -= @my_settings[:sizer]) < 0 )
+      @group_dex = 0
+    end
+    @cur_ptr    = 0   # current index into @shuffle_indexes
+    return current_card
+  end
+
+
+  #  ------------------------------------------------------------
+  #  ------------------------------------------------------------
+
  
 end  # FlashManager
 
