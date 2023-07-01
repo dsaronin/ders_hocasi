@@ -46,8 +46,8 @@ class FlashManager
 
   #  ------------------------------------------------------------
   #  ------------------------------------------------------------
-  def initialize( key )
-    @my_settings = @@defaults.clone   # set my settings from defaults
+  def initialize( key, settings = @@defaults.clone )
+    @my_settings = settings    # set my settings from defaults
 
     key.gsub!( /:/, "")  # remove misguided attemps at making a symbol
     topic = ( key =~ /^def(ault)?$/  ?  @my_settings[:topic]  : key )
