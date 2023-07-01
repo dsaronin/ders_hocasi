@@ -46,7 +46,7 @@ class FlashManager
 
   #  ------------------------------------------------------------
   #  ------------------------------------------------------------
-  def initialize( key, settings = @@defaults.clone )
+  def initialize( key = @my_settings[:topic], settings = @@defaults.clone )
     @my_settings = settings    # set my settings from defaults
 
     key.gsub!( /:/, "")  # remove misguided attemps at making a symbol
@@ -59,7 +59,8 @@ class FlashManager
 
     @my_settings[:topic] = topic  # replace topic in settings
     @my_source = Module.const_get( @my_settings[:source] ).find_or_new( topic )
-
+    
+    reset_if_start
   end
 
   #  ------------------------------------------------------------
@@ -68,15 +69,30 @@ class FlashManager
   #  ------------------------------------------------------------
   #  ------------------------------------------------------------
 
+  #  ------------------------------------------------------------
+  #  ------------------------------------------------------------
   def start_card_player
     puts "SHOW CARDS for topic: #{@my_settings[:topic]}; " +
       "fc data items: #{@my_source.fc_data.length}"
 
-    reset   # resets internal state of indexes
-
     return  Player.new(self)
   end
 
+  #  ------------------------------------------------------------
+  #  reset_if_start -- resets internal state of indexes iff 1st time
+  #  ------------------------------------------------------------
+  def reset_if_start
+    if @my_settings[:cur_ptr].nil?
+      reset    # does a complete reset of all card pointers
+    else
+        # restore from user's previous session
+      @cur_ptr   = @my_settings[:cur_ptr]
+      @group_dex = @my_settings[:group_dex]
+      @shuffle_indexes = @my_settings[:shuffle_indexes]
+    end  # if.then.else
+  end
+
+  #  ------------------------------------------------------------
   #  ------------------------------------------------------------
   def reset         # --resets all internals
     unshuffle
@@ -159,6 +175,14 @@ class FlashManager
   #  ------------------------------------------------------------
   #  ------------------------------------------------------------
 
+  def serialize
+      # save current state
+    @my_settings[:cur_ptr] = @cur_ptr
+    @my_settings[:group_dex] = @group_dex
+    @my_settings[:shuffle_indexes] = @shuffle_indexes
+ 
+    return YAML.dump( @my_settings )
+  end
  
 end  # FlashManager
 

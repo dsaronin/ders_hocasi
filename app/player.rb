@@ -9,6 +9,8 @@
 
 class Player
 
+  attr_reader  :card
+
     PCMD_CURR     = :curr
     PCMD_FLIP     = :flip
     PCMD_PREV     = :prev

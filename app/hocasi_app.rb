@@ -13,6 +13,8 @@
 class HocasiApp < Sinatra::Application
   set :root, File.dirname(__FILE__)
 
+  enable :sessions
+
   #  ------------------------------------------------------------
   #  ------------------------------------------------------------
 
@@ -27,6 +29,7 @@ class HocasiApp < Sinatra::Application
   get '/start' do
     player = HOCASI.do_flashcards( ["def"] )
     (loop, show) = player.commands( [Player::PCMD_CURR]  )
+    session[:settings] = player.card.serialize
     
     if loop
       @action_box = :action_player   # use special action box
@@ -51,7 +54,15 @@ class HocasiApp < Sinatra::Application
     else
       redirect '/'
     end
+  end  # /start
+
+  get '/next' do
+    settings = session.delete(:settings)
+
+
+    haml :start_player
   end
+
 
   #  ------------------------------------------------------------
   #  ------------------------------------------------------------
