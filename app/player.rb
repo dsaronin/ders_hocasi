@@ -72,7 +72,7 @@ class Player
       when  "-", PCMD_PREV_GRP  then  do_prev_group
       when  "g", PCMD_GHEAD     then  do_group_head
 
-      when  "q", PCMD_QUIT      then  loop = false; [] # exit program
+      when  "q", PCMD_QUIT      then  loop = false; ["finis","end"] # exit program
       else     
        do_next 
     end  # case

@@ -46,8 +46,8 @@ class FlashManager
 
   #  ------------------------------------------------------------
   #  ------------------------------------------------------------
-  def initialize( key = @my_settings[:topic], settings = @@defaults.clone )
-    @my_settings = settings    # set my settings from defaults
+  def initialize( key, settings )
+    @my_settings = ( settings || @@defaults.clone )    # set my settings from defaults
 
     key.gsub!( /:/, "")  # remove misguided attemps at making a symbol
     topic = ( key =~ /^def(ault)?$/  ?  @my_settings[:topic]  : key )
@@ -175,13 +175,13 @@ class FlashManager
   #  ------------------------------------------------------------
   #  ------------------------------------------------------------
 
-  def serialize
+  def prep_serialize_settings
       # save current state
     @my_settings[:cur_ptr] = @cur_ptr
     @my_settings[:group_dex] = @group_dex
     @my_settings[:shuffle_indexes] = @shuffle_indexes
  
-    return YAML.dump( @my_settings )
+    return @my_settings
   end
  
 end  # FlashManager
