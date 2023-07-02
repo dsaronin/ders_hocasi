@@ -13,10 +13,10 @@
   require 'yaml'
 
 class HocasiApp < Sinatra::Application
-  set :root, File.dirname(__FILE__)
 
   enable :sessions
 
+  set :root, File.dirname(__FILE__)
 
   #  ------------------------------------------------------------
   #  helper_prep_player  -- does common player setup preparations
@@ -28,7 +28,8 @@ class HocasiApp < Sinatra::Application
     if restore_session
       puts "APP load settings: "
       puts (session[:settings] || "session settings are NIL! *****")
-      settings = YAML.load( session.delete(:settings) )
+      puts session.inspect
+      settings = YAML.load( session[:settings] ) unless session[:settings].nil?
     end
 
       # ok even if settings==nil at this point
@@ -46,6 +47,7 @@ class HocasiApp < Sinatra::Application
 
       puts "APP dump settings: " 
       puts (session[:settings] || "session settings are NIL! *****")
+      puts session.inspect
 
         # setup variables for player display
       if loop
@@ -61,9 +63,9 @@ class HocasiApp < Sinatra::Application
 
           # calculate variable font sizing
         @fontsize = case @front.length
-                    when (1..7)   then "huge"
-                    when (8..10)  then "large"
-                    when (11..17) then "big1"
+                    when (1..5)   then "huge"
+                    when (6..9)  then "large"
+                    when (10..17) then "big1"
                     when (18..22) then "big2"
                     when (23..32) then "big3"
                     else 
