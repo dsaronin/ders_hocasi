@@ -8,6 +8,7 @@
   require 'sinatra'
   require 'pp'   # pretty print
   require_relative 'tag_helpers'
+  require_relative 'player'
   require 'sinatra/form_helpers'
   require 'yaml'
 
@@ -22,23 +23,31 @@ class HocasiApp < Sinatra::Application
   #  args: restore_session=true if restore session; default false
   #  returns: true if keep playing card; false to exit player
   #  ------------------------------------------------------------
-  def helper_prep_player( restore_session = false )
+  def helper_prep_player(playcmd = Player::PCMD_CURR, restore_session = false, topic ="def")
 
     if restore_session
+      puts "APP load settings: "
+      puts (session[:settings] || "session settings are NIL! *****")
       settings = YAML.load( session.delete(:settings) )
     end
 
-      # ok if settings.nil? at this point
-    player = HOCASI.do_flashcards( ["def"], settings )
+      # ok even if settings==nil at this point
+    player = HOCASI.do_flashcards( [topic], settings )
     if player.nil?
       loop = false
     else
-      (loop, show) = player.commands( [Player::PCMD_CURR]  )
+        # have the player do a command
+      (loop, show) = player.commands( [playcmd] )
 
+        # save state in user's session
       session[:settings] = YAML.dump(  
-        player.card.prep_serialize_settings
+        player.card.prep_serialize_settings  # capture state
       )
 
+      puts "APP dump settings: " 
+      puts (session[:settings] || "session settings are NIL! *****")
+
+        # setup variables for player display
       if loop
         @action_box = :action_player   # use special action box
         @dark_background = true
@@ -60,7 +69,6 @@ class HocasiApp < Sinatra::Application
                     else 
                       "normal"
                     end
-
       end  # inner if
     end  # outer if
 
@@ -79,19 +87,22 @@ class HocasiApp < Sinatra::Application
   end
 
   get '/start' do
-
-    if helper_player_prep
+    if helper_prep_player  # accept all defaults
       haml :start_player
     else  # quit command received
+        # TODO: could be here because of error; needs to be shown
       redirect '/'
     end
 
   end  # /start
 
   get '/next' do
-
-
-    haml :start_player
+    if helper_prep_player(Player::PCMD_NEXT, true)
+      haml :start_player
+    else  # quit command received
+        # TODO: could be here because of error; needs to be shown
+      redirect '/'
+    end
   end
 
 
