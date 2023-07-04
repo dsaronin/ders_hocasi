@@ -1,7 +1,8 @@
 -# flashcard player controls
-- menu1 = %w{prev next curr shfl unsh flip // << >> q}
-- menu2 = %w{rset g+ g- quit}
+- menu1 = %w{prev next curr shfl unsh gplus gminus quit}
 
 %dl
   - menu1.each do |item|
-    %dt= item
+    %dt
+      = link_to( item, "/#{item}", { :title => "player action: #{item}" } )
+ 

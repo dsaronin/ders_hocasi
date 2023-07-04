@@ -344,6 +344,15 @@ img.logo {
 #actionbox dt:last-child {
   float: none;
 }
+#actionbox dt a {
+  font-size: 0.8em;
+  text-decoration: none;
+  color: #78909C;
+}
+#actionbox dt a:hover {
+  background-color: #B0BEC5;
+  color: #546E7A;
+}
 #actionbox dd {
   font-weight: lighter;
 }
