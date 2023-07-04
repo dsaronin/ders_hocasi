@@ -26,9 +26,6 @@ class HocasiApp < Sinatra::Application
   def helper_prep_player(playcmd = Player::PCMD_CURR, restore_session = false, topic ="def")
 
     if restore_session
-      puts "APP load settings: "
-      puts (session[:settings] || "session settings are NIL! *****")
-      puts session.inspect
       settings = YAML.load( session[:settings] ) unless session[:settings].nil?
     end
 
@@ -44,10 +41,6 @@ class HocasiApp < Sinatra::Application
       session[:settings] = YAML.dump(  
         player.card.prep_serialize_settings  # capture state
       )
-
-      puts "APP dump settings: " 
-      puts (session[:settings] || "session settings are NIL! *****")
-      puts session.inspect
 
         # setup variables for player display
       if loop
@@ -78,6 +71,18 @@ class HocasiApp < Sinatra::Application
   end
 
   #  ------------------------------------------------------------
+  #  helper_do_player  -- DRYs up all player access coding
+  #  ------------------------------------------------------------
+  def helper_do_player( cmd )
+    if helper_prep_player(cmd, true)
+      haml :start_player
+    else  # quit command received
+        # TODO: could be here because of error; needs to be shown
+      redirect '/'
+    end
+  end
+
+  #  ------------------------------------------------------------
   #  ------------------------------------------------------------
 
   get '/' do
@@ -99,14 +104,44 @@ class HocasiApp < Sinatra::Application
   end  # /start
 
   get '/next' do
-    if helper_prep_player(Player::PCMD_NEXT, true)
-      haml :start_player
-    else  # quit command received
-        # TODO: could be here because of error; needs to be shown
-      redirect '/'
-    end
+    helper_do_player( Player::PCMD_NEXT )
   end
 
+  get '/prev' do
+    helper_do_player( Player::PCMD_PREV )
+  end
+
+  get '/curr' do
+    helper_do_player( Player::PCMD_CURR )
+  end
+
+  get '/shfl' do
+    helper_do_player( Player::PCMD_SHUFFLE )
+  end
+
+  get '/unsh' do
+    helper_do_player( Player::PCMD_UNSHFLE )
+  end
+
+  get '/reset' do
+    helper_do_player( Player::PCMD_RESET )
+  end
+
+  get '/gplus' do
+    helper_do_player( Player::PCMD_NEXT_GRP )
+  end
+
+  get '/gminus' do
+    helper_do_player( Player::PCMD_PREV_GRP )
+  end
+
+  get '/ghead' do
+    helper_do_player( Player::PCMD_GHEAD )
+  end
+
+  get '/quit' do
+    helper_do_player( Player::PCMD_QUIT )
+  end
 
   #  ------------------------------------------------------------
   #  ------------------------------------------------------------

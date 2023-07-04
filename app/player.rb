@@ -37,7 +37,6 @@ class Player
  
     def initialize( card )
       @card = card
-      card.reset   # initialize starting point
     end
 
   #  ------------------------------------------------------------

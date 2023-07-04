@@ -72,8 +72,7 @@ class FlashManager
   #  ------------------------------------------------------------
   #  ------------------------------------------------------------
   def start_card_player
-    puts "SHOW CARDS for topic: #{@my_settings[:topic]}; " +
-      "fc data items: #{@my_source.fc_data.length}"
+    # puts "SHOW CARDS for topic: #{@my_settings[:topic]}; " + "fc data items: #{@my_source.fc_data.length}"
 
     return  Player.new(self)
   end
@@ -82,6 +81,7 @@ class FlashManager
   #  reset_if_start -- resets internal state of indexes iff 1st time
   #  ------------------------------------------------------------
   def reset_if_start
+
     if @my_settings[:cur_ptr].nil?
       reset    # does a complete reset of all card pointers
     else
