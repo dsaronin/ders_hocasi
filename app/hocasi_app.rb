@@ -152,16 +152,20 @@ class HocasiApp < Sinatra::Application
     helper_do_player( Player::PCMD_RESET )
   end
 
-  get '/gplus' do
+  get '/gnext' do
     helper_do_player( Player::PCMD_NEXT_GRP )
   end
 
-  get '/gminus' do
+  get '/gprev' do
     helper_do_player( Player::PCMD_PREV_GRP )
   end
 
   get '/ghead' do
     helper_do_player( Player::PCMD_GHEAD )
+  end
+
+  get '/flip' do
+    helper_do_player( Player::PCMD_FLIP )
   end
 
   get '/quit' do
