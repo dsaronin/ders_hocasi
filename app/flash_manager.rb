@@ -15,13 +15,15 @@ class FlashManager
   require_relative 'sentences'
   require_relative 'player'
  
-  SOURCE_TYPES   = %w{Topics Vocabulary Sentences Phrases Opposites Dictionary Dialog Articles}
-  SELECTOR_TYPES = %w{ordered random issues new}
+  SOURCE_TYPES   = %w{Topics Vocabulary Sentences Phrases Opposites Dialog Articles Dictionary}
+  SELECTOR_TYPES = %w{ordered shuffled}
   SIZER_TYPES    = [5, 10, 15, 25]
+  GROUP_SIZES    = %w{5 10 15 25}
   SIDE_TYPES     = %w{front back shuffle}
-  ANSWER_TYPES   = %w{typed multiple-choice none}
   SPEED_TYPES    = %w{slow medium fast}
-  PLAYER_TYPES   = %w{auto repeat manual}
+  PLAYER_TYPES   = %w{manual auto}
+
+  ANSWER_TYPES   = %w{typed multiple-choice none}
 
   #  ------------------------------------------------------------
   #  ------------------------------------------------------------

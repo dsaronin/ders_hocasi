@@ -178,12 +178,6 @@ img {
   border-style: none;
 }
 
-fieldset {
-  border: 1px solid #c0c0c0;
-  margin: 0 0.1em;
-  padding: 0.35em 0.625em 0.75em;
-}
-
 textarea {
   overflow: auto;
 }
@@ -247,6 +241,54 @@ img.logo {
   margin: 0.3em 0.3em;
   width: 1.5em;
   float: left;
+}
+
+fieldset {
+  margin: 0 auto;
+  padding: 0.35em;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+label {
+  width: 45%;
+  font-size: smaller;
+}
+
+select {
+  width: 50%;
+  margin-bottom: 0.5em;
+  text-align: center;
+  border: 1px solid #CFD8DC;
+  background-color: #ECEFF1;
+}
+select:focus {
+  outline: none;
+  border: 2px solid #90A4AE;
+}
+
+input {
+  width: 50%;
+  text-align: center;
+  font-weight: bold;
+  border: 1px solid #CFD8DC;
+  background-color: #FFD54F;
+  color: #00267F;
+}
+
+fieldset > #cancel {
+  width: 45%;
+  display: block;
+  font-size: smaller !important;
+}
+
+fieldset > a {
+  color: #B0BEC5;
+}
+fieldset > a:hover {
+  color: #78909C;
+  background-color: #CFD8DC;
 }
 
 .container {

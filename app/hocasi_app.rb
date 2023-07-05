@@ -23,14 +23,16 @@ class HocasiApp < Sinatra::Application
   #  args: restore_session=true if restore session; default false
   #  returns: true if keep playing card; false to exit player
   #  ------------------------------------------------------------
-  def helper_prep_player(playcmd = Player::PCMD_CURR, restore_session = false, topic ="def")
+  def helper_prep_player(playcmd = Player::PCMD_CURR, restore_session = false, new_settings=nil)
 
     if restore_session
       settings = YAML.load( session[:settings] ) unless session[:settings].nil?
+    else
+      settings = new_settings
     end
 
       # ok even if settings==nil at this point
-    player = HOCASI.do_flashcards( [topic], settings )
+    player = HOCASI.do_flashcards( ["def"], settings )
     if player.nil?
       loop = false
     else
@@ -93,8 +95,12 @@ class HocasiApp < Sinatra::Application
     haml :about
   end
 
+  get '/settings' do
+    haml :settings
+  end
+
   get '/start' do
-    if helper_prep_player  # accept all defaults
+    if helper_prep_player( Player::PCMD_CURR, false, @player_settings )
       haml :start_player
     else  # quit command received
         # TODO: could be here because of error; needs to be shown
@@ -141,6 +147,20 @@ class HocasiApp < Sinatra::Application
 
   get '/quit' do
     helper_do_player( Player::PCMD_QUIT )
+  end
+
+
+  post '/settings' do
+    # pp request.env
+    parms = params[:settings]
+    @player_settings = {
+      :topic    => parms[:topic],
+      :source   => parms[:source],
+      :selector => parms[:order],
+      :sizer    => parms[:sizer],
+      :side     => parms[:side]
+    }
+    redirect '/start'
   end
 
   #  ------------------------------------------------------------

@@ -30,6 +30,10 @@ class Topics
     return @@database.keys.first
   end
 
+  def Topics.sorted_keys
+    return @@database.keys.sort
+  end
+
   #  ------------------------------------------------------------
   #  find -- returns the Topics obj associated with a key; else nil
   #  ------------------------------------------------------------

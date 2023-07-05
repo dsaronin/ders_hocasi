@@ -53,6 +53,46 @@ img.logo
   width: 1.5em  // needs to match the H3 size used in header
   float: left
 
+fieldset
+  margin: 0 auto
+  padding: .35em
+  display: flex
+  flex-direction: row 
+  flex-wrap: wrap
+
+label
+  width: 45%
+  font-size: smaller
+
+select
+  width: 50%
+  margin-bottom: 0.5em
+  text-align: center
+  border: 1px solid colors.$colorBGray100
+  background-color: colors.$colorBGray050
+  &:focus
+    outline: none
+    border: 2px solid colors.$colorBGray300
+
+input
+  width: 50%
+  text-align: center
+  font-weight: bold
+  border: 1px solid colors.$colorBGray100
+  background-color: colors.$FG_HEADER
+  color: colors.$BG_HEADER
+
+fieldset > #cancel
+  width: 45%
+  display: block
+  font-size: smaller !important
+
+fieldset > a
+  color: colors.$colorBGray200
+  &:hover
+    color: colors.$colorBGray400
+    background-color: colors.$colorBGray100
+
 .container
   margin: 0 auto
   height: 100%
