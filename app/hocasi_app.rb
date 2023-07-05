@@ -31,8 +31,12 @@ class HocasiApp < Sinatra::Application
       settings = new_settings
     end
 
+    topic = ( settings && settings[:topic]  ?  settings[:topic]  : "def" )
+    puts "HELPER-PREP: #{topic}"
+    pp settings
+
       # ok even if settings==nil at this point
-    player = HOCASI.do_flashcards( ["def"], settings )
+    player = HOCASI.do_flashcards( [topic], settings )
     if player.nil?
       loop = false
     else
