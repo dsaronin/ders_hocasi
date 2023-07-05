@@ -217,6 +217,18 @@ fieldset > a
     &#normal  
       font-size: 100%
     
+#left-prev, #right-next
+  margin: 0
+  padding: 0
+  width: 50%
+  cursor: pointer
+  &:hover
+    background-color: colors.$colorBGray100
+
+(#left-prev, #right-next) > a
+  color: colors.$colorBGray200
+  text-decoration: none !important
+
 // PORTRAIT
 @media (min-width: 350px) and (max-width: 419px)
   html

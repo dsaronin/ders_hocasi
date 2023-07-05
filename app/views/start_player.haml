@@ -1,5 +1,7 @@
 %h6 FlashCard Player
 .flashcard#front
+  = link_to( "&laquo;", "/prev", { :id => "left-prev" } )
   %h1{ :id => "#{@fontsize}" }= @front 
+  = link_to( "&raquo;", "/next", { :id => "right-next" } )
 .flashcard#rear
   %p= @rear

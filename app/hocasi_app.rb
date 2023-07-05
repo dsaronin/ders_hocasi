@@ -20,7 +20,10 @@ class HocasiApp < Sinatra::Application
 
   #  ------------------------------------------------------------
   #  helper_prep_player  -- does common player setup preparations
-  #  args: restore_session=true if restore session; default false
+  #  args: 
+  #    playcmd: command to be passed to player
+  #    restore_session:  true if restore session; default false
+  #    settings: nil or new set of settings for starting player
   #  returns: true if keep playing card; false to exit player
   #  ------------------------------------------------------------
   def helper_prep_player(playcmd = Player::PCMD_CURR, restore_session = false, new_settings=nil)
@@ -32,11 +35,9 @@ class HocasiApp < Sinatra::Application
     end
 
     topic = ( settings && settings[:topic]  ?  settings[:topic]  : "def" )
-    puts "HELPER-PREP: #{topic}"
-    pp settings
 
       # ok even if settings==nil at this point
-    player = HOCASI.do_flashcards( [topic], settings )
+    player = HOCASI.do_flashcards( [topic.to_s], settings )
     if player.nil?
       loop = false
     else
@@ -63,10 +64,10 @@ class HocasiApp < Sinatra::Application
           # calculate variable font sizing
         @fontsize = case @front.length
                     when (1..5)   then "huge"
-                    when (6..9)  then "large"
-                    when (10..17) then "big1"
-                    when (18..22) then "big2"
-                    when (23..32) then "big3"
+                    when (6..8)   then "large"
+                    when (9..16)  then "big1"
+                    when (17..21) then "big2"
+                    when (22..31) then "big3"
                     else 
                       "normal"
                     end
@@ -77,10 +78,28 @@ class HocasiApp < Sinatra::Application
   end
 
   #  ------------------------------------------------------------
-  #  helper_do_player  -- DRYs up all player access coding
+  #  helper_do_player  -- DRYs up player controls coding
+  #    primary difference from starting, is that we want to
+  #    restore state from rack-sessions cookie
   #  ------------------------------------------------------------
   def helper_do_player( cmd )
     if helper_prep_player(cmd, true)
+      haml :start_player
+    else  # quit command received
+        # TODO: could be here because of error; needs to be shown
+      redirect '/'
+    end
+  end
+
+  #  ------------------------------------------------------------
+  #  helper_start_player  -- used to start player
+  #    with default or changed settings
+  #    primary difference from do_player, is that we do not want to
+  #    restore state from rack-sessions cookie; we'll either
+  #    use a new changed settings OR the current default settings
+  #  ------------------------------------------------------------
+  def helper_start_player(settings = nil)
+    if helper_prep_player( Player::PCMD_CURR, false, settings )
       haml :start_player
     else  # quit command received
         # TODO: could be here because of error; needs to be shown
@@ -103,14 +122,10 @@ class HocasiApp < Sinatra::Application
     haml :settings
   end
 
+  #  ------------------------------------------------------------
+  #  ------------------------------------------------------------
   get '/start' do
-    if helper_prep_player( Player::PCMD_CURR, false, @player_settings )
-      haml :start_player
-    else  # quit command received
-        # TODO: could be here because of error; needs to be shown
-      redirect '/'
-    end
-
+    helper_start_player
   end  # /start
 
   get '/next' do
@@ -153,18 +168,21 @@ class HocasiApp < Sinatra::Application
     helper_do_player( Player::PCMD_QUIT )
   end
 
+  #  ------------------------------------------------------------
+  #  ------------------------------------------------------------
 
   post '/settings' do
     # pp request.env
     parms = params[:settings]
-    @player_settings = {
-      :topic    => parms[:topic],
-      :source   => parms[:source],
-      :selector => parms[:order],
-      :sizer    => parms[:sizer],
-      :side     => parms[:side]
-    }
-    redirect '/start'
+    helper_start_player(
+      {
+        :topic    => parms[:topic],
+        :source   => parms[:source],
+        :selector => parms[:order],
+        :sizer    => parms[:sizer].to_i,
+        :side     => parms[:side]
+      }
+    )
   end
 
   #  ------------------------------------------------------------
