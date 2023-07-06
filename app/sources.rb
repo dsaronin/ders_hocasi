@@ -54,7 +54,6 @@ end  # module
 
 
 # placeholders until we can write the code
-class Vocabulary; include Sources; end
 class Phrases ; include Sources;   end
 class Dictionary ; include Sources;end
 class Dialog ; include Sources;    end

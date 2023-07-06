@@ -1,0 +1,11 @@
+---
+# 
+# DrillTutor -- sentences data
+# Copyright (c) 2023 David S Anderson, All Rights Reserved
+#
+# ----------------------------------------------
+:adjectives:
+  !ruby/object:Opposites
+    topics: adjectives
+    fc_data:
+

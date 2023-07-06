@@ -15,11 +15,11 @@ class FlashManager
   require_relative 'sentences'
   require_relative 'player'
  
-  SOURCE_TYPES   = %w{Topics Vocabulary Sentences Phrases Opposites Dialog Articles Dictionary}
+  SOURCE_TYPES   = %w{Topics Sentences Phrases Opposites Dialog Articles Dictionary}
   SELECTOR_TYPES = %w{ordered shuffled}
   SIZER_TYPES    = [5, 10, 15, 25]
   GROUP_SIZES    = %w{5 10 15 25}
-  SIDE_TYPES     = %w{front back shuffle}
+  SIDE_TYPES     = %w{front back shuffle special}
   SPEED_TYPES    = %w{slow medium fast}
   PLAYER_TYPES   = %w{manual auto}
 
