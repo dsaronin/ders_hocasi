@@ -6,7 +6,7 @@
 
   require "yaml"
 
-class Dialogs
+class Readings
   include Sources
 
   #  ------------------------------------------------------------
@@ -14,10 +14,11 @@ class Dialogs
   #  CLASS-LEVEL actions & methods
   #  ------------------------------------------------------------
   #  ------------------------------------------------------------
-  # input DIALOGS database here if not done already 
+  # input READINGS database here if not done already 
 
-  @@database ||= YAML.unsafe_load_file( "app/assets/dialogs.yml" )
-  Environ.log_info( "Dialogs data loaded: #{@@database.length} entries" )
+  @@database ||= YAML.unsafe_load_file( "app/assets/readings.yml" )
+  Environ.log_info( "Readings data loaded: #{@@database.length} entries" )
  
-end # Dialogs
+end # Readings
+
 
