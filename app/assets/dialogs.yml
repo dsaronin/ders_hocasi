@@ -1,0 +1,252 @@
+---
+# 
+# DrillTutor -- sentences data
+# Copyright (c) 2023 David S Anderson, All Rights Reserved
+#
+# ----------------------------------------------
+:markette:
+  !ruby/object:Dialogs
+    topics: 
+      - shopping
+      - food
+    title: at the market
+    date: 20220706
+    level: A2
+    fc_data:
+      -  ["_: B markette alışveriş yapıyor…", "_: B is shopping at the market…"]
+      -  ["A: Merhaba, kolay gelsin.", "A: Hello, take it easy."]
+      -  ["B: Merhaba, hoş geldiniz efendim, buyurun.", "B: Hello, welcome sir, come in."]
+      -  ["A: Tuzsuz zeytin var mı?", "A: Are there any unsalted olives?"]
+      -  ["B: Evet efendim, var.", "B: Yes sir, there is."]
+      -  ["A: Kilosu ne kadar?", "A: How much does it weigh?"]
+      -  ["B: 50 lira.", "B: 50 liras."]
+      -  ["A: Tamam, 500 gram istiyorum.", "A: Ok, I want 500 grams."]
+      -  ["B: Buyurun, başka bir şey ister misiniz?", "B: Here you go, do you want something else?"]
+      -  ["A: Evet, yağsız beyaz peynir var mı?", "A: Yes, is there any fat-free feta cheese?"]
+      -  ["B: Maalesef yağsız yok Ama bu yağlı beyaz peynir çok güzel, denemek ister misiniz?", "B: Sorry, there is no fat free But this fatty feta cheese is very good, would you like to try it?"]
+      -  ["A: Hayır, teşekkürler.", "A: No, thanks."]
+      -  ["B: Başka bir şey var mı?", "B: Anything else?"]
+      -  ["A: Yoğurtlar nerede, göremedim ?", "A: Where are the yogurts, I didn't see it?"]
+      -  ["B: Şurada hemen Sütlerin yanında.", "B: Right there next to the Milks."]
+      -  ["A: Tamam, teşekkür ederim. Hepsi ne kadar?", "A: Ok, thank you. How much all of it?"]
+      -  ["B: 500 gram zeytin 25 lira, yoğurt 15 lira. Toplam 40 lira.", "B: 500 grams of olives are 25 liras, yoghurt is 15 liras. Total 40 pounds."]
+      -  ["A: Buyurun şuradan alın lütfen.", "A: Take it from here, please."]
+      -  ["B: Teşekkürler, buyurun bu da para üstünüz, yine bekleriz", "B: Thank you, here is your change, we are waiting for you again"]
+      -  ["A: iyi günler kolay gelsin.", "A: Have a nice day."]
+ 
+:mavi_turizm:
+  !ruby/object:Dialogs
+    topics: 
+      - shopping
+      - travel
+    title: at the market
+    level: A2
+    date: 20220706
+    fc_data:
+      -  ["_: GÖREVLİ ve DAUDI uçak bileti almak için acentaya telefon eder…", "_: A Travel Agent and DAUDI call the agency to buy plane tickets…"]
+      -  ["A: Mavi turizm, buyurun. Size nasıl yardımcı olabilirim?", "A: Blue tourism, here you go. How can I help you?"]
+      -  ["B: Merhaba, kolay gelsin. Bir uçak bileti almak istiyorum.", "B: Hello, take it easy. I want to buy a plane ticket."]
+      -  ["A: Tabii, efendim. Yolculuğunuz Nereye olacak ?", "A: Sure, sir. Where will your journey be?"]
+      -  ["B: İzmir’e lütfen", "B: To Izmir please"]
+      -  ["A: Hangi tarihte gitmek istiyorsunuz?", "A: What date do you want to go?"]
+      -  ["B: 17 Temmuz’da. Sabah saatlerinde uçuş var mı?", "B: On July 17. Are there flights in the morning?"]
+      -  ["A: Hemen bakıyorum efendim, bir saniye lütfen. evet, Sabah 7.30 ve 9.00’da  var ama 9 uçuşu için uçakta yer kalmadı maalesef.", "A: I'm looking right now, sir, one second please. yes, it is available at 7.30 and 9.00 in the morning, but unfortunately there is no room left on the plane for the 9 flight."]
+      -  ["B: hmmm Anladım. O zaman saat 7.30 uçuşu için rezervasyon yapabilir misiniz?", "B: hmm, got it. Then can you book the 7.30 am flight?"]
+      -  ["A: Peki efendim, adınızı alabilir miyim?", "A: Well, sir, can I have your name?"]
+      -  ["B: Daudi Majozi", "B: Daudi Majozi"]
+      -  ["A: Teşekkürler Daudi bey, rezervasyon işleminiz tamamlandı.  Mavi turizm olarak, İyi yolculuklar dileriz.", "A: Thank you Mr. Daudi, your reservation has been completed. As blue tourism, we wish you a good trip."]
+
+:okul_arkadaşim:
+  !ruby/object:Dialogs
+    topics: 
+      - friends
+      - education
+    title: friends on phone about school
+    level: A1
+    date: 20220806
+    fc_data:
+      -  ["_: Gül ve Elif telefonda okul hakkında konuşuyorlar.", "_: Gul and Elif are talking on the phone about school."]
+      -  ["A: Merhaba B:! Nasılsın?", "A: Hello B:! How are you?"]
+      -  ["B: İyiyim, ya sen?", "B: I'm fine, and you?"]
+      -  ["A: Ben de iyiyim. Sen okulda mısın?", "A: I'm fine too. Are you at school?"]
+      -  ["B: Evet, okuldayım. Sen neredesin?", "B: Yes, I am at school. Where are you?"]
+      -  ["A: Ben yoldayım. Bugün ders saat kaçta?", "A: I'm on the way. What time is the lesson today?"]
+      -  ["B: Saat dokuzda.", "B: At nine o'clock."]
+      -  ["A: Okulda kim var?", "A: Who is in school?"]
+      -  ["B: Herkes var. Ben sınıftayım. Diğer arkadaşlar kantinde ya da bahçede.", "B: Everyone has. I am in class. Other friends are in the canteen or in the garden."]
+      -  ["A: Öğretmen de sınıfta mı?", "A: Is the teacher in the classroom too?"]
+      -  ["B: Hayır, o sınıfta değil, ofiste.", "B: No, he's not in the classroom, he's in the office."]
+      -  ["A: Tamam, ben geliyorum. Görüşürüz.", "A: Ok, I'm coming. See you later."]
+      -  ["B: Görüşürüz.", "B: See you later."]
+
+:profillere_bakıyordum:
+  !ruby/object:Dialogs
+    topics: 
+      - friends
+      - social_media
+    title: i saw your profile online
+    level: A2
+    date: 20220806
+    fc_data:
+      -  ["_: A, B ile çevrimiçi profili hakkında sohbet ediyor…", "_: A is chatting with B about his online profile…"]
+      -  ["A: Merhaba, öylesine profillere bakıyordum. Türkçe yazı gördüm. Nasılsın?", "A: Hi, I was just looking at profiles. I saw a Turkish article. How are you?"]
+      -  ["B: Merhaba, ben iyiyim teşekkürler ... Sen nasılsın?", "B: Hello, I'm fine thanks ... How are you?"]
+      -  ["A: Fena değil.", "A: Not bad."]
+      -  ["B: Benim adım Daudi.", "B: My name is Daudi."]
+      -  ["A: İlker ben de.", "A: İlker, me too."]
+      -  ["B: Memnun oldum İlker. Nerelisin?", "B: I'm glad, İlker. Where are you from?"]
+      -  ["A: Türkiye… İstanbul. Aslen nerelisin?", "A: Türkiye… Istanbul. Where are you from originally?"]
+      -  ["B: Kalifornya'lıyım.", "B: I'm from California."]
+      -  ["A: Wow ne güzel! Peki ya Türkçeyi nerden öğrendin?", "A: Wow, how nice! How about where did you learn Turkish?"]
+      -  ["B: Geçen Ekim ayında Türkçeyi öğrenmeye başladım.", "B: I started learning Turkish last October."]
+      -  ["A: Ne?? Çok iyisin.", "A: What?? You are very good."]
+      -  ["B: Bir ay sonra İstanbul'a geleceğim.", "B: I will come to Istanbul in a month."]
+      -  ["A: Denk geliriz belki. İstanbul'a gelince pratik yaparız.", "A: Maybe we can meet. When we come to Istanbul, we practice."]
+      -  ["B: yaşa! Olur.  [tabii ki, peki, tamam]", "B: live! It is possible. [of course, well, okay]"]
+      -  ["A: Ekonomi berbat ama 1 dolar = 17 TL olması çılgınlık. Buraya gelince çok rahat gezersin. Dolar Türkiye'de değerli çünkü.", "A: The economy sucks, but $1 = $17 is crazy. You will be very comfortable when you come here. Because the dollar is valuable in Turkey."]
+      -  ["B: şu an dünyada her yer berbat. Kaliforniya'da bile enflasyon zarar veriyor. Gıda, petrol, şu an çok pahalı. Peki ya seftaliler, kayısılar, üzümler, ama kilo vereceğim ve biraz daha seksi bir vücuda sahip olacağım!", "B: Everything in the world sucks right now. Even in California, inflation hurts. Food, oil, very expensive right now. What about peaches, apricots, grapes, but I'll lose weight and have a slightly sexier body!"]
+      -  ["A: Haha. Türkiye'ye gelince zengin olacaksın. Bence pahalı şeyler yemelisin. Bana da ısmarlarsın belki.", "A: Haha. You will be rich when you come to Turkey. I think you should eat expensive things. Maybe you can treat me too."]
+      -  ["B: Üzgünüm, şimdi bir toplantıya gitmem gerekiyor. Yarın sohbet edelim. Seninle konuşmaktan keyif duyuyorum. Yarın görüşürüz. İyi geceler.", "B: Sorry, I have to go to a meeting now. Let's chat tomorrow. I enjoy talking to you. See you tomorrow. Goodnight."]
+      -  ["A: İyi çalışmalar.", "A: Good work."]
+
+:sen_neler_yaptın:
+  !ruby/object:Dialogs
+    topics: 
+      - friends
+      - social_media
+    title: i saw your profile online
+    level: A2
+    date: 20220806
+    fc_data:
+      -  ["B: Evine döndün mü?", "B: Have you returned home?"]
+      -  ["A: Evet, İstanbul’a geldim. Sen neler yaptın?", "A: Yes, I came to Istanbul. What have you done?"]
+      -  ["_: Son birkaç günde neler yaptın?", "_: What did you do in the last few days?"]
+      -  ["B: Dün yemek hazırladım çünkü bugün dersten hemen sonra dayımlara gideceğim. 4 günde kamp yapıyorum. Bu hafta için dün yemek hazırladım.", "B: I prepared dinner yesterday because I'm going to my uncle's right after class today. I camp in 4 days. I prepared dinner yesterday for this week."]
+      -  ["A: Ne yemek yaptın?", "A: What did you cook?"]
+      -  ["B: Ekmek ve yumurta pişirdim. Meyve suyu yaptım.", "B: I cooked bread and eggs. I made juice."]
+      -  ["A: Hafta sonu neler yaptın?", "A: What did you do at the weekend?"]
+      -  ["B: Cumatersi günü, meditasyon grubumuza hizmet ettim. Cuma günü dersimizden sonra yazılımımı bitirdim. 2 yıl önce bilgisayar ve telefon için uygulama yapmaya başladım. Benim uygulamam çok dilli veritabanları arama programıdır.", "B: On Saturday, I served our meditation group. I finished my software after our class on Friday. 2 years ago I started making applications for computers and phones. My application is a multilingual databases search program."]
+      -  ["A: Cuma günü dersimizi yapar mısın?", "A: Will you do our lesson on Friday?"]
+      -  ["B: Evet, muhtemelen bir sonraki dersi cuma günü yaparız.", "B: Yes, we'll probably have the next lesson on Friday."]
+      -  ["A: Şimdi diyaloğa çalışalım mı?", "A: Shall we work on the dialogue now?"]
+      -  ["B: Tamam", "B: OK"] 
+
+:kahve_alma:
+  !ruby/object:Dialogs
+    topics: 
+      - friends
+      - shopping
+    title: friends meet up at cafe
+    level: A2
+    date: 20230221
+    fc_data:
+      -  ["_: Kahvecite", "_: Cafe"]
+      -  ["A: Merhaba.", "A: Hello."]
+      -  ["B: Merhaba", "B: Hello"]
+      -  ["A: Afedersin biraz geciktim. Metroda ters yöne binmişim. 2 durak sonra farkettim.", "A: Sorry, I'm a little late. I got on the subway in the opposite direction. I realized it after 2 stops."]
+      -  ["B: Sorun değil ben de şimdi geldim.", "B: It's okay, I just came here."]
+      -  ["A: İyi bari. Buna sevindim. Hadi girelim.", "A: All right. I am pleased about that. Let's go in."]
+      -  ["_: Kahveciye girerler.", "_: They enter the coffee shop."]
+      -  ["A: Sen ne (kahve) alacaksın?", "A: What (coffee) will you buy?"]
+      -  ["B: Filtre kahve. Orta boy.", "B: Filter coffee. Medium size."]
+      -  ["A: Ben mocha çok seviyorum. Küçük boy mocha alacağım.", "A: I like mocha very much. I'll have a small mocha."]
+      -  ["_: Kasada", "_: At the checkout"]
+      -  ["A: Merhaba; bir orta boy filtre kahve, bir tane de küçük boy mocha lütfen.", "A: Hello; One medium filter coffee and one small mocha, please."]
+      -  ["garson: İsminiz nedir?", "Waiter: What's your name?"]
+      -  ["B: Daudi.", "B: Daudi."]
+      -  ["A: İlker", "A: Ilker"]
+      -  ["garson: Ödeme nasıl olacak? Birlikte? Ayrı?", "Waiter: How will the payment be? Together? Separate?"]
+      -  ["A: Birlikte olsun. Bu karttan alabilirsiniz hepsini. Sana ben ısmarlıyorum. ;)", "A: Let's get together. You can get them all from this card. I treat you. ;)"]
+      -  ["B: Sorun değil öderdim.", "B: No problem, I would pay."]
+      -  ["A: Olsun, problem değil.", "A: Well, no problem."]
+      -  ["Bir sonrakine (sonraki sefer) sen öde madem. (ödersin)", "If you pay for the next (next time). (you pay)"]
+      -  ["B: Tamam o zaman, bir sonraki benden. ;)", "B: Okay then, next me. ;)"]
+      -  ["A: Tamamdır. Gel bir üst kata çıkalım.", "A: All right. Let's go upstairs."]
+      -  ["_: Üst kattaki masaya otururlar.", "_: They sit at the table upstairs."]
+      -  ["B: Burada olmak çok güzel. İstanbul'u çok özlemişim.", "B: It's so nice to be here. I missed Istanbul so much."]
+      -  ["A: Senin adına sevindim. Tadını çıkar. ;)", "A: I'm happy for you. Enjoy it. ;)"]
+      -  ["B: Teşekkürler.", "B: Thank you."] 
+
+:klinikta_hasta:
+  !ruby/object:Dialogs
+    topics: 
+      - health
+      - medical
+    title: visiting doctor with a cold
+    level: A2
+    date: 20220326
+    fc_data:
+      -  ["A: Merhaba", "A: Hello"]
+      -  ["B: Merhaba, buyurun.", "B: Hello, here you go."]
+      -  ["A: Nasılsınız?", "A: How are you?"]
+      -  ["B: Teşekkür ederim, siz nasılsınız?", "B: Thank you, how are you?"]
+      -  ["A: İyiyim, teşekkürler.", "A: I'm fine, thanks."]
+      -  ["B: Şikayetiniz nedir?", "B: What is your complaint?"]
+      -  ["A: Son birkaç gündür hasta hissediyorum. Çok fazla öksürüğüm var.", "A: I have been feeling sick for the past few days. I have a lot of cough."]
+      -  ["_: Ahşap çubuğu hastanın boğazına sokar.", "_: Inserts the wooden stick into the patient's throat."]
+      -  ["B: Sedyeye oturun lütfen, bakalım. Ağzınızı açar mısınız? Bir de sırtınızı dinleyelim. Omzunuza kadar açar mısınız sırtınızı?", "B: Sit on the stretcher, please, let's see. Can you open your mouth? Let's listen to your back. Can you open your back up to your shoulder?"]
+      -  ["A: Peki.", "A: Okay."]
+      -  ["B: Derin derin nefes alın lütfen. Tamamdır. Size şimdi ilaç yazalım. İsminizi ve soy isminizi söyler misiniz?", "B: Take a deep breath, please. Ok. Let's prescribe you medicine now. Can you tell me your name and surname?"]
+      -  ["A: Daudi Majozi.  Neyim var? Bana hangi ilaçları yazacaksınız?", "A: Daudi Majozi. what do i have? What drugs will you prescribe me?"]
+      -  ["B: Soğuk algınlığınız var. Bademcikleriniz ve ciğerlerinizde biraz iltihaplanma var. Bunun için size soğuk algınlığı hapı Nurofen vereceğim. Boğazlarınız ve ciğerleriniz için iltihap söktürücü, bir de öksürüğünüz için öksürük şurubu yazıyorum.", "B: You have a cold. You have some inflammation in your tonsils and lungs. For this, I will give you the cold pill Nurofen. I prescribe anti-inflammatory for your throat and lungs, and cough syrup for your cough."]
+      -  ["A: Tamamdır.", "A: All right."]
+      -  ["B: Reçete numaranız bu kağıtta yazıyor, eczaneden direkt alabilirsiniz.", "B: Your prescription number is written on this paper, you can get it directly from the pharmacy."]
+      -  ["A: Teşekkür ederim, iyi günler.", "A: Thank you, have a nice day."]
+      -  ["B: Sağlıklı günler dilerim, iyi günler.", "B: I wish you a good day, have a nice day."]
+              
+:müzik:
+  !ruby/object:Dialogs
+    topics: 
+      - friends
+      - music
+    title: talking with friend about music
+    level: A2
+    date: 20220402
+    fc_data:
+      - ["A: Merhaba", "A: Hello"]
+      - ["B: Merhaba, nereye gidelim?", "B: Hello, where should we go?"]
+      - ["A: İlk önce şuradaki kitapçıya gidelim. Bir kitaba bakacağım. Bulabilirsem alacağım.", "A: Let's go to the bookstore over there first. I will look for a book. If I can find it, I'll take it."]
+      - ["B: Tamamdır. Görüşmeyeli nasılsın?", "B: All right. How have you been?"]
+      - ["A: İyiyim, sadece biraz yoğun. Çok fazla ödevim var.", "A: I'm fine, just a little busy. I have a lot of homework."]
+      - ["B: Ohh, kolay gelsin.", "B: Ohh, take it easy."]
+      - ["_: Kitapçının yanındaki mağazanın önünde dururlar. Mağazada müzik çalmaktadır.", "_: They stop in front of the store next to the bookstore. Music is playing in the store."]
+      - ["A: Bir saniye, bu müzik çok güzelmiş. Shazamlayacağım.", "A: Wait a second, this music is beautiful. I will Shazam."]
+      - ["B: Kulağa enteresan geliyor. Bu tarz rap müzikler mi dinlersin?", "B: Sounds interesting. Do you listen to this kind of rap music?"]
+      - ["A: Çok fazla değil. Daha çok pop ve R&B dinlerim. Sen ne tarz müzikler dinlersin?", "A: Not much. I listen mostly to pop and R&B. What kind of music do you listen to?"]
+      - ["B: Müzik zevkim biraz karışık. Klasik, metal, geleneksel, pop, rock. Kısacası ruh halime göre dinlerim.  Farklı müzik türleri hoşuma gidiyor.", "B: My taste in music is a bit mixed. Classic, metal, traditional, pop, rock. In short, I listen according to my mood. I like different types of music."]
+      - ["A: Ne hoş. Son zamanlarda ne dinliyorsun?", "A: How nice. What have you been listening to lately?"]
+      - ["B: Klasik müzikler dinliyorum. Bach gibi. Bana iyi hissettiriyor.", "B: I listen to classical music. like Bach. It makes me feel good."]
+      - ["A: Hangi parçası favorin?", "A: Which part is your favourite?"]
+      - ["B: Overtures (Suite) No: 2 in B Minor", "B: Overtures (Suite) No: 2 in B Minor"]
+      - ["A: Bu parçada hangi enstrümanlar var?", "A: What instruments are in this piece?"]
+      - ["B: Hatırladığım kadarıyla yan flüt ve piyano var. Bir de çello var sanırım.", "B: As far as I remember, there is a flute and a piano. There's also a cello, I think."]
+      - ["A: Wow, ne güzel bir harmoni.", "A: Wow, what a beautiful harmony."]
+      - ["B: Dinlemeni mutlaka tavsiye ederim.", "B: I would definitely recommend you to listen to it."]
+      - ["A: Eve gidince mutlaka bakacağım.", "A: I will definitely check when I get home."]
+      - ["B: Çalabildiğin bir enstrüman var mı?", "B: Is there an instrument you can play?"]
+      - ["A: Evet, çok profesyonel değilim ama ukulele çalabiliyorum. Sen?", "A: Yes, I'm not very professional, but I can play the ukulele. You?"]
+      - ["B: Ben iyi bir şekilde piyano çalıyorum. Birazcık da flüt.", "B: I play the piano well. A little flute."]
+      - ["A: Çok iyiymiş. Ben bir de zil çalabiliyorum. Onu söylemeyi unuttum.", "A: It was very good. I can also ring a bell. I forgot to tell him."]
+      - ["B: Aman Tanrım, hahaha. İnanamıyorum.", "B: Oh my god, hahaha. I cant believe."]
+      - ["A: Ben de. Öğrenmek çok zor oldu. Hahaha", "A: Me too. It was very difficult to learn. Hahaha"]
+      - ["_: Kitapçıya girerler ve pikaptan  müzik çalmaktadır.", "_: They enter the bookstore and the turntable is playing music."]
+      - ["A: Şuna bak, bir pikap. Ne kadar nostaljik.", "A: Look at that, a turntable. How nostalgic."]
+      - ["B: Benim de bir pikabım var.  Plaktan müzik dinlemek çok güzel.", "B: I also have a pickup truck. It is very nice to listen to music from the record."]
+      - ["A: Ne hoş. Bu çalan müzik çok tanıdık. Adı neydi bu şarkının?", "A: How nice. This music is very familiar. What was the name of this song?"]
+      - ["B: Sertab Erener", "B: Sertab Erener"]
+      - ["B: Lal", "B: Lal"]
+      - ["A: Evet, hatırladım. Bu sanatçının sesine bayılıyorum.", "A: Yes, I remember. I love this artist's voice."]
+      - ["B: Ben de öyle. Hangi kitabı arıyorsun?", "B: Me too. Which book are you looking for?"]
+      - ["A: Oğuz Atay", "A: Oguz Atay"]
+      - ["B: Oyunlarla Yaşayanlar", "B: Those Who Live by Games"]
+      - ["A: Çok anlamlı bir kitap.", "A: It is a very meaningful book."]
+      - ["_: Kasaya giderler.", "_: They go to the cash register."]
+      - ["A: Afedersiniz, Oğuz Atay/ Oyunlarla Yaşayanlar kitabını arıyorum. Elinizde var mı?", "A: Excuse me, I'm looking for the book Oğuz Atay/ Those Who Live With Games. Do you have it?"]
+      - ["C: Evet, bir tane gözüküyor. Hemen getireyim size.", "A: Yes, there appears to be one. I'll bring it to you right now."]
+      - ["A: Teşekkürler. Fiyatı ne kadar?", "A: Thank you. What is the price?"]
+      - ["C: 67 lira.", "A: 67 pounds."]
+      - ["A: Kartla ödemek istiyorum.", "A: I want to pay by card."]
+      - ["C: Tabii. Şifrenizi girin lütfen.", "A: Sure. Please enter your password."]
+      - ["A: Teşekkürler, kolay gelsin.", "A: Thanks, take it easy."]
+      - ["C: Sağolun, iyi günler.", "A: Thanks, good day."]
+        

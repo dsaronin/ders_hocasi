@@ -6,7 +6,7 @@
 
   require "yaml"
 
-class Sentences
+class Opposites
   include Sources
 
   #  ------------------------------------------------------------
@@ -14,10 +14,10 @@ class Sentences
   #  CLASS-LEVEL actions & methods
   #  ------------------------------------------------------------
   #  ------------------------------------------------------------
-  # input SENTENCES database here if not done already 
+  # input OPPOSITES database here if not done already 
 
-  @@database ||= YAML.unsafe_load_file( "app/assets/sentences.yml" )
-  Environ.log_info( "Sentences data loaded: #{@@database.length} entries" )
+  @@database ||= YAML.unsafe_load_file( "app/assets/opposites.yml" )
+  Environ.log_info( "Opposites data loaded: #{@@database.length} entries" )
  
-end # Sentences
+end # Opposites
 
