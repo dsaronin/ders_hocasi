@@ -14,15 +14,21 @@ class FlashManager
   require_relative 'topics'
   require_relative 'sentences'
   require_relative 'player'
+  require_relative 'phrases'
+  require_relative 'dialogs'
+  require_relative 'opposites'
  
-  SOURCE_TYPES   = %w{Topics Sentences Phrases Opposites Dialog Articles Dictionary}
+  SOURCE_TYPES   = %w{Topics Sentences Phrases Opposites Readings Dialog Articles Dictionary}
   SELECTOR_TYPES = %w{ordered shuffled}
   SIZER_TYPES    = [5, 10, 15, 25]
-  GROUP_SIZES    = %w{5 10 15 25}
+  GROUP_SIZES    = %w{5 10 15 25}   # display for html select
   SIDE_TYPES     = %w{front back shuffle special}
+
+    # TODO: future to be implemented
   SPEED_TYPES    = %w{slow medium fast}
   PLAYER_TYPES   = %w{manual auto}
 
+    # TODO: might never be implemented
   ANSWER_TYPES   = %w{typed multiple-choice none}
 
   #  ------------------------------------------------------------
@@ -115,7 +121,8 @@ class FlashManager
 
   #  ------------------------------------------------------------
   def current_card
-    return @my_source.fc_data[ @shuffle_indexes[@cur_ptr] + @group_dex ]
+    index =  @shuffle_indexes[@cur_ptr] + @group_dex 
+    return @my_source.get_data_at_index( index )
   end
 
   #  ------------------------------------------------------------
@@ -185,6 +192,19 @@ class FlashManager
  
     return @my_settings
   end
+
+  #  ------------------------------------------------------------
+  #  random_selection  -- generates a random array of indexes
+  #  args:
+  #    max -- max length of items in main array
+  #    size  -- group size of number of indexes to be returned
+  #  returns -- array of indexes for choosing the group
+  #  ------------------------------------------------------------
+  def random_selection( max, size )
+    (0..(max-1)).to_a.shuffle.take( size )
+  end
  
+  #  ------------------------------------------------------------
+  #  ------------------------------------------------------------
 end  # FlashManager
 

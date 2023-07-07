@@ -74,4 +74,42 @@
       - ["Kuşa ve geyiğe çok teşekkür etmiş.", "He thanked the bird and the deer very much."]
       - ["Kuş ve geyik kıza sarılarak vedalaşmışlar.", "The bird and the deer hugged the girl and said goodbye."]
       - ["O günden sonra Dilek, geyik ve kuş çok yakın arkadaş olmuşlar.", "After that day, Dilek, deer and bird became very close friends."]
-       
+
+:merhaba_arkadaşlar:
+  !ruby/object:Readings
+    topics: 
+      - school
+      - children
+    title: how to listen
+    level: A2
+    fc_data:
+      - ["Merhaba arkadaşlar,", "Hello friends,"]
+      - ["Ben arkadaşlarımı, ailemi, öğretmenimi kısacası herkesi dinlerken aşağıdaki kuralları uyguluyorum.", "I follow the rules below while listening to my friends, my family, my teacher, in short, everyone."]
+      - ["Böylece karşımdaki insanları daha iyi anlıyorum.", "This way, I can better understand the people around me."]
+      - ["Dinlerken uyulması gereken kurallar:", "Rules to follow while listening:"]
+      - ["Karşımdakinin sözünü kesmeden dinlerim.", "I listen without interrupting the other person."]
+      - ["Bir kişi konuşurken söz alarak konuşurum.", "When a person is speaking, I speak by taking the floor."]
+      - ["Konuşmacıyı izleyerek ve göz teması kurarak dinlerim.", "I listen by watching the speaker and making eye contact."]
+      - ["Nezaket kurallarına uyarak dinlerim.", "I listen by following the rules of courtesy."]
+      - ["Dikkatimi, dinlediklerime yoğunlaştırırım.", "I focus my attention on what I am listening to."]
+ 
+:hak_ve_özgürlüklerimiz:
+  !ruby/object:Readings
+    topics: 
+      - school
+      - children
+      - rights
+    title: rights and freedoms
+    level: A2
+    fc_data:
+      - ["Hak ve özgürlüklerimiz", "Our rights and freedoms"]
+      - ["Toplum yaşamında yasaların herkese sağladığı birtakım haklar vardır.", "In social life, there are certain rights that laws provide to everyone."]
+      - ["Yaşama hakkı, düşüncelerini özgürce açıklama hakkı gibi.", "Like the right to life, the right to express one's thoughts freely."]
+      - ["Devlet, bireylerin hak ve özgürlüklerini yasalarla düzenler ve korur.", "The state regulates and protects the rights and freedoms of individuals by laws."]
+      - ["Bu hak ve özgürlükler 'İnsan Hakları Evrensel Bildirgesi'nde belirtilmiştir.", "These rights and freedoms are stated in the 'Universal Declaration of Human Rights'."]
+      - ["Yaşama, eğitim, sağlık, beslenme ve barınma bu haklardan bazılarıdır.", "Some of these rights are to life, education, health, nutrition and shelter."]
+      - ["Çocuk Hakları Sözleşmesi'nde de çocukların sağlıklı gelişip yetiştirilmeleri benimsenmiştir.", "The healthy development and upbringing of children is adopted in the 'Children's Rights Convention'."]
+      - ["Buna göre iyi beslenmek, eğitim görmek ve sağlıklı yaşamak çocukların doğal haklarıdır.", "Accordingly, children's natural rights are to eat well, receive education and live healthy."]
+      - ["Devlet, her çocuğun eğitim, sevgi ve şefkat görmesi için gerekli önlemleri almakla yükümlüdür.", "The state is obliged to take the necessary measures to ensure that every child receives education, love and compassion."]
+
+
