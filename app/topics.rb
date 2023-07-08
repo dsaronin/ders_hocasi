@@ -35,7 +35,9 @@ class Topics
   end
 
   #  ------------------------------------------------------------
-  #  find -- returns the Topics obj associated with a key; else nil
+  #  find -- returns the Topics obj associated with a key; 
+  #  else nil if not found 
+  #     (flash_manager.initialize will generate an exception)
   #  ------------------------------------------------------------
   def Topics.find( key )
     return @@database[ ( key.is_a?(Symbol) ? key : key.to_sym ) ]

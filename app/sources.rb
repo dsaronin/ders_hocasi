@@ -24,15 +24,17 @@ module Sources
 
   module ClassMethods
 
-    def find( key )
-      return @@database 
-    end
-
     def find_or_new( key )
       obj = self.find( key ) || allocate
       obj.send(:initialize, key)
       @@database ||= obj
       return obj
+    end
+
+    private
+
+    def find( key )
+      return @@database 
     end
 
   end  # ClassMethods
