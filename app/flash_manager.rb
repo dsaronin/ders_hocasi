@@ -53,6 +53,10 @@ class FlashManager
   end
 
   #  ------------------------------------------------------------
+  #  initialize  -- a new FlashManager object
+  #  either picks up state from where we left off in earlier request
+  #  or resets state. Finds a topic and gets it set up
+  #  exception if topic not found.
   #  ------------------------------------------------------------
   def initialize( key, settings )
     @my_settings = ( settings || @@defaults.clone )    # set my settings from defaults
@@ -62,11 +66,17 @@ class FlashManager
     @my_topic = Topics.find( topic )
 
     if @my_topic.nil?
-      raise ArgumentError, "Topics: #{topic} not found"
+      raise ArgumentError, "Topic: #{topic} not found"
     end
 
     @my_settings[:topic] = topic  # replace topic in settings
-    @my_source = Module.const_get( @my_settings[:source] ).find_or_new( topic )
+
+    @my_source = Module.const_get( @my_settings[:source] ).
+                find_or_new( topic )
+
+    if @my_source.nil?
+      raise ArgumentError, "Source for topic: #{topic} not found"
+    end
     
     reset_if_start
   end
@@ -78,10 +88,13 @@ class FlashManager
   #  ------------------------------------------------------------
 
   #  ------------------------------------------------------------
+  #  start_card_player  -- connects with a source obj, starts player
+  #  returns nil if source wasn't found
+  #  else returns player obj
   #  ------------------------------------------------------------
+  # TODO: might be better to raise an exception and pass code
+  # to show that SOURCE needs resolution
   def start_card_player
-    # puts "SHOW CARDS for topic: #{@my_settings[:topic]}; " + "fc data items: #{@my_source.fc_data.length}"
-
     return  Player.new(self)
   end
 

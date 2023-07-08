@@ -38,8 +38,13 @@ class HocasiApp < Sinatra::Application
 
       # ok even if settings==nil at this point
     player = HOCASI.do_flashcards( [topic.to_s], settings )
-    if player.nil?
-      loop = false
+    if player.nil?  # due to exception
+      if $!.message.match /^Source/
+        redirect '/source'   # TODO:
+        # also this is incorrect redirecting ....
+      else
+        loop = false
+      end
     else
         # have the player do a command
       (loop, show) = player.commands( [playcmd] )
