@@ -16,6 +16,12 @@ module Sources
 
     EMPTY_DATA = [["boş","tupu"]]
 
+    @@database = nil   # wierd that this is needed; will be ignored
+
+    # accessor for extended class' @@database
+    def self.database; @@database; end
+    def self.database=(x); @@database = x; end
+
   #  ------------------------------------------------------------
   #  ------------------------------------------------------------
   #  ClassMethods -- will be extended into receiving class
@@ -27,14 +33,14 @@ module Sources
     def find_or_new( key )
       obj = self.find( key ) || allocate
       obj.send(:initialize, key)
-      @@database ||= obj
+      Sources.database ||= obj
       return obj
     end
 
     private
 
     def find( key )
-      return @@database 
+      return Sources.database 
     end
 
   end  # ClassMethods

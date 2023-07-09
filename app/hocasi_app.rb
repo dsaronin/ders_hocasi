@@ -121,6 +121,10 @@ class HocasiApp < Sinatra::Application
     haml :index
   end
 
+  get '/source' do
+    haml :source
+  end
+
   get '/about' do
     haml :about
   end
