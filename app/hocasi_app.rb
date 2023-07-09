@@ -28,6 +28,8 @@ class HocasiApp < Sinatra::Application
   #  ------------------------------------------------------------
   def helper_prep_player(playcmd = Player::PCMD_CURR, restore_session = false, new_settings=nil)
 
+    @redirect_to_source = false
+
     if restore_session
       settings = YAML.load( session[:settings] ) unless session[:settings].nil?
     else
@@ -39,12 +41,8 @@ class HocasiApp < Sinatra::Application
       # ok even if settings==nil at this point
     player = HOCASI.do_flashcards( [topic.to_s], settings )
     if player.nil?  # due to exception
-      if $!.message.match /^Source/
-        redirect '/source'   # TODO:
-        # also this is incorrect redirecting ....
-      else
-        loop = false
-      end
+      loop = false
+      @redirect_to_source = true  if $!.message.match /^Source/
     else
         # have the player do a command
       (loop, show) = player.commands( [playcmd] )
@@ -90,6 +88,8 @@ class HocasiApp < Sinatra::Application
   def helper_do_player( cmd )
     if helper_prep_player(cmd, true)
       haml :start_player
+    elsif @redirect_to_source
+        redirect '/source'
     else  # quit command received
         # TODO: could be here because of error; needs to be shown
       redirect '/'
@@ -106,6 +106,8 @@ class HocasiApp < Sinatra::Application
   def helper_start_player(settings = nil)
     if helper_prep_player( Player::PCMD_CURR, false, settings )
       haml :start_player
+    elsif @redirect_to_source
+        redirect '/source'
     else  # quit command received
         # TODO: could be here because of error; needs to be shown
       redirect '/'
