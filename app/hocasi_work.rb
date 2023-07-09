@@ -21,7 +21,7 @@ class HocasiWork
   #  ------------------------------------------------------------
   def setup_work()
     Environ.log_info( "starting..." )
-    Environ.put_info FlashManager.show_defaults
+    # Environ.put_info FlashManager.show_defaults
   end
 
   #  ------------------------------------------------------------

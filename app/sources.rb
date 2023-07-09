@@ -40,7 +40,12 @@ module Sources
     private
 
     def find( key )
-      return Sources.database 
+      return nil if Sources.database.nil?
+      if Sources.database.kind_of?( Hash )
+        obj = Sources.database[ ( key.is_a?(Symbol) ? key : key.to_sym ) ]
+        return (obj.nil?  ?  Sources.database.keys.first  : obj) 
+      end
+      raise NameError, "Source class of: #{Sources.database.class} unexpected."
     end
 
   end  # ClassMethods
