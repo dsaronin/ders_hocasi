@@ -68,7 +68,7 @@ class FlashManager
 
     key.gsub!( /:/, "")  # remove misguided attemps at making a symbol
     topic = ( key =~ /^def(ault)?$/  ?  @my_settings[:topic]  : key )
-    @my_topic = Topics.find( topic )
+    @my_topic = Topics.find_topic( topic )
 
     if @my_topic.nil?
       raise ArgumentError, "Topic: #{topic} not found"
@@ -76,8 +76,9 @@ class FlashManager
 
     @my_settings[:topic] = topic  # replace topic in settings
 
+      # NOTE:  @my_settings[:source] is possibly nil; it's ok
     @my_source = Module.const_get( @my_settings[:source] ).
-                find_or_new( topic )
+                find_or_new( topic,  @my_settings[:entry] )
 
     if @my_source.nil?
       raise NameError, "Source for topic: #{topic} not found"

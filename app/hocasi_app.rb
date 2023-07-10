@@ -218,10 +218,9 @@ class HocasiApp < Sinatra::Application
   #  ------------------------------------------------------------
 
   post '/source' do
-    # pp request.env
     parms = params[:source]
     helper_get_settings
-    @settings[:source] = parms[:source]
+    @settings[:entry] = parms[:entry]
     helper_start_player( @settings )
   end
 

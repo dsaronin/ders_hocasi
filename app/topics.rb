@@ -31,13 +31,14 @@ class Topics
   end
 
   #  ------------------------------------------------------------
-  #  find -- returns the Topics obj associated with a key; 
+  #  find_topic -- returns the Topics obj associated with a key; 
   #  else nil if not found 
   #     (flash_manager.initialize will generate an exception)
   #  ------------------------------------------------------------
-  def Topics.find( key )
+  def Topics.find_topic( key )
     return @@database[ ( key.is_a?(Symbol) ? key : key.to_sym ) ]
   end
+
   #  ------------------------------------------------------------
   #  ------------------------------------------------------------
   #  instance methods

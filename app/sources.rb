@@ -24,8 +24,8 @@ module Sources
 
   module ClassMethods
 
-    def find_or_new( key )
-      obj = self.find( key ) || allocate
+    def find_or_new( key, entry = nil )
+      obj = self.find( key, entry ) || allocate
       obj.send(:initialize, key)
 
       if self.class_variable_get(:@@database).nil?
@@ -44,14 +44,28 @@ module Sources
 
     private
 
-    def find( key )
+    #  ------------------------------------------------------------
+    #  find  -- finds the source obj for generating flashcards
+    #  args:
+    #    key -- topics key
+    #    entry -- non-topics hash key to try
+    #  returns: an object of the main Class hoding data
+    #  ------------------------------------------------------------
+    def find( key, entry )
       db = self.class_variable_get(:@@database)
       return nil if db.nil?
+
       if db.kind_of?( Hash )
-        obj = db[ ( key.is_a?(Symbol) ? key : key.to_sym ) ]
-        return (obj.nil?  ?  db[db.keys.first]  : obj) 
+
+        use_key = ( entry.nil?  ?  key  :  entry )
+        obj = db[ ( use_key.is_a?(Symbol) ? use_key : use_key.to_sym ) ]
+
+        return ( obj.nil?  ? db[db.keys.first] : obj ) 
+
       end
+
       return db if db.kind_of?( Sources )
+
       raise NameError, "Source class of: #{db.class} unexpected."
     end
 
