@@ -92,9 +92,11 @@ class HocasiWork
       return FlashManager.new( list.first, settings ).start_card_player
     rescue ArgumentError
       Environ.put_and_log_error( ">>  " + $!.message )
-      return nil
+    rescue NameError
+      Environ.put_and_log_error( ">>  " + $!.message )
     end  # exception handling
 
+    return nil
   end
 
 

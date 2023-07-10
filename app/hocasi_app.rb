@@ -42,7 +42,9 @@ class HocasiApp < Sinatra::Application
     player = HOCASI.do_flashcards( [topic.to_s], settings )
     if player.nil?  # due to exception
       loop = false
-      @redirect_to_source = true  if $!.message.match /^Source/
+      if ($!.nil? || $!.message.match( /^Source/ ) )
+        @redirect_to_source = true  
+      end
     else
         # have the player do a command
       (loop, show) = player.commands( [playcmd] )
@@ -69,8 +71,8 @@ class HocasiApp < Sinatra::Application
                     when (1..5)   then "huge"
                     when (6..8)   then "large"
                     when (9..16)  then "big1"
-                    when (17..21) then "big2"
-                    when (22..31) then "big3"
+                    when (17..45) then "big2"
+                    when (46..69) then "big3"
                     else 
                       "normal"
                     end

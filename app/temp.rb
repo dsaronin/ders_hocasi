@@ -1,4 +1,15 @@
-  require_relative 'sources'
+module Sources
+  def self.included(klass)
+    klass.extend(ClassMethods)
+  end
+
+  module ClassMethods
+    def mshow; self.class_variable_get(:@@database); end
+  end  # ClassMethods
+
+  def mshow; self.class.class_variable_get(:@@database); end
+
+end  # module
 
 class Lime
   include Sources

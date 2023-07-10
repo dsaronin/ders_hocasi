@@ -75,7 +75,7 @@ class FlashManager
                 find_or_new( topic )
 
     if @my_source.nil?
-      raise ArgumentError, "Source for topic: #{topic} not found"
+      raise NameError, "Source for topic: #{topic} not found"
     end
     
     reset_if_start
@@ -175,7 +175,7 @@ class FlashManager
 
   #  ------------------------------------------------------------
   def next_group_card
-    len =  @my_source.fc_data.length
+    len =  @my_source.list_size
     size = @my_settings[:sizer]
     if ( ((@group_dex += size) + size) > len)
       @group_dex = len - size

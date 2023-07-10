@@ -16,12 +16,6 @@ module Sources
 
     EMPTY_DATA = [["boş","tupu"]]
 
-    @@database = nil   # wierd that this is needed; will be ignored
-
-    # accessor for extended class' @@database
-    def self.database; @@database; end
-    def self.database=(x); @@database = x; end
-
   #  ------------------------------------------------------------
   #  ------------------------------------------------------------
   #  ClassMethods -- will be extended into receiving class
@@ -33,19 +27,23 @@ module Sources
     def find_or_new( key )
       obj = self.find( key ) || allocate
       obj.send(:initialize, key)
-      Sources.database ||= obj
+
+      if self.class_variable_get(:@@database).nil?
+        self.class_variable_set(:@@database, obj) 
+      end
       return obj
     end
 
     private
 
     def find( key )
-      return nil if Sources.database.nil?
-      if Sources.database.kind_of?( Hash )
-        obj = Sources.database[ ( key.is_a?(Symbol) ? key : key.to_sym ) ]
-        return (obj.nil?  ?  Sources.database.keys.first  : obj) 
+      db = self.class_variable_get(:@@database)
+      return nil if db.nil?
+      if db.kind_of?( Hash )
+        obj = db[ ( key.is_a?(Symbol) ? key : key.to_sym ) ]
+        return (obj.nil?  ?  db.keys.first  : obj) 
       end
-      raise NameError, "Source class of: #{Sources.database.class} unexpected."
+      raise NameError, "Source class of: #{db.class} unexpected."
     end
 
   end  # ClassMethods
@@ -68,6 +66,13 @@ module Sources
     index = 0 if index < 0
     index = list.length-1 if index >= list.length
     return list[index]
+  end
+
+  #  ------------------------------------------------------------
+  #  list_size  -- returns the length of data list
+  #  ------------------------------------------------------------
+  def list_size
+    return fc_data.length
   end
 
   #  ------------------------------------------------------------
