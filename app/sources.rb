@@ -34,6 +34,14 @@ module Sources
       return obj
     end
 
+    #  ------------------------------------------------------------
+    #  sorted_keys -- returns array of keys (data entries) for 
+    #  a given database
+    #  ------------------------------------------------------------
+    def sorted_keys
+      return self.class_variable_get(:@@database).keys.sort
+    end
+
     private
 
     def find( key )

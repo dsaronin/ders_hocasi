@@ -53,6 +53,10 @@ class FlashManager
     return @@defaults.inspect
   end
 
+  def FlashManager.default_settings
+    return @@defaults
+  end
+
   #  ------------------------------------------------------------
   #  initialize  -- a new FlashManager object
   #  either picks up state from where we left off in earlier request

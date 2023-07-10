@@ -118,12 +118,22 @@ class HocasiApp < Sinatra::Application
 
   #  ------------------------------------------------------------
   #  ------------------------------------------------------------
+  def helper_get_settings()
+    @settings = ( session[:settings].nil?  ?
+      FlashManager.default_settings :
+      YAML.load( session[:settings] ) 
+    )
+  end
+
+  #  ------------------------------------------------------------
+  #  ------------------------------------------------------------
 
   get '/' do
     haml :index
   end
 
   get '/source' do
+    helper_get_settings
     haml :source
   end
 
@@ -132,6 +142,7 @@ class HocasiApp < Sinatra::Application
   end
 
   get '/settings' do
+    helper_get_settings
     haml :settings
   end
 
