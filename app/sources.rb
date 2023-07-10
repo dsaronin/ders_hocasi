@@ -41,8 +41,9 @@ module Sources
       return nil if db.nil?
       if db.kind_of?( Hash )
         obj = db[ ( key.is_a?(Symbol) ? key : key.to_sym ) ]
-        return (obj.nil?  ?  db.keys.first  : obj) 
+        return (obj.nil?  ?  db[db.keys.first]  : obj) 
       end
+      return db if db.kind_of?( Sources )
       raise NameError, "Source class of: #{db.class} unexpected."
     end
 
@@ -97,6 +98,6 @@ end  # module
 
 
 # placeholders until we can write the code
-class Dictionary ; include Sources; end
-class Articles ; include Sources;  end
+class Dictionary ; include Sources; @@database = nil;  end
+class Articles ; include Sources; @@database = nil;  end
 

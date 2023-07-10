@@ -15,10 +15,11 @@ class FlashManager
   require_relative 'sentences'
   require_relative 'player'
   require_relative 'phrases'
+  require_relative 'readings'
   require_relative 'dialogs'
   require_relative 'opposites'
  
-  SOURCE_TYPES   = %w{Topics Sentences Phrases Opposites Readings Dialog Articles Dictionary}
+  SOURCE_TYPES   = %w{Topics Sentences Phrases Opposites Readings Dialogs Articles Dictionary}
   SELECTOR_TYPES = %w{ordered shuffled}
   SIZER_TYPES    = [5, 10, 15, 25]
   GROUP_SIZES    = %w{5 10 15 25}   # display for html select
