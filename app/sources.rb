@@ -78,17 +78,23 @@ module Sources
   #  ------------------------------------------------------------
 
   #  ------------------------------------------------------------
-  #  get_data_at_index -- returns an array of [front,back] data 
+  #  clamp_index -- returns a valid index into an array
   #  for a card at a given index.
   #  validity checking for index is performed. if beyond the limits
   #  of the database, will simply return data at the limit.
+  #  ------------------------------------------------------------
+  def clamp_index(index, length)
+    index = 0 if index < 0
+    index = length-1 if index >= length
+    return index
+  end
+
+  #  ------------------------------------------------------------
+  #  get_data_at_index -- returns an array of [front,back] data 
   #  NOTE: normally *should* access data this way.
   #  ------------------------------------------------------------
   def get_data_at_index( index )
-    list = fc_data
-    index = 0 if index < 0
-    index = list.length-1 if index >= list.length
-    return list[index]
+    return fc_data[ clamp_index(index, fc_data.length) ]
   end
 
   #  ------------------------------------------------------------

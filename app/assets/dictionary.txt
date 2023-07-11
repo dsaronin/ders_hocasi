@@ -805,8 +805,8 @@ bütün	whole, entire, all
 bu x	this is an x.
 buyrun	come in, please come in, here you are, you're welcome, go ahead!, help yourself	buyrun bunlar biletlerimiz.
 -büyü {büyür}	to grow larger	denizli'de doğdum ve büyüdüm.
-büyükanne  grandmother
-büyükbaba  grandfather
+büyükanne	grandmother
+büyükbaba	grandfather
 büyük	big, large, great; [<> küçük]
 büyüklük	largeness, bigness, greatness
 -buyur	decree, order, rule, command  (archaic)
@@ -1884,7 +1884,6 @@ hak {hakki}	right, truth; God
 hakikaten	really
 hakikat {hakikati}	fact, reality
 hakkında	about, approx
-hakkında  about, approx
 haklı	right, just, legitimate; doğru, gerçek, yasal, adil, meşru
 haklı	right, just, legitimate	sende haklısın. aynen haklısın.
 hala	aunt   [paternal]
@@ -1938,8 +1937,7 @@ hasta	sick, ill, patient
 hata	err, mistake	çok fazla hata yok.
 hatalı	faulty, false, inaccurate, incorrect, wrong, error	ya tom hatalıysa.
 hat başı-sonu	terminus, terminal
-hatırladım, hatırlamaz olur muyum peki?
--hatırla {hatırlar}	to recall, remember	cevabı hatırlayamadın. tam hatırlamıyorum yine de.
+-hatırla {hatırlar}	to recall, remember	cevabı hatırlayamadın. tam hatırlamıyorum yine de. hatırladım, hatırlamaz olur muyum peki?
 -hatırlat {hatırlatır}	to cause to remember
 hatır	respect, sake
 hat	line [rail, metro]	hat uzunluğu.
@@ -2555,8 +2553,7 @@ kenar	edge of, alongside
 kendi başıma	alone, by oneself	ben kendi başıma sinemaya gidecektim.
 kendi kendine	by oneself, yourself
 kendine has	idiosyncratic
-kendine	self, oneself
-kendine yapılmasını istemediğin şeyi başkasina yapma
+kendine	self, oneself	kendine yapılmasını istemediğin şeyi başkasina yapma
 kendini bilen	self-aware	kendini bilen karakterli insanlar.
 kendi	self, oneself	kendine iyi bak.
 kent	city
@@ -4180,7 +4177,7 @@ taşı	carry, bear sth, transport sth
 taşın	move in / out
 -taşın	move, relocate, move into	varolan içeriğin taşınmayacağını unutmayın.
 taslak	draft	taslak kutusu
-taslak kutusu  draft box
+taslak kutusu	draft box
 -taş	overflow, pour forth, pour out
 -taşır	cause to overflow, overflow sth
 taşşak	testicles, balls
@@ -4529,8 +4526,8 @@ uzak	far [away]; [<> yakın]	benim evim metro istasyonuna uzak.
 -üzül	sorrow, trouble, sadden, feel bad about, regret	acını duyduğuma üzüldüm. senin için çok üzülühyorum.
 üzüm	grape  (fd)
 uzun	long, tall; [<> kısa]	bu çok uzun, yazman lazım. batuhan uzun boylu.
+uzun süreli ilişki	longterm relationship	uzun süreli bir ilişki arıyorum.
 uzunluk	length, longness, tallness, extent	onu  ne kadar uzunluktadır? hat uzunluğu: 4,56 km.
-uzun süreli bir ilişki arıyorum.
 üzüntü	regret, distress, worry; pişmanlık, sıkıntı, edişe
 üzüntü	sadness, sorrow, grief	aşk harika bir deneyimdir, ancak bazen üzüntüye yol açar.
 vadi	valley	pendik yaşam vadisi'nin.
@@ -4821,7 +4818,7 @@ yılan	snake
 yılbaşı günü	new year's day
 yılbaşı	new year, new year's day	yılbaşını kutlayacağım.
 yıldırım	lightning
-yıldırım orduları
+yıldırım orduları	strike force, lightening brigade [?]
 yıldız	star
 yılkı atı	jade
 yil	year

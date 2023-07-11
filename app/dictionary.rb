@@ -23,18 +23,22 @@ class Dictionary
   #  load_dictionary  -- loads verb database and creates dictionary
   #  ------------------------------------------------------------
   def Dictionary.load_data(file)
-    # Environ.log_info 
-    puts "Loading dictionary..."
+    Environ.log_info "Loading dictionary..."
     File.open(file, "r") do |f|
       while n = f.gets
         fields = n.chomp.split( FIELD_DELIMITER )
         key = fields[ ENTRY ]
-        @@data[key] ||= []
-        @@data[key] <<= fields[DEF..EX]
+
+        unless key.nil?
+          @@data[key] ||= []
+          list = fields[DEF..EX]
+          puts "KEY #{key} yielding list empty!" if list.nil?
+          @@data[key] <<= ( list.nil? || list.empty?  ?  [""]  :  list )
+        end  # unless
+        
       end  # while reading each line in file
     end  # file read
-    # Environ.log_info 
-    puts "Dictionary has #{@@data.length} entries."
+    Environ.log_info "Dictionary has #{@@data.length} entries."
   end
 
   #  ------------------------------------------------------------
@@ -42,6 +46,7 @@ class Dictionary
 
   def initialize( topic=nil )
     @fc_data = @@data
+    @fc_keys = @@data.keys.sort
   end
 
   #  ------------------------------------------------------------
@@ -52,11 +57,40 @@ class Dictionary
   Dictionary.load_data( DICTFILE )
   @@database[:dictionary] = Dictionary.new
 
+  def self.database
+    @@database
+  end
 
   #  ------------------------------------------------------------
   #  ------------------------------------------------------------
 
   include Sources
+
+  #  ------------------------------------------------------------
+  #  ------------------------------------------------------------
+  #  ------------------------------------------------------------
+  #  get_data_at_index -- returns an array of [front,back] data 
+  #  for a card at a given index.
+  #  validity checking for index is performed. if beyond the limits
+  #  of the database, will simply return data at the limit.
+  #  ------------------------------------------------------------
+  #  Dictionary is different from other sources; it 
+  #  is a hash of key => array of definitions & examples
+  #  so the index will be the index into the array of keys.
+  #  then we'll have to mash together the definitions to yield our
+  #  expected result of [front, back]
+  #  ------------------------------------------------------------
+  def get_data_at_index( index )
+    index = clamp_index( index, @fc_keys.length )
+    key = @fc_keys[index]
+    # puts "Dictionary get_data @ #{index} for key #{key}"
+
+    back = ""
+    @fc_data[key].each { |english| back <<= english[0] + "; " }
+
+    return [key, back.chop.chop]
+  end
+
 
   #  ------------------------------------------------------------
   #  ------------------------------------------------------------
