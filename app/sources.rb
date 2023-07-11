@@ -66,7 +66,7 @@ module Sources
 
       return db if db.kind_of?( Sources )
 
-      raise NameError, "Source class of: #{db.class} unexpected."
+      raise EntryError, "Source class of: #{db.class} unexpected."
     end
 
   end  # ClassMethods

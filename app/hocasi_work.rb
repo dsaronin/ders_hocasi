@@ -90,9 +90,9 @@ class HocasiWork
   def do_flashcards( list, settings )
     begin
       return FlashManager.new( list.first, settings ).start_card_player
-    rescue ArgumentError
+    rescue TopicError
       Environ.put_and_log_error( ">>  " + $!.message )
-    rescue NameError
+    rescue EntryError
       Environ.put_and_log_error( ">>  " + $!.message )
     end  # exception handling
 

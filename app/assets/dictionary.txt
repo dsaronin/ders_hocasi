@@ -4956,7 +4956,6 @@ zorunda	must, have to [do sth]	dans etmek zorunda değilim. götürmek zorundas�
 zürafa	giraffe
 10 katlı	10 floors
 5 yıl boyunca	for 5 years
-zzzzzzzzzzzzzzz ============================================ zzzzzzzzzzzz
 hasar	damage, harm, hurt, loss
 yağış	precipitation, rains/snows	yoğun kar yağışı vardı.
 karış	meddle, butt into sth

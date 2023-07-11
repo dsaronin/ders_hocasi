@@ -72,7 +72,7 @@ class FlashManager
     @my_topic = Topics.find_topic( topic )
 
     if @my_topic.nil?
-      raise ArgumentError, "Topic: #{topic} not found"
+      raise TopicError, "Topic: #{topic} not found"
     end
 
     @my_settings[:topic] = topic  # replace topic in settings
@@ -82,7 +82,7 @@ class FlashManager
                 find_or_new( topic,  @my_settings[:entry] )
 
     if @my_source.nil?
-      raise NameError, "Source for topic: #{topic} not found"
+      raise EntryError, "Source for topic: #{topic} not found"
     end
     
     reset_if_start

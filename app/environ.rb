@@ -128,3 +128,15 @@ class Environ
   #  ------------------------------------------------------------
 
 end  # Class Environ
+
+class TopicError < StandardError
+  def initialize(msg="Topic not found")
+    super(msg)
+  end
+end
+
+class EntryError < StandardError
+  def initialize(msg="Entry not found for Source")
+    super(msg)
+  end
+end

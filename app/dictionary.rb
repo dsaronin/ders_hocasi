@@ -23,7 +23,8 @@ class Dictionary
   #  load_dictionary  -- loads verb database and creates dictionary
   #  ------------------------------------------------------------
   def Dictionary.load_data(file)
-    Environ.log_info "Loading dictionary..."
+    # Environ.log_info 
+    puts "Loading dictionary..."
     File.open(file, "r") do |f|
       while n = f.gets
         fields = n.chomp.split( FIELD_DELIMITER )
@@ -32,12 +33,14 @@ class Dictionary
         @@data[key] <<= fields[DEF..EX]
       end  # while reading each line in file
     end  # file read
-    Environ.log_info "Dictionary has #{@@data.length} entries."
+    # Environ.log_info 
+    puts "Dictionary has #{@@data.length} entries."
   end
 
   #  ------------------------------------------------------------
   #  ------------------------------------------------------------
-  def add_fcdata
+
+  def initialize( topic=nil )
     @fc_data = @@data
   end
 
@@ -47,7 +50,8 @@ class Dictionary
   @@database ||= Hash.new
   @@data = Hash.new
   Dictionary.load_data( DICTFILE )
-  @@database[:dictionary] = Dictionary.new.add_fcdata
+  @@database[:dictionary] = Dictionary.new
+
 
   #  ------------------------------------------------------------
   #  ------------------------------------------------------------
