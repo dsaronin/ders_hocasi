@@ -120,6 +120,5 @@ end  # module
 
 
 # placeholders until we can write the code
-class Dictionary ; include Sources; @@database = nil;  end
 class Articles ; include Sources; @@database = nil;  end
 

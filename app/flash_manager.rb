@@ -18,6 +18,7 @@ class FlashManager
   require_relative 'readings'
   require_relative 'dialogs'
   require_relative 'opposites'
+  require_relative 'dictionary'
  
   SOURCE_TYPES   = %w{Topics Sentences Phrases Opposites Readings Dialogs Articles Dictionary}
   SELECTOR_TYPES = %w{ordered shuffled}

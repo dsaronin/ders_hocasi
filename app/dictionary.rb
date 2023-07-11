@@ -5,10 +5,9 @@
 #
 
 class Dictionary
-  include Sources
 
   FIELD_DELIMITER = /\t/
-  DICTFILE = "app/turk_verbs.txt"
+  DICTFILE = "app/assets/dictionary.txt"
 
   ENTRY = 0   # field index for key entry
   DEF   = 1   # field index for english definition
@@ -19,10 +18,6 @@ class Dictionary
   #  CLASS-LEVEL actions & methods
   #  ------------------------------------------------------------
   #  ------------------------------------------------------------
-  # input DIALOGS database here if not done already 
-
-  @@database ||= Hash.new
-  @@data = Hash.new
 
   #  ------------------------------------------------------------
   #  load_dictionary  -- loads verb database and creates dictionary
@@ -40,4 +35,25 @@ class Dictionary
     Environ.log_info "Dictionary has #{@@data.length} entries."
   end
 
+  #  ------------------------------------------------------------
+  #  ------------------------------------------------------------
+  def add_fcdata
+    @fc_data = @@data
+  end
+
+  #  ------------------------------------------------------------
+  #  ------------------------------------------------------------
+
+  @@database ||= Hash.new
+  @@data = Hash.new
+  Dictionary.load_data( DICTFILE )
+  @@database[:dictionary] = Dictionary.new.add_fcdata
+
+  #  ------------------------------------------------------------
+  #  ------------------------------------------------------------
+
+  include Sources
+
+  #  ------------------------------------------------------------
+  #  ------------------------------------------------------------
 end  # Dictionary
