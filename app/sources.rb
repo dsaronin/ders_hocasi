@@ -89,12 +89,19 @@ module Sources
     return index
   end
 
+  def side_conversion(list, side)
+    return list.reverse if side == "back"
+    return list.shuffle if side == "shuffle"
+    return list
+  end
+
   #  ------------------------------------------------------------
   #  get_data_at_index -- returns an array of [front,back] data 
   #  NOTE: normally *should* access data this way.
   #  ------------------------------------------------------------
-  def get_data_at_index( index )
-    return fc_data[ clamp_index(index, fc_data.length) ]
+  def get_data_at_index( index, side = "front" )
+    list = fc_data[ clamp_index(index, fc_data.length) ]
+    return side_conversion(list, side)
   end
 
   #  ------------------------------------------------------------

@@ -20,11 +20,11 @@ class FlashManager
   require_relative 'opposites'
   require_relative 'dictionary'
  
-  SOURCE_TYPES   = %w{Topics Sentences Phrases Opposites Readings Dialogs Articles Dictionary}
+  SOURCE_TYPES   = %w{Topics Sentences Phrases Opposites Readings Dialogs Dictionary}
   SELECTOR_TYPES = %w{ordered shuffled}
-  SIZER_TYPES    = [5, 10, 15, 25]
-  GROUP_SIZES    = %w{5 10 15 25}   # display for html select
-  SIDE_TYPES     = %w{front back shuffle special}
+  SIZER_TYPES    = [5, 10, 15, 25, 50]
+  GROUP_SIZES    = %w{5 10 15 25, 50}   # display for html select
+  SIDE_TYPES     = %w{front back shuffle}
 
     # TODO: future to be implemented
   SPEED_TYPES    = %w{slow medium fast}
@@ -142,7 +142,7 @@ class FlashManager
   #  ------------------------------------------------------------
   def current_card
     index =  @shuffle_indexes[@cur_ptr] + @group_dex 
-    return @my_source.get_data_at_index( index )
+    return @my_source.get_data_at_index( index, @my_settings[:side] )
   end
 
   #  ------------------------------------------------------------

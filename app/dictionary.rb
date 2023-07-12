@@ -80,7 +80,7 @@ class Dictionary
   #  then we'll have to mash together the definitions to yield our
   #  expected result of [front, back]
   #  ------------------------------------------------------------
-  def get_data_at_index( index )
+  def get_data_at_index( index, side = "front" )
     index = clamp_index( index, @fc_keys.length )
     key = @fc_keys[index]
     # puts "Dictionary get_data @ #{index} for key #{key}"
@@ -88,7 +88,7 @@ class Dictionary
     back = ""
     @fc_data[key].each { |english| back <<= english[0] + "; " }
 
-    return [key, back.chop.chop]
+    return side_conversion( [key, back.chop.chop], side )
   end
 
 
