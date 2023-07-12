@@ -410,6 +410,9 @@ fieldset > a:hover {
   color: #455A64;
   justify-content: center;
 }
+#rear p {
+  width: 100%;
+}
 
 .flashcard {
   margin: 0.3em auto;

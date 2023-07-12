@@ -19,11 +19,13 @@ class FlashManager
   require_relative 'dialogs'
   require_relative 'opposites'
   require_relative 'dictionary'
+
+  attr_reader :my_settings
  
   SOURCE_TYPES   = %w{Topics Sentences Phrases Opposites Readings Dialogs Dictionary}
   SELECTOR_TYPES = %w{ordered shuffled}
   SIZER_TYPES    = [5, 10, 15, 25, 50]
-  GROUP_SIZES    = %w{5 10 15 25, 50}   # display for html select
+  GROUP_SIZES    = %w{5 10 15 25 50}   # display for html select
   SIDE_TYPES     = %w{front back shuffle}
 
     # TODO: future to be implemented

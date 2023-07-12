@@ -28,6 +28,7 @@ class Dictionary
       while n = f.gets
         fields = n.chomp.split( FIELD_DELIMITER )
         key = fields[ ENTRY ]
+        key.gsub!( /\s*{.+}/, "") unless key.nil?
 
         unless key.nil?
           @@data[key] ||= []

@@ -19,6 +19,61 @@ class HocasiApp < Sinatra::Application
   set :root, File.dirname(__FILE__)
 
   #  ------------------------------------------------------------
+  #  ------------------------------------------------------------
+  def prep_dialog
+    @front = @front.gsub( /^.: / , "" )
+  end
+
+  #  ------------------------------------------------------------
+  #  ------------------------------------------------------------
+  def prep_opposites
+    @front = @front.gsub( /::/, " &harr; " )
+  end
+
+  #  ------------------------------------------------------------
+  #  ------------------------------------------------------------
+  def prep_dictionary
+    @rear = @rear.split( /; / )
+  end
+
+  #  ------------------------------------------------------------
+  #  helper_ready_haml_stuff  -- stuff to get ready for view
+  #  ------------------------------------------------------------
+  def helper_ready_haml_stuff( card, show )
+    @action_box = :action_player   # use special action box
+    @dark_background = true
+
+    @front = show[0]
+    @rear  = show[1]
+
+    @source = card.my_settings[:source]
+
+    case @source
+      when /Dialogs/    then prep_dialog
+      when /Opposites/  then prep_opposites
+      when /Dictionary/  then prep_dictionary
+    end
+
+    helper_font_sizing
+  end
+
+  #  ------------------------------------------------------------
+  #  helper_font_sizing  -- calcs size of font for player display
+  #  ------------------------------------------------------------
+  def helper_font_sizing
+      # calculate variable font sizing
+    @fontsize = case @front.length
+                when (1..5)   then "huge"
+                when (6..8)   then "large"
+                when (9..16)  then "big1"
+                when (17..39) then "big2"
+                when (40..59) then "big3"
+                else 
+                  "normal"
+                end
+  end
+
+  #  ------------------------------------------------------------
   #  helper_prep_player  -- does common player setup preparations
   #  args: 
   #    playcmd: command to be passed to player
@@ -40,6 +95,7 @@ class HocasiApp < Sinatra::Application
 
       # ok even if settings==nil at this point
     player = HOCASI.do_flashcards( [topic.to_s], settings )
+
     if player.nil?  # due to exception
       loop = false
       if ($!.nil? || $!.message.match( /^Source/ ) )
@@ -56,27 +112,9 @@ class HocasiApp < Sinatra::Application
 
         # setup variables for player display
       if loop
-        @action_box = :action_player   # use special action box
-        @dark_background = true
-
-        @front = show[0]
-        @rear  = show[1]
-
-          # temp values for debugging/development
-        @topic = "topic"
-        @sample = "sample sentence"
-
-          # calculate variable font sizing
-        @fontsize = case @front.length
-                    when (1..5)   then "huge"
-                    when (6..8)   then "large"
-                    when (9..16)  then "big1"
-                    when (17..45) then "big2"
-                    when (46..69) then "big3"
-                    else 
-                      "normal"
-                    end
+        helper_ready_haml_stuff( player.card, show )
       end  # inner if
+
     end  # outer if
 
     return loop

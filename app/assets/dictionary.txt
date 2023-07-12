@@ -4685,7 +4685,7 @@ yarak	dick  (slang)	büyük yarak. yarağımi yalamak işteyen var mı?
 yaramazlık	mischief
 yaramaz	naughty, mischievous	eğer yaramaz bir çocuksan.
 yararlı	helpful, useful, beneficial; faydalı	hikayenin bir kaydı yararlı olacaktır. dilbilgisi kurallarını öğretmek yararlıdır.
-- yararlı olmak	be helpful	bir tür benzersiz göstergenin olması yararlı olacaktır.
+-yararlı olmak	be helpful	bir tür benzersiz göstergenin olması yararlı olacaktır.
 yarasa	bat
 yara	wound, sore, injury
 -yar	cleave, maul, rend, rip, slash, split
