@@ -45,6 +45,13 @@ class HocasiApp < Sinatra::Application
 
     @front = show[0]
     @rear  = show[1]
+    key = case @my_settings[:side]
+           when /front/ then card.extract_key( @front )
+           when /back/  then card.extract_key( @rear )
+           else
+             ""   # empty key
+           end
+    @examples = card.mine_examples( key )
 
     @source = card.my_settings[:source]
 

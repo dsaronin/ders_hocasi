@@ -35,6 +35,10 @@ class FlashManager
     # TODO: might never be implemented
   ANSWER_TYPES   = %w{typed multiple-choice none}
 
+  # EXAMPLE_TYPES used to invoke mine_examples in each
+  # type of class and in the order given
+  EXAMPLE_TYPES   = %w{Phrases Dialogs Sentences Readings Dictionary}
+
   #  ------------------------------------------------------------
   #  ------------------------------------------------------------
   #  CLASS-LEVEL actions & methods
@@ -226,6 +230,35 @@ class FlashManager
     (0..(max-1)).to_a.shuffle.take( size )
   end
  
+  #  ------------------------------------------------------------
+  #  mine_examples  -- mines the various note resources
+  #  extracting examples based on keyword(s)
+  #  ------------------------------------------------------------
+  def mine_examples(key)
+    list = []
+    unless key.empty?
+      EXAMPLE_TYPES.each do |asset|
+        list.concat(  
+            Module.const_get( asset ).mine_examples(key)
+        )
+      end  # each asset
+    end  # unless empty key
+    return list
+  end
+
+  #  ------------------------------------------------------------
+  #  extract_key  -- extracts sometype of meaningful key from a
+  #  string to be used to search for examples
+  #  ------------------------------------------------------------
+  def extract_key( str )
+    keys = str.gsub(/[:;.,-=+?!|~^$#@&*]/,' ').split
+    return "" if keys.empty?  ||  keys.length > 6
+    return keys.first if keys.length < 3
+
+    keys.pop if keys.length > 4  # removes turkish verb? TODO
+    return keys.sort{ |x,y| y.length <=> x.length }.first
+  end
+
   #  ------------------------------------------------------------
   #  ------------------------------------------------------------
 end  # FlashManager
