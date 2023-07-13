@@ -237,12 +237,14 @@ class FlashManager
   def mine_examples(key)
     list = []
     unless key.empty?
+      puts "mining for key: #{key}"
       EXAMPLE_TYPES.each do |asset|
         list.concat(  
             Module.const_get( asset ).mine_examples(key)
         )
       end  # each asset
     end  # unless empty key
+    puts "examples list: " + list.inspect
     return list
   end
 
@@ -251,11 +253,10 @@ class FlashManager
   #  string to be used to search for examples
   #  ------------------------------------------------------------
   def extract_key( str )
-    keys = str.gsub(/[:;.,-=+?!|~^$#@&*]/,' ').split
+    return "" unless @my_settings[:source].match /Topics|Opposites/
+    keys = str.gsub(/[:;.,-=+?!|~^$#@&*<>]/,' ').split
     return "" if keys.empty?  ||  keys.length > 6
     return keys.first if keys.length < 3
-
-    keys.pop if keys.length > 4  # removes turkish verb? TODO
     return keys.sort{ |x,y| y.length <=> x.length }.first
   end
 

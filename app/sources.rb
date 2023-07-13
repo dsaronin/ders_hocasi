@@ -42,6 +42,32 @@ module Sources
       return self.class_variable_get(:@@database).keys.sort
     end
 
+    #  ------------------------------------------------------------
+    #  empty_mine  -- common way to skip mining for examples
+    #  ------------------------------------------------------------
+    def empty_mine(key="")
+      return []
+    end
+
+    #  ------------------------------------------------------------
+    #  mine_examples  -- returns an example from DB for a key
+    #  ------------------------------------------------------------
+    def mine_examples(key)
+      keyrex = Regexp.new("[:;.,]|\s#{key}[:;.,]|\s", Regexp::IGNORECASE)
+
+        # search thru all fc_data lists of all objs in DB
+        # until a single match found, then return it
+      self.class_variable_get(:@@database).each do |key,obj|
+        obj.fc_data.each do |front,rear|
+          if front.match keyrex
+            return [front]   # got match, latch & exit
+          end  # if match
+        end  # do each fc_data item
+
+      end   # do each obj in database
+      return []   # no matches
+    end
+
     private
 
     #  ------------------------------------------------------------
@@ -112,9 +138,11 @@ module Sources
   end
 
   #  ------------------------------------------------------------
+  #  fc_data -- returns the array of [front,back] data for cards
+  #  NOTE: normally shouldn't access data this way.
   #  ------------------------------------------------------------
-  def mine_examples(key)
-    return []
+  def fc_data
+    return  @fc_data  ||  EMPTY_DATA
   end
 
   #  ------------------------------------------------------------
@@ -125,14 +153,6 @@ module Sources
   #  ------------------------------------------------------------
   #  ------------------------------------------------------------
   def initialize( topic )
-  end
-
-  #  ------------------------------------------------------------
-  #  fc_data -- returns the array of [front,back] data for cards
-  #  NOTE: normally shouldn't access data this way.
-  #  ------------------------------------------------------------
-  def fc_data
-    return  @fc_data  ||  EMPTY_DATA
   end
 
 end  # module

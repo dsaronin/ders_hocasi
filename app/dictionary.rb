@@ -43,6 +43,14 @@ class Dictionary
   end
 
   #  ------------------------------------------------------------
+  #  mine_examples  -- skip mining for examples from our DB
+  #  ------------------------------------------------------------
+  def self.mine_examples(key)
+    return empty_mine
+  end
+
+
+  #  ------------------------------------------------------------
   #  ------------------------------------------------------------
 
   def initialize( topic=nil )
