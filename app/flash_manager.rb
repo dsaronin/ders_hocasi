@@ -256,7 +256,7 @@ class FlashManager
     return "" unless @my_settings[:source].match /Topics|Opposites/
     keys = str.gsub(/[:;.,-=+?!|~^$#@&*<>]/,' ').split
     return "" if keys.empty?  ||  keys.length > 6
-    return keys.first if keys.length < 3
+    return str if keys.length < 3
     return keys.sort{ |x,y| y.length <=> x.length }.first
   end
 

@@ -196,7 +196,7 @@ html {
 
 hr {
   border: 0;
-  border-top: 1px solid #eee;
+  border-top: 1px solid #B2BBBF;
   padding: 0.5em 0;
 }
 
@@ -408,6 +408,7 @@ fieldset > a:hover {
 #rear {
   background-color: #CFD8DC;
   color: #455A64;
+  display: block;
   justify-content: center;
 }
 #rear p {

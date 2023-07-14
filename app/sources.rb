@@ -53,7 +53,7 @@ module Sources
     #  mine_examples  -- returns an example from DB for a key
     #  ------------------------------------------------------------
     def mine_examples(key)
-      keyrex = Regexp.new("[:;.,]|\s#{key}[:;.,]|\s", Regexp::IGNORECASE)
+      keyrex = Regexp.new("^(#{key})|\\s(#{key})", Regexp::IGNORECASE)
 
         # search thru all fc_data lists of all objs in DB
         # until a single match found, then return it
