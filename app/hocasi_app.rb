@@ -52,7 +52,8 @@ class HocasiApp < Sinatra::Application
              ""   # empty key
            end
     @examples = card.mine_examples( key )
-
+    @settings = card.my_settings
+    puts @settings.inspect
     @source = card.my_settings[:source]
 
     case @source

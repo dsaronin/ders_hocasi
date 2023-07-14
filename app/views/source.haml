@@ -1,7 +1,7 @@
 %h5 Select an entry from #{@settings[:source]}
 = form('/source', method=:post) do |f|
   = f.label(:entry, 'Source entry:&emsp;')
-  = f.select(:entry, Module.const_get( @settings[:source] ).sorted_keys )
+  = f.select(:entry, Module.const_get( @settings[:source] ).sorted_keys, {:value => @settings[:entry].to_sym } )
   = link_to( 'cancel', "/", { :id => "cancel", :title => "cancel setting changes" } )
   = submit( 'update', :value => 'flashcards »' )
  

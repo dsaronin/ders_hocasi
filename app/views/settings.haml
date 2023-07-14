@@ -1,19 +1,19 @@
 %h5 Flashcard Settings
 = form('/settings', method=:post) do |f|
   = f.label(:topic, 'Topic for Flashcards:&emsp;')
-  = f.select(:topic, Topics.sorted_keys, {:value => Topics.default_topic})
+  = f.select(:topic, Topics.sorted_keys, {:value => @settings[:topic].to_sym })
   %br
   = f.label(:source, 'Source for Flashcards:&emsp;')
-  = f.select(:source, FlashManager::SOURCE_TYPES, {:value => 'Topics'})
+  = f.select(:source, FlashManager::SOURCE_TYPES, {:value => @settings[:source]})
   %br
   = f.label(:order, 'Selection order:&emsp;')
-  = f.select(:order, FlashManager::SELECTOR_TYPES, {:value => 'ordered'})
+  = f.select(:order, FlashManager::SELECTOR_TYPES, {:value => @settings[:selector]})
   %br
   = f.label(:sizer, 'Group size:&emsp;')
-  = f.select(:sizer, FlashManager::GROUP_SIZES, {:value => '10'})
+  = f.select(:sizer, FlashManager::GROUP_SIZES, {:value => @settings[:sizer].to_s })
   %br
   = f.label(:side, 'Side to display:&emsp;')
-  = f.select(:side, FlashManager::SIDE_TYPES, {:value => 'front'})
+  = f.select(:side, FlashManager::SIDE_TYPES, {:value => @settings[:side]})
   = link_to( 'cancel', "/", { :id => "cancel", :title => "cancel setting changes" } )
   = submit( 'update', :value => 'flashcards »' )
 
