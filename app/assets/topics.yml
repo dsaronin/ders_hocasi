@@ -1150,4 +1150,26 @@
       - ["ürün", "product"]
       - ["vergi", "taxes"]
       - ["şirket", "company"]
-
+:basic:
+  !ruby/object:Topics
+    name: basic
+    alt_name: basic
+    category: grammar
+    target: türkçe
+    source: english
+    description: basics
+    summary: basics
+    fc_data:
+      - ["tbd", "tbd"]
+:general:
+  !ruby/object:Topics
+    name: general
+    alt_name: general
+    category: grammar
+    target: türkçe
+    source: english
+    description: general
+    summary: general
+    fc_data:
+      - ["tbd", "tbd"]
+  

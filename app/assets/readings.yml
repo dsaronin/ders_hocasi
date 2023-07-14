@@ -11,6 +11,7 @@
       - children
     title: Kuyruk Acisi Hikayesi
     level: A2
+    recording: reading-kuyruk_acisi.ogg
     fc_data:
       - ["Kuyruk Acisi Hikayesi", "Tail Anger Story"]
       - ["Köyün birinde oğlu ile birlikte yaşayan yaşlı bir adam yaşarmış.", "In a village lived an old man who lived with his son."]
@@ -82,6 +83,7 @@
       - children
     title: how to listen
     level: A2
+    recording: reading-merhaba_arkadaşlar.ogg
     fc_data:
       - ["Merhaba arkadaşlar,", "Hello friends,"]
       - ["Ben arkadaşlarımı, ailemi, öğretmenimi kısacası herkesi dinlerken aşağıdaki kuralları uyguluyorum.", "I follow the rules below while listening to my friends, my family, my teacher, in short, everyone."]
@@ -101,6 +103,7 @@
       - rights
     title: rights and freedoms
     level: A2
+    recording: reading-hak_ve_özgürlüklerimiz.ogg
     fc_data:
       - ["Hak ve özgürlüklerimiz", "Our rights and freedoms"]
       - ["Toplum yaşamında yasaların herkese sağladığı birtakım haklar vardır.", "In social life, there are certain rights that laws provide to everyone."]

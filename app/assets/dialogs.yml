@@ -12,6 +12,7 @@
     title: at the market
     date: 20220706
     level: A2
+    recording: dialog-markette.ogg
     fc_data:
       -  ["_: B markette alışveriş yapıyor…", "_: B is shopping at the market…"]
       -  ["A: Merhaba, kolay gelsin.", "A: Hello, take it easy."]
@@ -42,6 +43,7 @@
     title: at the market
     level: A2
     date: 20220706
+    recording: dialog-mavi_turizm.ogg
     fc_data:
       -  ["_: GÖREVLİ ve DAUDI uçak bileti almak için acentaya telefon eder…", "_: A Travel Agent and DAUDI call the agency to buy plane tickets…"]
       -  ["A: Mavi turizm, buyurun. Size nasıl yardımcı olabilirim?", "A: Blue tourism, here you go. How can I help you?"]
@@ -64,6 +66,7 @@
     title: friends on phone about school
     level: A1
     date: 20220806
+    recording: dialog-okul_arkadaşim.ogg
     fc_data:
       -  ["_: Gül ve Elif telefonda okul hakkında konuşuyorlar.", "_: Gul and Elif are talking on the phone about school."]
       -  ["A: Merhaba B:! Nasılsın?", "A: Hello B:! How are you?"]
@@ -87,6 +90,7 @@
     title: i saw your profile online
     level: A2
     date: 20220806
+    recording: dialog-profillere_bakıyordum.ogg
     fc_data:
       -  ["_: A, B ile çevrimiçi profili hakkında sohbet ediyor…", "_: A is chatting with B about his online profile…"]
       -  ["A: Merhaba, öylesine profillere bakıyordum. Türkçe yazı gördüm. Nasılsın?", "A: Hi, I was just looking at profiles. I saw a Turkish article. How are you?"]
@@ -139,6 +143,7 @@
     title: friends meet up at cafe
     level: A2
     date: 20230221
+    recording: dialog-kahve_alma.ogg
     fc_data:
       -  ["_: Kahvecite", "_: Cafe"]
       -  ["A: Merhaba.", "A: Hello."]
@@ -175,6 +180,7 @@
     title: visiting doctor with a cold
     level: A2
     date: 20220326
+    recording: dialog-klinikta_hasta.ogg
     fc_data:
       -  ["A: Merhaba", "A: Hello"]
       -  ["B: Merhaba, buyurun.", "B: Hello, here you go."]
@@ -249,4 +255,34 @@
       - ["C: Tabii. Şifrenizi girin lütfen.", "A: Sure. Please enter your password."]
       - ["A: Teşekkürler, kolay gelsin.", "A: Thanks, take it easy."]
       - ["C: Sağolun, iyi günler.", "A: Thanks, good day."]
-        
+
+:mağazada:
+  !ruby/object:Dialogs
+    topics: 
+      - shopping
+      - clothes
+    title: at the department store
+    date: 20220706
+    level: A2
+    recording: dialog-mağazada2.ogg
+    fc_data:
+      - ["_: Mağazada SATIŞ DANIŞMANI ve LINDY konuşuyorlar.", "_: SALES CONSULTANT and LINDY are talking in the store."]
+      - ["A: Hoş geldiniz efendim. Yardımcı olmamı ister misiniz?", "A: Welcome, sir. Do you want me to help?"]
+      - ["B: Merhaba, bir gömlek almak istiyorum.", "B: Hello, I want to buy a shirt."]
+      - ["A: Tabii, ne renk olsun.", "A: Sure, whatever color you get."]
+      - ["B: Siyah ya da beyaz olabilir.", "B: It can be black or white."]
+      - ["A: Peki, kaç beden giyiyorsunuz?", "A: Well, what size do you wear?"]
+      - ["B: 38.", "B: 38."]
+      - ["A: Bu gömlekler nasıl?", "A: How are these shirts?"]
+      - ["B: Hmmm şu siyah olan güzelmiş. Deneyebilir miyim?", "B: Hmmm that black one is beautiful. May I try?"]
+      - ["A: Tabii, deneme kabinlerimiz hemen şurada.", "A: Sure, our trial cabins are right over there."]
+      - ["_: Birkaç dakika sonra…", "_: A few minutes later…"]
+      - ["A: Nasıl oldu, beğendiniz mi?", "A: How was it, do you like it?"]
+      - ["B: Tam oldu, çok beğendim. Bu ne kadar?", "B: It's perfect, I like it very much. How much is this?"]
+      - ["A: 240 lira, kredi kartına 3 taksit yapabiliriz.", "A: 240 lira, we can make 3 installments on credit card."]
+      - ["B: Nakitte indirim var mı?", "B: Is there a discount on cash?"]
+      - ["A: Nakitte %10 indirim var.", "A: There is a 10% discount on cash."]
+      - ["B: Tamam o zaman alıyorum. Kasa nerede?", "B: Ok then I'll take it. Where is the case?"]
+      - ["A: Kasalar sol tarafta. İyi günlerde kullanın.", "A: The safes are on the left. Feel happy while using it."]
+      - ["B: Teşekkürler, kolay gelsin.", "B: Thanks, take it easy."]
+
