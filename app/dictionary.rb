@@ -43,10 +43,19 @@ class Dictionary
   end
 
   #  ------------------------------------------------------------
-  #  mine_examples  -- skip mining for examples from our DB
+  #  mine_examples  -- gather examples for a given dictionary key
   #  ------------------------------------------------------------
   def self.mine_examples(key)
-    return empty_mine
+    list = []
+
+    defs = @@data[key]
+    return list if defs.nil?
+
+    defs.each do |adef|
+      list.push( adef[1] )
+    end
+
+    return list.compact
   end
 
 
@@ -55,7 +64,7 @@ class Dictionary
 
   def initialize( topic=nil )
     @fc_data = @@data
-    @fc_keys = @@data.keys.sort
+    @fc_keys = @@data.keys
   end
 
   #  ------------------------------------------------------------

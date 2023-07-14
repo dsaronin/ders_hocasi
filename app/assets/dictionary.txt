@@ -1,4 +1,4 @@
--abart	exaggerate, magnify, dramatize, emroider	her zaman abartırsın.
+-abart	exaggerate, magnify, dramatize, embroider	her zaman abartırsın.
 abartı	exaggeration, hyperbole, overstatement
 ABD	USA;  Amerika Birleşik Devletleri
 abi	older brother
@@ -122,7 +122,7 @@ akşam yemeği	dinner, evening meal
 aksesuarlar	accessory
 aktarma işaretleri	transfer signs
 aktarma	transfer [transit]
--aktif et	turn on sth, activate sth	eve geldiğimde Wi-Fi aktif et.
+-aktif etmek	turn on sth, activate sth	eve geldiğimde Wi-Fi aktif et.
 aktif	gay top  (slang)
 aktivite	activity	tatil aktiviteleri
 aktör	actor
@@ -469,7 +469,7 @@ başarılı	successful, victorious, prosperous, thriving	başarılı şablon de�
 baş aşağı	upside down
 -başa sallamak	nod head
 başbakan	prime minister
--baş et	deal, manage, cope with sth	onunla baş edebilir.
+-baş etmek	deal, manage, cope with sth	onunla baş edebilir.
 baş	head
 başı	head [of sth]	başı etli.
 başına	per	toplantı başına 1 saat.
@@ -904,7 +904,7 @@ cephe	front, face, front line	suriye cephesi yıldırım orduları komutanı.
 cep	pocket
 cep telefonu	cell phone
 cesaret	courage, bravery, boldness, daring, fearlessness, fortitude
--cesaret et	dare, venture
+-cesaret etmek	dare, venture
 çeşit	type
 çeşit	variety, sort, range, assortment	biçim çeşitlerini kullanır.
 cesur	brave  [<> korkak]
@@ -1152,7 +1152,7 @@ destek	support, aid, assistance	maddi destek sağliyabilicekleri yazarsa sevinir
 destek	supporting, backing, prop, truss, pillar
 detaylı bilgi	detailed information	detaylı bilgi için tıklayın.
 devam	continuation, attendance, duration, endurance, pursuance
--devam et	continue, go on, keep on, proceed, progress, pursue	devam etmemeliyiz.
+-devam etmek	continue, go on, keep on, proceed, progress, pursue	devam etmemeliyiz.
 devam et	go on, keep it up, keep going  (expl)
 devamında	in the continuation
 devamlılık	continuity
@@ -1169,7 +1169,7 @@ dik	erect, horny
 dikkat	attention, careful	dikkatli ol, tencere çok sıcak!
 dikkat!	attention!  (expl)	dikkat! köpek var!
 dikkat	caution
--dikkat et	to be careful [dativ], to pay attention
+-dikkat etmek	to be careful [dativ], to pay attention
 -dikkat yoğunlaştır	focus attention on sth	dikkatimi, dinlediklerime yoğunlaştırırım.
 dik	steep, perpendicular, vertical
 dik	straight, upright	dik durursan sığınak olursun.
@@ -1462,7 +1462,7 @@ eski	old, [thing]; [<> yeni]
 -eski	to wear out
 -eşle	match, mate, pair together	zıt anlamlı kelimeleri eşleştiriniz.
 eşlik	companionship, attendance, company
--eşlik et	attend, accompany sby
+-eşlik etmek	attend, accompany sby
 esnaf lokantası	canteen-style restaurant
 esnek	flexible
 esneklik	flexibility	esneklik kazandırır.
@@ -1521,11 +1521,11 @@ fare altlığı	mouse mat  (tech)
 fare	mouse
 fark	difference, gap, distinction
 farket	notice
--fark et	realize, perceive, recognize, detect, discern, notice	ödevini yapmadığını fark edince annesini aradım.
+-fark etmek	realize, perceive, recognize, detect, discern, notice	ödevini yapmadığını fark edince annesini aradım.
 -farkında olmak	be aware of sth
 farklı	different; [<> aynı]
 farsça	iran [language]
--farz et	pretend
+-farz etmek	pretend
 fasce	morocco [language]
 fasikül	fascicle [a bundle of structures, such as nerve or muscle fibers or conducting vessels in plants.]  (bio)
 faslı	morocco [people]
@@ -2047,7 +2047,7 @@ his	feeling, sense, sensation, emotion, sentiment	yeni tanıdığınız birini s
 -hisset	feel	kendimi çok kötü hissediyorum. kendimi iyi hissetmiyorum.
 -hisset	sense, preceive	umarım yakında daha iyi hissedersin.
 hızlı	quick, fast; [<> yavaş]
--hizmet et	to serve
+-hizmet etmek	to serve
 hizmet	service	bu restoranda hizmet çok kötü.
 hoca	teacher, master, guru
 hollandace	netherlands [language]
@@ -2111,7 +2111,7 @@ ihtiyaç	exigency, necessity, need, requirement, demand	kaliforniya'da yağmura 
 ihtiyaç	need, want, necessity, requirement	bunun için de birinin yardimina ihtiyaçım.
 -ihtiyarla {ihtiyarlar}	to grow old
 ikame	substitution	öğrenci, ikameyi kullanarak cümleyi dönüştürür ve söyler.
--ikamet et	reside in [a place]
+-ikamet etmek	reside in [a place]
 ikamet	stay, residing, dwelling	ikamet iznin. ikamet ettiğiniz ülkedeki.
 iki lafı	two words	iki lafı bir araya getirebilir.
 ikinci	twice
@@ -2783,7 +2783,7 @@ kübalı	cuba [people]
 kucak	lap	ayakta kucağımda.
 küçük	small, little, young; [<> büyük]
 -küçül {küçülür}	to grow smaller
--küfür et	curse, cuss	-küfür ettirmeyin.
+-küfür etmek	curse, cuss	-küfür ettirmeyin.
 kulağına küpe olsun.	《let this be a lesson!》
 kulak	ear
 kulaklık	headphones  (tech)
@@ -3124,7 +3124,7 @@ nargile	hooka water pipe
 nar	pomegranate  (fd)	istanbul üniversitesi’nin yakınlarında nar suyu çok ucuz.
 nasıl	how? what [type, kind, sort]?	annemin doğum günü için nasıl bir hediye alalım.
 nasıl yani?	what do you mean?
--nasip et	destiny, grant, ordain	herkes dogru insani bulma nasip eder dilerim.
+-nasip etmek	destiny, grant, ordain	herkes dogru insani bulma nasip eder dilerim.
 nasip	lot, grant
 nazaran	in view of, according to [dativ]
 nazik	kind, gently, nice, sweet, gracious	sağol çok naziksin.
@@ -3940,7 +3940,7 @@ soğan	onion  (fd)
 -soğu	cool	akrepler kıskanmaz soğur.
 soğuk	cold; [<> sıcak]
 sohbet	chat, conversation	güzel bir sohbeti hiçbir şeye değişmem, hele içinde bilim sanat varsa.
--sohbet et	chat (v)	şimdi gitmeliyim, sonra sohbet edelim.
+-sohbet etmek	chat (v)	şimdi gitmeliyim, sonra sohbet edelim.
 sohbet muhabbet	chat conversation
 sokak hayvanları	street animales, strays
 sokak {sokağı}	street
@@ -4037,7 +4037,7 @@ sudan	sudan [country]
 şunlar	those [far away]
 sünnet	circumcised	sünnetli değilim.
 sünnet derisi	foreskin; penisin ucundaki deri
--sünnet et	circumcise; bızırı kesme
+-sünnet etmek	circumcise; bızırı kesme
 sünnetsiz	uncircumcised	sünnetsiz misin?
 -sun	submit sth, present, offer	konaklama ve yemek olanakları sunduk.
 sunuları	presentations
@@ -4099,11 +4099,11 @@ tablet bilgisayar	tablet pc  (tech)
 taç	crown
 -tadını çıkar	enjoy	hafta sonunun tadını çıkaralım.
 tadı	taste, flavor	bu yemeğin tadı yok.
--tahmin et	guess sth
+-tahmin etmek	guess sth
 tahmin	guess, estimate, conjecture
 tahmini	estimated	tahmini kargoya teslim.
 tahrik edici	stimulating, provocative	kıllı götun daha tahrik edici olduğunu söylemiş miydim?
--tahrik et	excite, turn on, seduce, arouse, stimulate
+-tahrik etmek	excite, turn on, seduce, arouse, stimulate
 tahrik	excitement, stimulation, turning on
 tahrik	propulsion, impulse, incite, inducement, provocation, agitation
 tahrip	destruction
@@ -4120,8 +4120,8 @@ takım elbise	mens suit
 takım	team
 takıntı	obsession, fixation, hangup	foto takintin varsa yazma.
 takip	chase, pursuit
--takip et	follow [social media]	takip etmeden yazma yanit alamazsin. önce takip et.
--taklit et	mimic, imitate	telaffuzunu taklit edirim.
+-takip etmek	follow [social media]	takip etmeden yazma yanit alamazsin. önce takip et.
+-taklit etmek	mimic, imitate	telaffuzunu taklit edirim.
 taklit	imitation, mimic, fake, mock, simulation
 taksim meydanı	taksim square
 taksi	taxi
@@ -4156,7 +4156,7 @@ taraf[da]	side, direction	bizim bu taraflara çok kötü.
 taraf	side; part; [passive agent]
 tarayıcı	scanner  (tech)
 tarçın	cinnamon (fd)
--tarif et	to describe, define
+-tarif etmek	to describe, define
 tarihçe	historical language	eski türkçe
 tarih	date
 tarih	history	yunanistan'dayken birçok tarihi yer gördük.
@@ -4209,7 +4209,7 @@ tbr	tebrikler  (abbrev): congratulations.
 tebrik ederim	congratulations  (expr)
 tebrikler	congratulations
 tecrübe	experience [knowledge, experimentation]; deneyim, olay, yaşam	istediğim gibi sonuçlanmasa da tecrübe oldu benim için.
--tedavi et	cure, treat, remedy
+-tedavi etmek	cure, treat, remedy
 tedavi	treatment, cure, remedy, therapy	tedavi için almanya'ya gidelim.
 tehlike	danger
 tehlikeli	dangerously [<> güvenli]
@@ -4230,12 +4230,12 @@ tek tek değiştir	change it one by one
 tek tek	one by one
 telaffuz alıştırmaları	pronunciation exercises
 telaffuz egzersizleri	pronunciation exercises
--telaffuz et	pronounce, articulate
+-telaffuz etmek	pronounce, articulate
 telaffuz pratik	pronunciation practice	telaffuz pratiğine devam edelim.
 telaffuz	pronunciation, articulation
 telefona	telephone	android bir telefona ihtiyacım var.
 -telefon etmek	telephone sby	daudi uçak bileti almak için acentaya telefon eder.
--telefon et	to phone
+-telefon etmek	to phone
 televizyon	tv
 tel süzgeç	mesh strainer
 temas	contact
@@ -4265,7 +4265,7 @@ terbiye	education, schooling, nurture
 terbiye	manners, politeness, breeding, decency	uymadı dediğimde, terbiyesizleşmeyin.
 tercih	choice, preference, fondness	cd pasifler tercihim sadece.
 -tercih etmek	prefer, choose	eti tercih eden erkekleri anlamıyorum.
--tercih et	prefer, like better, choose, opt	önce arkadaş olarak birbirimizi tanımak için yazmamızı tercih ederim.
+-tercih etmek	prefer, like better, choose, opt	önce arkadaş olarak birbirimizi tanımak için yazmamızı tercih ederim.
 tereyağ	butter  (fd)
 terk	abandonment, surrender, desertion, waiver
 -terk etmek	leave
@@ -4280,7 +4280,7 @@ terzi	tailor
 tesadüf	coincidence, chance, accident, happenstance, incidence, conjunction
 tesadüf	coincidence	harika, ne güzel bir tesadüf değil mi?
 tesadüfi	random, incidental, chance, accidental; rasgele
--teşekkür et	to thank sby
+-teşekkür etmek	to thank sby
 teşekkürler ederim	thank you  (expr)
 teşekkür	thanks  (expr)
 teslim	delivery	tahmini kargoya teslim. temassız bagaj teslimi.
@@ -4288,7 +4288,7 @@ teslim	surrender
 test  {testler}	test	bu konuda neler öğrendik testleri.
 teşvik	encouragement, stimulation
 teyit	confirmation
--teyit et	confirm	teyit ederim.
+-teyit etmek	confirm	teyit ederim.
 teyze	aunt [maternal]
 -ticareti yapmak	trade sth	bilgisayar ticareti yapmaya karar verdik.
 ticaret	trade	yapı inşaat ticaret.
@@ -4332,7 +4332,7 @@ torun	grandchild
 tost makinesi	toaster
 tost	toast (fd)
 tramvay	streetcar
--traş et	shave
+-traş etmek	shave
 traş kremi	shaving cream
 traş	shaving
 trend	trend	yeni trend mi?
@@ -4694,7 +4694,7 @@ yardımcı	assistant, deputy, auxiliary, helpful
 yardımcı	help, assistant, auxiliary, aide, aid	yardımcı olabilecek?
 yardımcı	vice-
 yardım edin!	sby help me!
--yardım et	help sby	yaralandım, bana yardım et!
+-yardım etmek	help sby	yaralandım, bana yardım et!
 yardım	help, assistance, aid	bana yardım gerekmiyor.
 yargıç	judge
 yarım	one half [not used with other numbers]
@@ -4774,7 +4774,7 @@ yemek ye	eat [the meal]	çabuk yemek ye!
 yemence	yemen [language]
 yemenli	yemen [people]
 yemen	yemen [country]
--yemin et	swear an oath, swear, vow
+-yemin etmek	swear an oath, swear, vow
 yeminli	under oath, sworn to, oath-bound	resim isteme yeminliyim.
 yengeç	crab
 yeniden	again, resume, anew, re-
@@ -4942,7 +4942,7 @@ zira	because
 zıt	opposite, adverse, reverse, conflicting; ters, karsı, çelişkili
 zıttı	taz karşıtı: opposite
 ziyade	rather/than  (conj)
--ziyaret et	visit	ayşe dedi ki, sen onu ziyaret etmişsin.
+-ziyaret etmek	visit	ayşe dedi ki, sen onu ziyaret etmişsin.
 ziyaret	visit; visitation; call; stay; visiting	ağustos ayında İstanbul'u ziyaret ettiğimde.
 ziynet	ornament, decoration
 zor	difficult, hard; [<> kolay]

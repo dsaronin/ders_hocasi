@@ -238,11 +238,15 @@ class FlashManager
     list = []
     unless key.empty?
       puts "mining for key: #{key}"
-      EXAMPLE_TYPES.each do |asset|
-        list.concat(  
-            Module.const_get( asset ).mine_examples(key)
-        )
-      end  # each asset
+      if @my_settings[:source].match /Dictionary/
+        list = Dictionary.mine_examples(key)
+      else
+        EXAMPLE_TYPES.each do |asset|
+          list.concat(  
+              Module.const_get( asset ).mine_examples(key)
+          )
+        end  # each asset
+      end  # if.then.else Dictionary
     end  # unless empty key
     puts "examples list: " + list.inspect
     return list
@@ -253,6 +257,7 @@ class FlashManager
   #  string to be used to search for examples
   #  ------------------------------------------------------------
   def extract_key( str )
+    return str if @my_settings[:source].match /Dictionary/
     return "" unless @my_settings[:source].match /Topics|Opposites/
     keys = str.gsub(/[:;.,-=+?!|~^$#@&*<>]/,' ').split
     return "" if keys.empty?  ||  keys.length > 6
