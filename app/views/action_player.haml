@@ -8,4 +8,7 @@
 %dl
   %dt= link_to( "settings &raquo;", "/settings", { :title => "Change settings for flashcards." } )
   %dt= link_to( "source &raquo;", "/source", { :title => "Change source for flashcards." } )
-  
+- unless @recording_file.nil?
+  %audio{ :controls => '' }
+    %source{ :src => "/recordings/#{@recording_file}", :type => "audio/ogg"}
+    

@@ -248,6 +248,17 @@ img.logo {
   float: left;
 }
 
+audio {
+  width: 200px;
+  height: 20px;
+  color: #78909C;
+}
+
+audio::-webkit-media-controls-* {
+  background-color: #ECEFF1;
+  color: #78909C;
+}
+
 fieldset {
   margin: 0 auto;
   padding: 0.35em;

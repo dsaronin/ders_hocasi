@@ -16,6 +16,8 @@ module Sources
 
     EMPTY_DATA = [["boş","tupu"]]
 
+    attr_reader :recording
+
   #  ------------------------------------------------------------
   #  ------------------------------------------------------------
   #  ClassMethods -- will be extended into receiving class

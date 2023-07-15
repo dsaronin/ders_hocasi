@@ -53,8 +53,9 @@ class HocasiApp < Sinatra::Application
            end
     @examples = card.mine_examples( key )
     @settings = card.my_settings
-    puts @settings.inspect
     @source = card.my_settings[:source]
+    @recording_file = card.my_source.recording
+    puts "Recording file is: #{@recording_file}"
 
     case @source
       when /Dialogs/    then prep_dialog

@@ -20,7 +20,7 @@ class FlashManager
   require_relative 'opposites'
   require_relative 'dictionary'
 
-  attr_reader :my_settings
+  attr_reader :my_settings, :my_source
  
   SOURCE_TYPES   = %w{Topics Sentences Phrases Opposites Readings Dialogs Dictionary}
   SELECTOR_TYPES = %w{ordered shuffled}
