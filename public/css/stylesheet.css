@@ -251,10 +251,6 @@ img.logo {
 audio {
   width: 200px;
   height: 20px;
-  color: #78909C;
-}
-
-audio::-webkit-media-controls-* {
   background-color: #ECEFF1;
   color: #78909C;
 }
@@ -488,6 +484,70 @@ a#left-prev, a#right-next {
 
 a#right-next {
   text-align: right;
+}
+
+audio::-webkit-media-controls {
+  font-size: 10px;
+  color: #78909C;
+  background-color: #ECEFF1;
+}
+
+audio::-webkit-media-controls-enclosure {
+  color: #78909C;
+  background-color: #ECEFF1;
+}
+
+audio::-webkit-media-controls-overflow-menu-list {
+  color: #78909C;
+  background-color: #ECEFF1;
+}
+
+audio::-webkit-media-controls-panel {
+  background-color: #ECEFF1;
+}
+
+audio::-webkit-media-controls-mute-button {
+  background-color: #ECEFF1;
+  color: #78909C;
+}
+
+audio::-webkit-media-controls-play-button {
+  background-color: #ECEFF1;
+  color: #78909C;
+}
+
+audio::-webkit-media-controls-volume-control-container {
+  background-color: #ECEFF1;
+  color: #78909C;
+}
+
+audio::-webkit-media-controls-timeline-container {
+  background-color: #ECEFF1;
+  color: #78909C;
+}
+
+audio::-webkit-media-controls-current-time-display {
+  background-color: #ECEFF1;
+  color: #78909C;
+}
+
+audio::-webkit-media-controls-time-remaining-display {
+  color: #78909C;
+}
+
+audio::-webkit-media-controls-timeline {
+  background-color: #ECEFF1;
+  color: #78909C;
+}
+
+audio::-webkit-media-controls-volume-slider-container {
+  background-color: #ECEFF1;
+  color: #78909C;
+}
+
+audio::-webkit-media-controls-volume-slider {
+  background-color: #ECEFF1;
+  color: #78909C;
 }
 
 @media (min-width: 350px) and (max-width: 419px) {
