@@ -59,10 +59,16 @@ img.logo
   float: left
 
 audio
-  width: 200px
+  width: 300px
   height: 20px
   background-color: colors.$colorBGray050
   color: colors.$colorBGray400
+
+audio::-webkit-media-controls-enclosure
+  margin: 0 auto
+  font-size: smallest
+  color: colors.$colorBGray400
+  background-color: colors.$colorBGray050
 
 fieldset
   margin: 0 auto
@@ -251,47 +257,6 @@ a#left-prev, a#right-next
   text-decoration: none !important
 a#right-next
   text-align: right
-
-// AUDIO CONTROLS STYLING: YUCK
-audio::-webkit-media-controls
-  font-size: 10px
-  color: colors.$colorBGray400
-  background-color: colors.$colorBGray050
-audio::-webkit-media-controls-enclosure
-  color: colors.$colorBGray400
-  background-color: colors.$colorBGray050
-audio::-webkit-media-controls-overflow-menu-list
-  color: colors.$colorBGray400
-  background-color: colors.$colorBGray050
-audio::-webkit-media-controls-panel
-  background-color: colors.$colorBGray050
-audio::-webkit-media-controls-mute-button
-  background-color: colors.$colorBGray050
-  color: colors.$colorBGray400
-audio::-webkit-media-controls-play-button
-  background-color: colors.$colorBGray050
-  color: colors.$colorBGray400
-audio::-webkit-media-controls-volume-control-container
-  background-color: colors.$colorBGray050
-  color: colors.$colorBGray400
-audio::-webkit-media-controls-timeline-container
-  background-color: colors.$colorBGray050
-  color: colors.$colorBGray400
-audio::-webkit-media-controls-current-time-display
-  background-color: colors.$colorBGray050
-  color: colors.$colorBGray400
-audio::-webkit-media-controls-time-remaining-display
-  color: colors.$colorBGray400
-audio::-webkit-media-controls-timeline
-  background-color: colors.$colorBGray050
-  color: colors.$colorBGray400
-audio::-webkit-media-controls-volume-slider-container
-  background-color: colors.$colorBGray050
-  color: colors.$colorBGray400
-audio::-webkit-media-controls-volume-slider
-  background-color: colors.$colorBGray050
-  color: colors.$colorBGray400
-
 
 // PORTRAIT
 @media (min-width: 350px) and (max-width: 419px)
