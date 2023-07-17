@@ -134,9 +134,36 @@ class FlashManager
   end
 
   #  ------------------------------------------------------------
+  #  random_selection  -- generates a random array of indexes
+  #  args:
+  #    max -- max length of items in main array
+  #    size  -- group size of number of indexes to be returned
+  #  returns -- array of indexes for choosing the group
+  #  ------------------------------------------------------------
+  def random_selection( max, size )
+    (0..(max-1)).to_a.shuffle.take( size )
+  end
+
+  #  ------------------------------------------------------------
+  #  set_indexes  -- resets the index array to starting values
+  #  which depends upon selector: ordered or shuffled
+  #  returns true if selector is ordered
+  #  ------------------------------------------------------------
+  def set_indexes
+    if @my_settings[:selector].match /ordered/
+      @shuffle_indexes = (0..(@my_settings[:sizer]-1)).to_a  # normal order
+      is_ordered = true
+    else
+      @shuffle_indexes = random_selection( @my_source.fc_data.length, @my_settings[:sizer] )
+      is_ordered = false
+    end
+    return is_ordered
+  end
+
+  #  ------------------------------------------------------------
   def unshuffle       # --restore normal index order
     @cur_ptr    = 0   # current index into @shuffle_indexes
-    @shuffle_indexes = (0..(@my_settings[:sizer]-1)).to_a  # normal order
+    set_indexes       # reset the index array
   end
 
   #  ------------------------------------------------------------
@@ -187,21 +214,35 @@ class FlashManager
   end
 
   #  ------------------------------------------------------------
+  #  next_group_card -- advances to next group
+  #  if an ordered selection: always resets the index order
+  #  if a shuffled selection: always grabs a new random group
+  #  ------------------------------------------------------------
   def next_group_card
-    len =  @my_source.list_size
-    size = @my_settings[:sizer]
-    if ( ((@group_dex += size) + size) > len)
-      @group_dex = len - size
-    end
+    if set_indexes
+      len =  @my_source.list_size
+      size = @my_settings[:sizer]
+      if ( ((@group_dex += size) + size) > len)
+        @group_dex = len - size
+      end
+    end  # if ordered
+
     @cur_ptr    = 0   # current index into @shuffle_indexes
     return current_card
   end
 
   #  ------------------------------------------------------------
+  #  prev_group_card -- advances to prev group
+  #  if an ordered selection: always resets the index order
+  #  if a shuffled selection: always grabs a new random group
+  #  ------------------------------------------------------------
   def prev_group_card
-    if ( (@group_dex -= @my_settings[:sizer]) < 0 )
-      @group_dex = 0
-    end
+    if set_indexes
+      if ( (@group_dex -= @my_settings[:sizer]) < 0 )
+        @group_dex = 0
+      end
+    end  # if ordered
+
     @cur_ptr    = 0   # current index into @shuffle_indexes
     return current_card
   end
@@ -219,16 +260,6 @@ class FlashManager
     return @my_settings
   end
 
-  #  ------------------------------------------------------------
-  #  random_selection  -- generates a random array of indexes
-  #  args:
-  #    max -- max length of items in main array
-  #    size  -- group size of number of indexes to be returned
-  #  returns -- array of indexes for choosing the group
-  #  ------------------------------------------------------------
-  def random_selection( max, size )
-    (0..(max-1)).to_a.shuffle.take( size )
-  end
  
   #  ------------------------------------------------------------
   #  mine_examples  -- mines the various note resources
