@@ -181,6 +181,9 @@ class HocasiApp < Sinatra::Application
 
   get '/source' do
     helper_get_settings
+    @key_list = Module.const_get( @settings[:source] ).sorted_keys
+    @settings[:entry] ||= @key_list.first
+    @entry_def = @settings[:entry].to_sym
     haml :source
   end
 
