@@ -286,3 +286,25 @@
       - ["A: Kasalar sol tarafta. İyi günlerde kullanın.", "A: The safes are on the left. Feel happy while using it."]
       - ["B: Teşekkürler, kolay gelsin.", "B: Thanks, take it easy."]
 
+:adverbs:
+  !ruby/object:Dialogs
+    topics: 
+      - adverbs
+      - technology
+    title: chatting about technology using adverbs
+    date: 20230718
+    level: A2
+    recording: dialog-adverbs.ogg
+    fc_data:
+      - ["_: İlker ve Serken teknoloji hakkında tartışıyorlar.", "_: İlker and Serken are arguing about technology."]
+      - ["A: Teknoloji çok gelişmiş, değil mi? Artık her şey mümkün gibi geliyor.", "A: Technology is very advanced, isn't it? Everything seems possible now."]
+      - ["B: Evet, gerçekten inanılmaz. Eskiden hayal bile edemediklerimiz şimdi gerçek oldu.", "B: Yes, it's really incredible. What we couldn't even imagine before has now become reality."]
+      - ["A: Örneğin, artık her zaman yanımızda bir telefon taşıyabiliriz. İnternete bağlanabilir, fotoğraf çekebilir ve video çekebilir, hatta arkadaşlarımızla konuşabiliriz.", "A: For example, we can now always carry a phone with us. We can connect to the Internet, take photos and videos, and even talk to our friends."]
+      - ["B: Ve sadece telefonlar değil. Bilgisayarlar da çok daha güçlü hale geldi. Artık her şeyi yapabiliriz, yazı yazabilir, resim yapabilir, müzik dinleyebilir, hatta oyun oynayabiliriz.", "B: And not just phones. Computers have also become much more powerful. Now we can do anything, we can write, paint, listen to music, even play games."]
+      - ["A: Teknoloji bizim yaşamımızı çok kolaylaştırdı. Artık her şeyi daha hızlı ve daha kolay yapabiliriz.", "A: Technology has made our life much easier. Now we can do everything faster and easier."]
+      - ["B: Evet, teknoloji bizim için çok faydalı bir araç. Ama dikkatli olmak da lazım. Teknolojiyi kötü amaçlar için kullanabilirler.", "B: Yes, technology is a very useful tool for us. But you also have to be careful. They can use technology for malicious purposes."]
+      - ["A: Bu doğru. Teknolojiyi sorumlu bir şekilde kullanmak lazım.", "A: That's correct. Technology should be used responsibly."]
+      - ["B: Bence teknoloji bizim için iyi bir şey. Hayatımızı daha kolay ve daha eğlenceli hale getiriyor.", "B: I think technology is a good thing for us. It makes our life easier and more fun."]
+      - ["A: Ben de katılıyorum. Teknoloji bizim için harika bir şey.", "A: I also agree. Technology is a great thing for us."]
+       
+
