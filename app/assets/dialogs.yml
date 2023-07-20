@@ -199,7 +199,30 @@
       -  ["B: Reçete numaranız bu kağıtta yazıyor, eczaneden direkt alabilirsiniz.", "B: Your prescription number is written on this paper, you can get it directly from the pharmacy."]
       -  ["A: Teşekkür ederim, iyi günler.", "A: Thank you, have a nice day."]
       -  ["B: Sağlıklı günler dilerim, iyi günler.", "B: I wish you a good day, have a nice day."]
-              
+      -  ["-sedye yatmak", "lie on a stretcher"]
+      -  ["derin", "deep"]
+      -  ["ilaç", "medicine"]
+      -  ["eczane", "pharmacy"]
+      -  ["söktürücü", "expectorant"]
+      -  ["ağrı kesici", "painkiller"]
+      -  ["şikayet", "complaint"]
+      -  ["öksürük", "cough"]
+      -  ["soğuk algınlık", "colds"]
+      -  ["iltihap A: söktürücü", "inflammation A: expectorant"]
+      -  ["balgam A: söktürücü", "expectorant A: expectorant"]
+      -  ["ahşap çubuğu", "wooden stick"]
+      -  ["ağız", "mouth"]
+      -  ["sırt", "back"]
+      -  ["bademcikler", "tonsils"]
+      -  ["ciğerler", "lungs"]
+      -  ["omuzlar", "shoulders"]
+      -  ["-hasta hissetmek", "feeling sick"]
+      -  ["-nefes almak", "breath"]
+      -  ["-ilaçları yazmak", "prescribing drugs"]
+      -  ["-iltihaplanmak", "get inflamed"]
+      -  ["-söktürmek", "make up"]
+      -  ["-sokmak", "sting"]
+                     
 :müzik:
   !ruby/object:Dialogs
     topics: 
@@ -255,6 +278,15 @@
       - ["C: Tabii. Şifrenizi girin lütfen.", "A: Sure. Please enter your password."]
       - ["A: Teşekkürler, kolay gelsin.", "A: Thanks, take it easy."]
       - ["C: Sağolun, iyi günler.", "A: Thanks, good day."]
+      - ["zevk", "pleasure"]
+      - ["ne hoş", "how nice"]
+      - ["favori", "favorite"]
+      - ["görüşmeyeli", "since we haven't met"]
+      - ["ruh halime göre", "Depends on my mood"]
+      - ["-enteresan gelmek", "to be interesting"]
+      - ["-hoşuma gitmek", "i like it"]
+      - ["-müzik çalmak", "playing music"]
+      - ["-shazamlamak", "shazam"]
 
 :mağazada:
   !ruby/object:Dialogs
@@ -296,7 +328,7 @@
     level: A2
     recording: dialog-adverbs.ogg
     fc_data:
-      - ["_: İlker ve Serken teknoloji hakkında tartışıyorlar.", "_: İlker and Serken are arguing about technology."]
+      - ["_: İlker ve Ahmet teknoloji hakkında tartışıyorlar.", "_: İlker and Ahmet are arguing about technology."]
       - ["A: Teknoloji çok gelişmiş, değil mi? Artık her şey mümkün gibi geliyor.", "A: Technology is very advanced, isn't it? Everything seems possible now."]
       - ["B: Evet, gerçekten inanılmaz. Eskiden hayal bile edemediklerimiz şimdi gerçek oldu.", "B: Yes, it's really incredible. What we couldn't even imagine before has now become reality."]
       - ["A: Örneğin, artık her zaman yanımızda bir telefon taşıyabiliriz. İnternete bağlanabilir, fotoğraf çekebilir ve video çekebilir, hatta arkadaşlarımızla konuşabiliriz.", "A: For example, we can now always carry a phone with us. We can connect to the Internet, take photos and videos, and even talk to our friends."]
@@ -306,5 +338,26 @@
       - ["A: Bu doğru. Teknolojiyi sorumlu bir şekilde kullanmak lazım.", "A: That's correct. Technology should be used responsibly."]
       - ["B: Bence teknoloji bizim için iyi bir şey. Hayatımızı daha kolay ve daha eğlenceli hale getiriyor.", "B: I think technology is a good thing for us. It makes our life easier and more fun."]
       - ["A: Ben de katılıyorum. Teknoloji bizim için harika bir şey.", "A: I also agree. Technology is a great thing for us."]
-       
+      - ["gelişmiş", "advanced"]
+      - ["inanılmaz", "unbelievable"]
+      - ["eskiden", "once"]
+      - ["örnegin", "for example"]
+      - ["yanımızda", "at our side"]
+      - ["-taşı", "carry sth"]
+      - ["güçlü", "strong"]
+      - ["sorumlu", "responsible"]
+      - ["-kolaylaştır", "make easier"]
+      - ["faydalı", "beneficial"]
+      - ["araç", "tool vehicle"]
+      - ["amaçlar", "purposes"]
+      - ["şekil", "form"]
+      - ["bir şekilde", "in some way"]
+      - ["hale gelmek", "become state"]
+      - ["hale getirmek", "render/make state"]
+      - ["-hayal etmek", "dream, imagine"]
+      - ["-hayal edemediklerimiz", "things which we were unable to dream"]
+      - ["-tartış", "query, discuss"]
+      - ["internete bağlanmak", "internet connect"]
+      - ["yaşamımız", "our lives"]
+             
 
