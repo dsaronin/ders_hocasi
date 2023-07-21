@@ -264,11 +264,12 @@ class FlashManager
   #  ------------------------------------------------------------
   #  mine_examples  -- mines the various note resources
   #  extracting examples based on keyword(s)
+  #    puts "mining for key: #{key}"
+  #    puts "examples list: " + list.inspect
   #  ------------------------------------------------------------
   def mine_examples(key)
     list = []
     unless key.empty?
-      puts "mining for key: #{key}"
       if @my_settings[:source].match /Dictionary/
         list = Dictionary.mine_examples(key)
       else
@@ -279,7 +280,6 @@ class FlashManager
         end  # each asset
       end  # if.then.else Dictionary
     end  # unless empty key
-    puts "examples list: " + list.inspect
     return list
   end
 
