@@ -10,5 +10,7 @@
   %dt= link_to( "source &raquo;", "/source", { :title => "Change source for flashcards." } )
 - unless @recording_file.nil?
   %audio{ :controls => '', :controlsList => "nodownload" }
+    :javascript
+      var audio = document.querySelector('audio');
+      audio.currentTime = #{@time};
     %source{ :src => "/recordings/#{@recording_file}", :type => "audio/ogg"}
-    
