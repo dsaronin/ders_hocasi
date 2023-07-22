@@ -328,7 +328,7 @@
     level: A2
     recording: dialog-adverbs.ogg
     fc_data:
-      - ["_: İlker ve Ahmet teknoloji hakkında tartışıyorlar.", "_: İlker and Ahmet are arguing about technology.", 0]
+      - ["_: İlker ve Ahmet teknoloji hakkında tartışıyorlar.", "_: İlker and Ahmet are discussing technology.", 0]
       - ["A: Teknoloji çok gelişmiş, değil mi? Artık her şey mümkün gibi geliyor.", "A: Technology is very advanced, isn't it? Everything seems possible now.", 4]
       - ["B: Evet, gerçekten inanılmaz. Eskiden hayal bile edemediklerimiz şimdi gerçek oldu.", "B: Yes, it's really incredible. What we couldn't even imagine before has now become reality.", 9]
       - ["A: Örneğin, artık her zaman yanımızda bir telefon taşıyabiliriz. İnternete bağlanabilir, fotoğraf çekebilir ve video çekebilir, hatta arkadaşlarımızla konuşabiliriz.", "A: For example, we can now always carry a phone with us. We can connect to the Internet, take photos and videos, and even talk to our friends.", 16]
@@ -356,7 +356,7 @@
       - ["-hale getirmek", "render/make state", 0]
       - ["-hayal etmek", "dream, imagine", 0]
       - ["-hayal edemediklerimiz", "things which we were unable to dream", 0]
-      - ["-tartış", "query, discuss", 0]
+      - ["-tartış", "discuss together", 0]
       - ["-internete bağlanmak", "internet connect", 0]
       - ["yaşamımız", "our lives", 0]
              
