@@ -85,11 +85,11 @@ class HocasiWork
 
   #  ------------------------------------------------------------
   #  do_flashcards  -- intiates flashcard handling
-  #  returns: player obj or nil if exception
+  #  returns: self obj or nil if exception
   #  ------------------------------------------------------------
   def do_flashcards( list, settings )
     begin
-      return FlashManager.new( list.first, settings ).start_card_player
+      return FlashManager.new( list.first, settings )
     rescue TopicError
       Environ.put_and_log_error( ">>  " + $!.message )
     rescue EntryError

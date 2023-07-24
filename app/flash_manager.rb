@@ -38,6 +38,8 @@ class FlashManager
   # EXAMPLE_TYPES used to invoke mine_examples in each
   # type of class and in the order given
   EXAMPLE_TYPES   = %w{Phrases Dialogs Sentences Readings Dictionary}
+  # text types get shown without bullets in lists
+  TEXT_TYPES   = %w{Phrases Dialogs Sentences Readings}
 
   #  ------------------------------------------------------------
   #  ------------------------------------------------------------
@@ -296,6 +298,12 @@ class FlashManager
     return keys.sort{ |x,y| y.length <=> x.length }.first
   end
 
+  #  ------------------------------------------------------------
+  #  ------------------------------------------------------------
+  def text_or_bullets
+    return TEXT_TYPES.include?  @my_settings[:source]
+  end
+  
   #  ------------------------------------------------------------
   #  ------------------------------------------------------------
 end  # FlashManager

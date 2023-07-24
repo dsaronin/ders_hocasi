@@ -3,5 +3,7 @@
   = f.label(:entry, 'Source entry:&emsp;')
   = f.select(:entry, @key_list, {:value => @entry_def } )
   = link_to( 'cancel', "/", { :id => "cancel", :title => "cancel setting changes" } )
-  = submit( 'update', :value => 'flashcards »' )
+  = submit( 'player', :value => 'flashcards »' )
+  = f.label(:side, '&emsp;')
+  = submit( 'lists',  :value => 'lists »' )
  

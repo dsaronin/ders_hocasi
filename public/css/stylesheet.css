@@ -289,6 +289,7 @@ select:focus {
 
 input {
   width: 50%;
+  margin: 0.1em 0;
   text-align: center;
   font-weight: bold;
   border: 1px solid #CFD8DC;
@@ -491,6 +492,24 @@ a#left-prev, a#right-next {
 
 a#right-next {
   text-align: right;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.column {
+  width: 50%;
+  padding: 0.3em !important;
+}
+
+p.column {
+  column-span: 2;
+  column-break-after: 30em;
+  line-height: 1 !important;
+  font-size: 80% !important;
 }
 
 @media (min-width: 350px) and (max-width: 419px) {

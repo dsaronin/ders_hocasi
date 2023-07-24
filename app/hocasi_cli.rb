@@ -63,7 +63,7 @@ class HocasiCLI
   #  fc_player -- cli player control i/f
   #  ------------------------------------------------------------
   def fc_player( cmdlist )
-    player = HOCASI.do_flashcards( cmdlist, nil )
+    player = HOCASI.do_flashcards( cmdlist, nil ).start_card_player
     
     unless player.nil?
       # player output ctl 

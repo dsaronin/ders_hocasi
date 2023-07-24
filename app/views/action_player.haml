@@ -1,10 +1,11 @@
 -# flashcard player controls
 - menu1 = %w{flip shfl unsh gnext gprev reset quit}
 
-%dl
-  - menu1.each do |item|
-    %dt
-      = link_to( item, "/#{item}", { :title => "player action: #{item}" } )
+- unless @skip_menu
+  %dl
+    - menu1.each do |item|
+      %dt
+        = link_to( item, "/#{item}", { :title => "player action: #{item}" } )
 %dl
   %dt= link_to( "settings &raquo;", "/settings", { :title => "Change settings for flashcards." } )
   %dt= link_to( "source &raquo;", "/source", { :title => "Change source for flashcards." } )

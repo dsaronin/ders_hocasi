@@ -107,15 +107,15 @@ class HocasiApp < Sinatra::Application
   post '/settings' do
     # pp request.env
     parms = params[:settings]
-    helper_start_player(
-      {
+    settings = {
         :topic    => parms[:topic],
         :source   => parms[:source],
         :selector => parms[:order],
         :sizer    => parms[:sizer].to_i,
         :side     => parms[:side]
       }
-    )
+
+    helper_player_or_list(params[:submit], settings)
   end
 
 
@@ -124,9 +124,10 @@ class HocasiApp < Sinatra::Application
 
   post '/source' do
     parms = params[:source]
+    puts "Submit value is: #{params[:submit]}"
     helper_get_settings
     @settings[:entry] = parms[:entry]
-    helper_start_player( @settings )
+    helper_player_or_list(params[:submit], @settings)
   end
 
   #  ------------------------------------------------------------

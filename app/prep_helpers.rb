@@ -76,6 +76,23 @@ module Sinatra
   end
 
   #  ------------------------------------------------------------
+  #  prep_flashcards  -- DRY prep & start flashcards
+  #  returns flashcard obj
+  #  ------------------------------------------------------------
+  def prep_flashcards(restore_session, new_settings)
+    settings = (
+      !restore_session || session[:settings].nil? ? 
+      new_settings  :  
+      YAML.load(session[:settings]) 
+    )
+
+    topic = ( settings && settings[:topic]  ?  settings[:topic]  : "def" )
+
+      # ok even if settings==nil at this point
+    return HOCASI.do_flashcards( [topic.to_s], settings )
+  end
+
+  #  ------------------------------------------------------------
   #  helper_prep_player  -- does common player setup preparations
   #  args: 
   #    playcmd: command to be passed to player
@@ -87,16 +104,8 @@ module Sinatra
 
     @redirect_to_source = false
 
-    if restore_session
-      settings = YAML.load( session[:settings] ) unless session[:settings].nil?
-    else
-      settings = new_settings
-    end
-
-    topic = ( settings && settings[:topic]  ?  settings[:topic]  : "def" )
-
       # ok even if settings==nil at this point
-    player = HOCASI.do_flashcards( [topic.to_s], settings )
+    player = prep_flashcards(restore_session, new_settings).start_card_player
 
     if player.nil?  # due to exception
       loop = false
@@ -165,10 +174,36 @@ module Sinatra
     )
   end
 
+  #  ------------------------------------------------------------
+  #  ------------------------------------------------------------
+  def helper_player_or_list(submit, settings)
+    case submit
+      when  /flashcards/ then helper_start_player( settings )
+      when  /lists/      then 
+        helper_prep_lists( settings )
+        haml :lists
+      else
+        redirect '/'
+      end  # case
+  end
+
   # ------------------------------------------------------
+  # topic, source, list
   # ------------------------------------------------------
-  
-  def helper_prep_lists
+  def helper_prep_lists(restore_session = true, new_settings=nil)
+    card = prep_flashcards(restore_session, new_settings)
+    unless card.nil?  # due to exception
+        # setup variables for player display
+      @action_box = :action_player   # use special action box
+      @skip_menu = true    # skips player menu
+      @topic  = card.my_settings[:topic]
+      @source = card.my_settings[:source]
+      @list   = card.my_source.fc_data[0..50]
+      @text   = card.text_or_bullets
+      @recording_file = card.my_source.recording
+      @time   = 0
+
+    end  # outer if
   end
 
 # ------------------------------------------------------

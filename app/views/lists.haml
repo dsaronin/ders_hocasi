@@ -1,3 +1,8 @@
 %h6 #{@topic} list: #{@source}
-- @list.each do |item|
-  %p= item
+.list
+  - if @text
+    - @list.each do |front, rear|
+      %p= front
+  - else
+    - @list.each do |front, rear|
+      %p.column= front
