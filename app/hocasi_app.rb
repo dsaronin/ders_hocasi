@@ -11,11 +11,13 @@
   require_relative 'prep_helpers'
   require_relative 'player'
   require 'sinatra/form_helpers'
+  require 'rack-flash'
   require 'yaml'
 
 class HocasiApp < Sinatra::Application
 
   enable :sessions
+  use Rack::Flash
 
   set :root, File.dirname(__FILE__)
 

@@ -39,7 +39,8 @@ class FlashManager
   # type of class and in the order given
   EXAMPLE_TYPES   = %w{Phrases Dialogs Sentences Readings Dictionary}
   # text types get shown without bullets in lists
-  TEXT_TYPES   = %w{Phrases Dialogs Sentences Readings}
+  TEXT_TYPES   = %w{Dialogs Readings}
+  LIST_TYPES   = %w{Topics Sentences Phrases Opposites Readings Dialogs}
 
   #  ------------------------------------------------------------
   #  ------------------------------------------------------------
@@ -302,6 +303,10 @@ class FlashManager
   #  ------------------------------------------------------------
   def text_or_bullets
     return TEXT_TYPES.include?  @my_settings[:source]
+  end
+
+  def listable?
+    return LIST_TYPES.include?  @my_settings[:source]
   end
   
   #  ------------------------------------------------------------

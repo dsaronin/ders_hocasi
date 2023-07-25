@@ -514,6 +514,18 @@ a#right-next {
   list-style-position: outside;
 }
 
+#flash-message {
+  margin: 0 auto;
+  padding: 0;
+  width: 100%;
+}
+#flash-message p {
+  font-size: 70%;
+  text-align: center;
+  color: #c6130a;
+  font-weight: bold;
+}
+
 @media (min-width: 350px) and (max-width: 419px) {
   html {
     font-size: 18px;

@@ -7,7 +7,6 @@ gem 'sinatra'
 gem 'rack'
 gem 'rackup'
 gem 'thin'
-gem 'prawn'   #, require: %w(prawn/measurement_extensions)
 gem 'pp'
 gem 'singleton'
 gem 'logger'
@@ -15,3 +14,4 @@ gem 'yaml'
 gem "matrix", "~> 0.4"
 gem 'haml'
 gem 'sinatra-formhelpers-ng'
+gem 'rack-flash3'

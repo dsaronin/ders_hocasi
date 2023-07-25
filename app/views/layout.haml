@@ -31,6 +31,9 @@
         #actionbox
           = haml @action_box
 
+          #flash-message
+            = haml :flasher
+
         #content
           != yield
         

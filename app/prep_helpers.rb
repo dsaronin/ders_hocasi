@@ -140,9 +140,9 @@ module Sinatra
     if helper_prep_player(cmd, true)
       haml :start_player
     elsif @redirect_to_source
+        flash[:error] = "Invalid Topic or Source"
         redirect '/source'
     else  # quit command received
-        # TODO: could be here because of error; needs to be shown
       redirect '/'
     end
   end
@@ -158,9 +158,9 @@ module Sinatra
     if helper_prep_player( Player::PCMD_CURR, false, settings )
       haml :start_player
     elsif @redirect_to_source
+        flash[:error] = "Invalid Topic or Source"
         redirect '/source'
     else  # quit command received
-        # TODO: could be here because of error; needs to be shown
       redirect '/'
     end
   end
@@ -181,6 +181,7 @@ module Sinatra
       when  /flashcards/ then helper_start_player( settings )
       when  /lists/      then helper_prep_lists( false, settings )
       else
+        flash[:error] = "Unknown submit type"
         redirect '/'
       end  # case
   end
@@ -192,10 +193,13 @@ module Sinatra
 
     card = prep_flashcards(restore_session, new_settings)
 
-    if card.nil?  # due to exception
+    if card.nil?    # due to exception
+      flash[:error] = "Invalid Topic or Source"
+      redirect '/'
+    elsif !card.listable? 
+      flash[:error] = "Cannot list Dictionary; too big!"
       redirect '/'
     else
-
         # setup variables for player display
       @action_box = :action_player   # use special action box
       @skip_menu = true    # skips player menu
