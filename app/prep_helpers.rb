@@ -179,9 +179,7 @@ module Sinatra
   def helper_player_or_list(submit, settings)
     case submit
       when  /flashcards/ then helper_start_player( settings )
-      when  /lists/      then 
-        helper_prep_lists( settings )
-        haml :lists
+      when  /lists/      then helper_prep_lists( settings )
       else
         redirect '/'
       end  # case
@@ -192,7 +190,10 @@ module Sinatra
   # ------------------------------------------------------
   def helper_prep_lists(restore_session = true, new_settings=nil)
     card = prep_flashcards(restore_session, new_settings)
-    unless card.nil?  # due to exception
+
+    if card.nil?  # due to exception
+      redirect '/'
+    else
         # setup variables for player display
       @action_box = :action_player   # use special action box
       @skip_menu = true    # skips player menu
@@ -203,7 +204,14 @@ module Sinatra
       @recording_file = card.my_source.recording
       @time   = 0
 
+         # save state in user's session
+      session[:settings] = YAML.dump(  
+        card.prep_serialize_settings  # capture state
+      )
+
+      haml :lists
     end  # outer if
+
   end
 
 # ------------------------------------------------------

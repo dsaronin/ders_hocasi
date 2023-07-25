@@ -4,5 +4,12 @@
     - @list.each do |front, rear|
       %p= front
   - else
-    - @list.each do |front, rear|
-      %p.column= front
+    - xleft = @list.length.div(2)
+    .column
+      %ul
+        - @list[0..xleft-1].each do |front, rear|
+          %li= front
+    .column
+      %ul
+        - @list[xleft..@list.length-1].each do |front, rear|
+          %li= front

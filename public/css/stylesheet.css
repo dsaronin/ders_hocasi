@@ -495,21 +495,23 @@ a#right-next {
 }
 
 .list {
-  display: flex;
-  flex-direction: column;
+  margin: 0.3em auto;
   width: 100%;
 }
 
 .column {
   width: 50%;
-  padding: 0.3em !important;
+  padding-right: 0.1em;
+  float: left;
 }
-
-p.column {
-  column-span: 2;
-  column-break-after: 30em;
-  line-height: 1 !important;
-  font-size: 80% !important;
+.column ul {
+  padding: 0;
+}
+.column ul li {
+  font-size: 80%;
+  margin-left: 1em;
+  list-style: disc;
+  list-style-position: outside;
 }
 
 @media (min-width: 350px) and (max-width: 419px) {
