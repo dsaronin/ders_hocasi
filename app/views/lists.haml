@@ -5,11 +5,5 @@
       %p= front
   - else
     - xleft = @list.length.div(2)
-    .column
-      %ul
-        - @list[0..xleft-1].each do |front, rear|
-          %li= front
-    .column
-      %ul
-        - @list[xleft..@list.length-1].each do |front, rear|
-          %li= front
+    = haml :list_column, :locals => {:mylist => @list[0..xleft-1]}
+    = haml :list_column, :locals => {:mylist => @list[xleft..@list.length-1]}

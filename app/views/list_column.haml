@@ -1,0 +1,6 @@
+.column
+  %ul
+    - mylist.each do |front, rear|
+      - sfront = ( @subchar.nil?  ?  front  :  front.gsub(@subchar[0],@subchar[1]) )
+      %li= sfront
+

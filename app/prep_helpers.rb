@@ -210,6 +210,10 @@ module Sinatra
       @recording_file = card.my_source.recording
       @time   = 0
 
+      if @source == "Opposites"
+        @subchar = [/::/, " &harr; "]
+      end
+
          # save state in user's session
       session[:settings] = YAML.dump(  
         card.prep_serialize_settings  # capture state
