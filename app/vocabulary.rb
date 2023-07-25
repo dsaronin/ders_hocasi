@@ -6,36 +6,33 @@
 
   require "yaml"
 
-class Topics
+class Vocabulary
   include Sources
-
-  attr_accessor :name, :alt_name, :category, :target, :source
-  attr_accessor :description, :summary
 
   #  ------------------------------------------------------------
   #  ------------------------------------------------------------
   #  CLASS-LEVEL actions & methods
   #  ------------------------------------------------------------
   #  ------------------------------------------------------------
-  # input TOPICS database here if not done already 
+  # input VOCABULARY database here if not done already 
   #  ------------------------------------------------------------
-  @@database ||= YAML.unsafe_load_file( "app/assets/topics.yml" )
-  Environ.log_info( "Topics data loaded: #{@@database.length} entries" )
+  @@database ||= YAML.unsafe_load_file( "app/assets/vocabulary.yml" )
+  Environ.log_info( "Vocabulary data loaded: #{@@database.length} entries" )
   #  ------------------------------------------------------------
 
   #  ------------------------------------------------------------
   #  default_topic  -- returns the first topic in keys list
   #  ------------------------------------------------------------
-  def Topics.default_topic
+  def self.default_topic
     return @@database.keys.first
   end
 
   #  ------------------------------------------------------------
-  #  find_topic -- returns the Topics obj associated with a key; 
+  #  find_topic -- returns the vocabulary obj associated with a key; 
   #  else nil if not found 
   #     (flash_manager.initialize will generate an exception)
   #  ------------------------------------------------------------
-  def Topics.find_topic( key )
+  def self.find_topic( key )
     return @@database[ ( key.is_a?(Symbol) ? key : key.to_sym ) ]
   end
 
@@ -55,4 +52,4 @@ class Topics
  
   #  ------------------------------------------------------------
   #  ------------------------------------------------------------
-end # Topics
+end # Vocabulary

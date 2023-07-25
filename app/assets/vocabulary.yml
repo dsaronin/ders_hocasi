@@ -1,20 +1,15 @@
 ---
 # 
-# DrillTutor -- topics data notes
+# DrillTutor -- vocabulary data notes
 # Copyright (c) 2023 David S Anderson, All Rights Reserved
 #
 # ALL FLASHCARD SOURCE FILES MUST HAVE A "fc_data" element defined
 # which is an array of arrays of [target, native] lang pairs
+#
+# VOCABULARY db is used to extract "topics" for everything
 # ----------------------------------------------
 :quantifiers:
-  !ruby/object:Topics
-    name: quantifiers
-    alt_name: niceleyiciler
-    category: grammar
-    target: türkçe
-    source: english
-    description: few, some, all, none, any
-    summary: her, bir, hiç, çok, az form the basis of many combinations
+  !ruby/object:Vocabulary
     fc_data:
       - ["az", "few, slight (neg)"]
       - ["bazen", "sometimes"]
@@ -58,14 +53,7 @@
       - ["önce", "before"]
 
 :adverbs:
-  !ruby/object:Topics
-    name: adverbs
-    alt_name: zarf
-    category: grammar
-    target: türkçe
-    source: english
-    description: tells how much, what degree, how sth done
-    summary: adverbs modify the action similar to adjectives modifying nouns
+  !ruby/object:Vocabulary
     fc_data:
       - ["artık", "from now on (poz), anymore (neg)"]
       - ["asla", "never"]
@@ -103,14 +91,7 @@
       - ["yeterli", "sufficient"]
 
 :adjectives:
-  !ruby/object:Topics
-    name: adjectives
-    alt_name: açıklamalar
-    category: grammar
-    target: türkçe
-    source: english
-    description: tells quality or nature of a thing
-    summary: adjectives modify nouns
+  !ruby/object:Vocabulary
     fc_data:
       - ["aç", "hunger"]
       - ["açık", "open, clear"]
@@ -187,14 +168,7 @@
       - ["zor", "difficult, hard"]
 
 :post-positions:
-  !ruby/object:Topics
-    name: post-positions
-    alt_name: ilgeç
-    category: grammar
-    target: türkçe
-    source: english
-    description: follows a locative to indicate direction
-    summary: tells direction of sth
+  !ruby/object:Vocabulary
     fc_data:
       - ["alt", "lower part, inferior"]
       - ["ara", "gap between"]
@@ -239,14 +213,7 @@
       - [""]
 
 :participles:
-  !ruby/object:Topics
-    name: participles
-    alt_name: ortaç
-    category: grammar
-    target: türkçe
-    source: english
-    description: verb derivatives making nouns, ings, adjectives, relatives
-    summary: verbal derivatives
+  !ruby/object:Vocabulary
     fc_data:
       - ["akar su", "running water"]
       - ["okumuş bir adam", "educated man"]
@@ -283,14 +250,7 @@
       - ["diye", "saying; spoken quotes, pretext that"]
 
 :interrogatives:
-  !ruby/object:Topics
-    name: interrogatives
-    alt_name: sorular
-    category: grammar
-    target: türkçe
-    source: english
-    description: who, what, where, when, how, why
-    summary: words to form questions
+  !ruby/object:Vocabulary
     fc_data:
       - ["ne", "what, so?"]
       - ["nedir", "what [factually]?"]
@@ -310,14 +270,7 @@
       - ["kaç kişi", "how many people?"]
 
 :conjunctions:
-  !ruby/object:Topics
-    name: conjunctions
-    alt_name: bağlaç
-    category: grammar
-    target: türkçe
-    source: english
-    description: words to flavor, contrast, and join clauses
-    summary: clause joining words
+  !ruby/object:Vocabulary
     fc_data:
       - ["ama", "but"]
       - ["başka", "another, else"]
@@ -338,14 +291,7 @@
       - ["𝝙… ne X ne de Y", "𝝙… neither X nor Y"]
 
 :time:
-  !ruby/object:Topics
-    name: time
-    alt_name: zaman
-    category: grammar
-    target: türkçe
-    source: english
-    description: words to indicate time and season
-    summary: time
+  !ruby/object:Vocabulary
     fc_data:
       - ["akşam", "evening"]
       - ["bu gece", "tonight"]
@@ -416,14 +362,7 @@
       - ["Aralık", "Dec"] 
 
 :numbers:
-  !ruby/object:Topics
-    name: numbers
-    alt_name: ayılar
-    category: grammar
-    target: türkçe
-    source: english
-    description: counting
-    summary: numbers
+  !ruby/object:Vocabulary
     fc_data:
       - ["sıfır", "0"]
       - ["bir", "1"]
@@ -464,14 +403,7 @@
       - ["yüzde", "percent, %"]
 
 :food:
-  !ruby/object:Topics
-    name: food
-    alt_name: yemek
-    category: grammar
-    target: türkçe
-    source: english
-    description: food words
-    summary: food words
+  !ruby/object:Vocabulary
     fc_data:
       - ["bira", "beer"]
       - ["çay", "tea"]
@@ -500,14 +432,7 @@
       - ["şeker", "sugar"]
 
 :animals:
-  !ruby/object:Topics
-    name: animals
-    alt_name: hayvanlar
-    category: grammar
-    target: türkçe
-    source: english
-    description: animal words
-    summary: animal words
+  !ruby/object:Vocabulary
     fc_data:
       - ["aslan", "lion"]
       - ["at", "horse"]
@@ -534,14 +459,7 @@
       - ["hayvanat bahçesi", "zoo"]
 
 :people:
-  !ruby/object:Topics
-    name: people
-    alt_name: insanlar
-    category: grammar
-    target: türkçe
-    source: english
-    description: people words
-    summary: people words
+  !ruby/object:Vocabulary
     fc_data:
       - ["arkadaş", "friend"]
       - ["erkek arkadaş", "boyfriend"]
@@ -583,14 +501,7 @@
       - ["yetişkin", "adult"]
 
 :family:
-  !ruby/object:Topics
-    name: family
-    alt_name: aile
-    category: grammar
-    target: türkçe
-    source: english
-    description: family words and relationships
-    summary: family words and relationships
+  !ruby/object:Vocabulary
     fc_data:
       - ["amca", "uncle (paternal)"]
       - ["hala", "aunt   (paternal)"]
@@ -621,14 +532,7 @@
       - ["torun", "grandchild"]
 
 :careers:
-  !ruby/object:Topics
-    name: careers
-    alt_name: aile
-    category: grammar
-    target: türkçe
-    source: english
-    description: careers words and relationships
-    summary: careers words and relationships
+  !ruby/object:Vocabulary
     fc_data:
       - ["asker", "soldier"]
       - ["avukat", "lawyer, advice"]
@@ -665,14 +569,7 @@
       - ["şarkıcı", "singer"]
 
 :education:
-  !ruby/object:Topics
-    name: education
-    alt_name: aile
-    category: grammar
-    target: türkçe
-    source: english
-    description: education words and relationships
-    summary: education words and relationships
+  !ruby/object:Vocabulary
     fc_data:
       - ["açıklam", "explain, statement"]
       - ["alfabesinde", "alphabet"]
@@ -715,14 +612,7 @@
       - ["ünite", "section, unit"]
 
 :travel:
-  !ruby/object:Topics
-    name: travel
-    alt_name: aile
-    category: grammar
-    target: türkçe
-    source: english
-    description: travel words and relationships
-    summary: travel words and relationships
+  !ruby/object:Vocabulary
     fc_data:
       - ["araba", "car"]
       - ["bavul", "suitcase"]
@@ -757,14 +647,7 @@
       - ["yolu", "way"]
 
 :places:
-  !ruby/object:Topics
-    name: places
-    alt_name: aile
-    category: grammar
-    target: türkçe
-    source: english
-    description: places words and relationships
-    summary: places words and relationships
+  !ruby/object:Vocabulary
     fc_data:
       - ["ada", "island"]
       - ["bahçe", "garden"]
@@ -813,14 +696,7 @@
       - ["batṡında", "west of sth"]
 
 :objects:
-  !ruby/object:Topics
-    name: objects
-    alt_name: aile
-    category: grammar
-    target: türkçe
-    source: english
-    description: objects words and relationships
-    summary: objects words and relationships
+  !ruby/object:Vocabulary
     fc_data:
       - ["anahtar", "key"]
       - ["bardak", "drink glass"]
@@ -865,14 +741,7 @@
       - ["kapı kom", "nextdoor neighbor"]
 
 :clothing:
-  !ruby/object:Topics
-    name: clothing
-    alt_name: aile
-    category: grammar
-    target: türkçe
-    source: english
-    description: clothing words and relationships
-    summary: clothing words and relationships
+  !ruby/object:Vocabulary
     fc_data:
       - ["çift", "pair, couple of sth"]
       - ["ayakkabı", "shoe"]
@@ -886,14 +755,7 @@
       - ["ceketi", "jacket, coat"]
 
 :colors:
-  !ruby/object:Topics
-    name: colors
-    alt_name: aile
-    category: grammar
-    target: türkçe
-    source: english
-    description: colors words and relationships
-    summary: colors words and relationships
+  !ruby/object:Vocabulary
     fc_data:
       - ["beyaz", "white"]
       - ["gri", "gray"]
@@ -909,14 +771,7 @@
       - ["rengarenk", "colorful"]
 
 :abstracts:
-  !ruby/object:Topics
-    name: abstracts
-    alt_name: aile
-    category: grammar
-    target: türkçe
-    source: english
-    description: abstracts words and relationships
-    summary: abstracts words and relationships
+  !ruby/object:Vocabulary
     fc_data:
       - ["hayat", "lifetime"]
       - ["sevgi", "love"]
@@ -942,14 +797,7 @@
       - ["emir", "orders"]
 
 :politics:
-  !ruby/object:Topics
-    name: politics
-    alt_name: aile
-    category: grammar
-    target: türkçe
-    source: english
-    description: politics words and relationships
-    summary: politics words and relationships
+  !ruby/object:Vocabulary
     fc_data:
       - ["aday", "candidate"]
       - ["bakan", "minister"]
@@ -981,14 +829,7 @@
       - ["yolsuzluk", "corruption"]
 
 :health:
-  !ruby/object:Topics
-    name: health
-    alt_name: aile
-    category: grammar
-    target: türkçe
-    source: english
-    description: health words and relationships
-    summary: health words and relationships
+  !ruby/object:Vocabulary
     fc_data:
       - ["acil", "emergence"]
       - ["ambulans", "ambulance"]
@@ -1022,14 +863,7 @@
       - ["yüz", "face"]
 
 :nature:
-  !ruby/object:Topics
-    name: nature
-    alt_name: aile
-    category: grammar
-    target: türkçe
-    source: english
-    description: nature words and relationships
-    summary: nature words and relationships
+  !ruby/object:Vocabulary
     fc_data:
       - ["ay", "moon"]
       - ["ağaç", "tree"]
@@ -1064,14 +898,7 @@
       - ["yıldız", "star"]
 
 :arts-sports:
-  !ruby/object:Topics
-    name: arts-sports
-    alt_name: aile
-    category: grammar
-    target: türkçe
-    source: english
-    description: arts-sports words and relationships
-    summary: arts-sports words and relationships
+  !ruby/object:Vocabulary
     fc_data:
       - ["dizi", "tv series"]
       - ["edebiyat", "literature"]
@@ -1094,14 +921,7 @@
       - ["maçta", "match"]
 
 :science:
-  !ruby/object:Topics
-    name: science
-    alt_name: aile
-    category: grammar
-    target: türkçe
-    source: english
-    description: science words and relationships
-    summary: science words and relationships
+  !ruby/object:Vocabulary
     fc_data:
       - ["araştırma", "research"]
       - ["bilim", "science"]
@@ -1121,14 +941,7 @@
       - ["teori", "theory"]
 
 :business:
-  !ruby/object:Topics
-    name: business
-    alt_name: aile
-    category: grammar
-    target: türkçe
-    source: english
-    description: business words and relationships
-    summary: business words and relationships
+  !ruby/object:Vocabulary
     fc_data:
       - ["altın", "gold"]
       - ["ameliyat", "operation"]
@@ -1151,25 +964,11 @@
       - ["vergi", "taxes"]
       - ["şirket", "company"]
 :basic:
-  !ruby/object:Topics
-    name: basic
-    alt_name: basic
-    category: grammar
-    target: türkçe
-    source: english
-    description: basics
-    summary: basics
+  !ruby/object:Vocabulary
     fc_data:
       - ["tbd", "tbd"]
 :general:
-  !ruby/object:Topics
-    name: general
-    alt_name: general
-    category: grammar
-    target: türkçe
-    source: english
-    description: general
-    summary: general
+  !ruby/object:Vocabulary
     fc_data:
       - ["tbd", "tbd"]
   

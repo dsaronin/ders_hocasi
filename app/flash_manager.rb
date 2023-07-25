@@ -11,7 +11,7 @@
 class FlashManager
   require 'pp'
   require_relative 'sources'
-  require_relative 'topics'
+  require_relative 'vocabulary'
   require_relative 'sentences'
   require_relative 'player'
   require_relative 'phrases'
@@ -22,7 +22,7 @@ class FlashManager
 
   attr_reader :my_settings, :my_source
  
-  SOURCE_TYPES   = %w{Topics Sentences Phrases Opposites Readings Dialogs Dictionary}
+  SOURCE_TYPES   = %w{Vocabulary Opposites Sentences Phrases Dialogs Readings Dictionary}
   SELECTOR_TYPES = %w{ordered shuffled}
   SIZER_TYPES    = [5, 10, 15, 25, 50]
   GROUP_SIZES    = %w{5 10 15 25 50}   # display for html select
@@ -40,7 +40,7 @@ class FlashManager
   EXAMPLE_TYPES   = %w{Phrases Dialogs Sentences Readings Dictionary}
   # text types get shown without bullets in lists
   TEXT_TYPES   = %w{Dialogs Readings}
-  LIST_TYPES   = %w{Topics Sentences Phrases Opposites Readings Dialogs}
+  LIST_TYPES   = %w{Vocabulary Sentences Phrases Opposites Readings Dialogs}
 
   #  ------------------------------------------------------------
   #  ------------------------------------------------------------
@@ -49,7 +49,7 @@ class FlashManager
   #  ------------------------------------------------------------
  
   @@defaults = {
-    :topic    => Topics.default_topic,
+    :topic    => Vocabulary.default_topic,
     :source   => SOURCE_TYPES[0],
     :selector => SELECTOR_TYPES[0],
     :sizer    => SIZER_TYPES[0],
@@ -78,7 +78,7 @@ class FlashManager
 
     key.gsub!( /:/, "")  # remove misguided attemps at making a symbol
     topic = ( key =~ /^def(ault)?$/  ?  @my_settings[:topic]  : key )
-    @my_topic = Topics.find_topic( topic )
+    @my_topic = Vocabulary.find_topic( topic )
 
     if @my_topic.nil?
       raise TopicError, "Topic: #{topic} not found"
@@ -292,7 +292,7 @@ class FlashManager
   #  ------------------------------------------------------------
   def extract_key( str )
     return str if @my_settings[:source].match /Dictionary/
-    return "" unless @my_settings[:source].match /Topics|Opposites/
+    return "" unless @my_settings[:source].match /Vocabulary|Opposites/
     keys = str.gsub(/[:;.,-=+?!|~^$#@&*<>]/,' ').split
     return "" if keys.empty?  ||  keys.length > 6
     return str if keys.length < 3

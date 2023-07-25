@@ -1,7 +1,7 @@
 %h5 Flashcard Settings
 = form('/settings', method=:post) do |f|
-  = f.label(:topic, 'Topic for Flashcards:&emsp;')
-  = f.select(:topic, Topics.sorted_keys, {:value => @settings[:topic].to_sym })
+  = f.label(:topic, 'Topic for study:&emsp;')
+  = f.select(:topic, Vocabulary.sorted_keys, {:value => @settings[:topic].to_sym })
   %br
   = f.label(:source, 'Source for Flashcards:&emsp;')
   = f.select(:source, FlashManager::SOURCE_TYPES, {:value => @settings[:source]})
