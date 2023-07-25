@@ -29,6 +29,22 @@ module Sinatra
   end
 
   #  ------------------------------------------------------------
+  #  helper_font_sizing  -- calcs size of font for player display
+  #  ------------------------------------------------------------
+  def helper_font_sizing
+      # calculate variable font sizing
+    @fontsize = case @front.length
+                when (1..5)   then "huge"
+                when (6..8)   then "large"
+                when (9..16)  then "big1"
+                when (17..39) then "big2"
+                when (40..59) then "big3"
+                else 
+                  "normal"
+                end
+  end
+
+  #  ------------------------------------------------------------
   #  helper_ready_haml_stuff  -- stuff to get ready for view
   #  ------------------------------------------------------------
   def helper_ready_haml_stuff( card, show )
@@ -57,22 +73,6 @@ module Sinatra
     end
 
     helper_font_sizing
-  end
-
-  #  ------------------------------------------------------------
-  #  helper_font_sizing  -- calcs size of font for player display
-  #  ------------------------------------------------------------
-  def helper_font_sizing
-      # calculate variable font sizing
-    @fontsize = case @front.length
-                when (1..5)   then "huge"
-                when (6..8)   then "large"
-                when (9..16)  then "big1"
-                when (17..39) then "big2"
-                when (40..59) then "big3"
-                else 
-                  "normal"
-                end
   end
 
   #  ------------------------------------------------------------
@@ -179,7 +179,7 @@ module Sinatra
   def helper_player_or_list(submit, settings)
     case submit
       when  /flashcards/ then helper_start_player( settings )
-      when  /lists/      then helper_prep_lists( settings )
+      when  /lists/      then helper_prep_lists( false, settings )
       else
         redirect '/'
       end  # case
@@ -189,11 +189,13 @@ module Sinatra
   # topic, source, list
   # ------------------------------------------------------
   def helper_prep_lists(restore_session = true, new_settings=nil)
+
     card = prep_flashcards(restore_session, new_settings)
 
     if card.nil?  # due to exception
       redirect '/'
     else
+
         # setup variables for player display
       @action_box = :action_player   # use special action box
       @skip_menu = true    # skips player menu
