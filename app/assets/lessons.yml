@@ -6,18 +6,18 @@
 # ----------------------------------------------
 :adverbs:
   !ruby/object:Lessons
-    title: Zarflar express manner, place, limitation, and time.
-    description: When?, where?, how?, how much?, how long?, or how often?
-    introduction: Adverbs modify other words -- verbs, adjectives, other adverbs, phrases, or sentences.
+    title: Adverbs (Zarflar)
+    description: When? where? how? how much? how long? or how often?
+    introduction: Adverbs modify other words -- verbs, adjectives, other adverbs, phrases, or sentences. They express manner, place, limitation, and time.
     level: A1
     recording: dialog-markette.ogg
     fc_data:
       - |
-        Turkish adverbs suffix: –CA: Onu yavaşça kardır.
-        Adjectives can serve as adverbs: güzel konuş. 
-        Noun + -CA: kafaca en uyumlu biz değiliz.
-        Time/Number + -CA: aylarca seni bekledim.
-        Repetitive phrases often are adverbs: harıl harıl ders çalışmak.
-        Comparatives: çok, az, daha, en
-        Frequency: bazen, nadiren, daima, hep, her zaman
+        Turkish adverbs suffix: –CA: Onu yavaşça kardır.#
+        Adjectives as adverbs: güzel konuş.#
+        Noun + -CA: kafaca en uyumlu biz değiliz.#
+        Time/Number + -CA: aylarca seni bekledim.#
+        Repetitive phrases: harıl harıl ders çalışmak.#
+        Comparatives: çok, az, daha, en.#
+        Frequency: bazen, nadiren, daima, hep, her zaman.#
       - Page 2 of the lesson. 

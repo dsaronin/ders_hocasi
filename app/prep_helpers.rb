@@ -224,14 +224,52 @@ module Sinatra
 
   end
 
+  # ------------------------------------------------------
+  # 
+  # ------------------------------------------------------
+  def helper_prep_lessons
+
+    helper_get_settings
+    @settings[:source] = "Lessons"    # spoof the source
+    card = prep_flashcards( false, @settings )
+
+    if card.nil?    # due to exception
+      flash[:error] = "Invalid Topic or Source"
+      redirect '/'
+    else
+        # setup variables for player display
+      @action_box = :action_player   # use special action box
+      @skip_menu = true    # skips player menu
+
+      @l   = card.my_source     # @l is the "lesson"
+      @cur_ptr = card.my_settings[:cur_ptr]
+
+      @recording_file = @l.recording
+      @time   = 0
+
+         # save state in user's session
+      session[:settings] = YAML.dump(  
+        card.prep_serialize_settings  # capture state
+      )
+
+      haml :lessons
+    end  # outer if
+
+  end
+
 # ------------------------------------------------------
+  # *************************************************
 # ------------------------------------------------------
         
   end   #  module AssetHelpers
         
 # ------------------------------------------------------
+  # *************************************************
 # ------------------------------------------------------
       
   helpers AssetHelpers
 
+# ------------------------------------------------------
+  # *************************************************
+# ------------------------------------------------------
 end  # module sinatra 

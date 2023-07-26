@@ -1,4 +1,7 @@
-%h6= Lesson: #{@l.title}
-%p= #{@l.description}
-%p= #{@l.introduction}
-%p= #{@l.fc_data[@cur_ptr]}
+%h6 Lesson: #{@l.title}
+%p #{@l.description}
+%p #{@l.introduction}
+%hr
+%ul
+  - @l.fc_data[@cur_ptr].split(/#/).each do |item|
+    %li= item
