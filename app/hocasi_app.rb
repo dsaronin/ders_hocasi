@@ -36,6 +36,10 @@ class HocasiApp < Sinatra::Application
     haml :source
   end
 
+  get '/lessons' do
+    haml :lessons
+  end
+
   get '/about' do
     haml :about
   end

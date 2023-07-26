@@ -19,6 +19,7 @@ class FlashManager
   require_relative 'dialogs'
   require_relative 'opposites'
   require_relative 'dictionary'
+  require_relative 'lessons'
 
   attr_reader :my_settings, :my_source
  
