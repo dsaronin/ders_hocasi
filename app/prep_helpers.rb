@@ -244,18 +244,20 @@ module Sinatra
       @l   = card.my_source     # @l is the "lesson"
       @cur_ptr = card.my_settings[:cur_ptr]
 
-      @recording_file = @l.recording
-      @time   = 0
-
-         # save state in user's session
-      session[:settings] = YAML.dump(  
-        card.prep_serialize_settings  # capture state
-      )
-
       if @l.nil? || @cur_ptr.nil?
         flash[:error] = "Missing Topic for Lessons; choose another."
         redirect '/'
       else
+        @recording_file = @l.recording
+        @time   = 0
+
+        @cur_ptr = 0 if @cur_ptr >= @l.fc_data.length
+
+           # save state in user's session
+        session[:settings] = YAML.dump(  
+          card.prep_serialize_settings  # capture state
+        )
+
         haml :lessons
       end
     end  # outer if
