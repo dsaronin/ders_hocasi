@@ -40,6 +40,10 @@ class HocasiApp < Sinatra::Application
     helper_prep_lessons
   end
 
+  get '/disclaimers' do
+    haml :disclaimers
+  end
+
   get '/about' do
     haml :about
   end
