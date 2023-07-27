@@ -253,6 +253,7 @@ module Sinatra
       )
 
       if @l.nil? || @cur_ptr.nil?
+        flash[:error] = "Missing Topic for Lessons; choose another."
         redirect '/'
       else
         haml :lessons
