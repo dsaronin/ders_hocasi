@@ -252,7 +252,11 @@ module Sinatra
         card.prep_serialize_settings  # capture state
       )
 
-      haml :lessons
+      if @l.nil? || @cur_ptr.nil?
+        redirect '/'
+      else
+        haml :lessons
+      end
     end  # outer if
 
   end

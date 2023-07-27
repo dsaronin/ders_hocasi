@@ -1,7 +1,10 @@
 %h6 Lesson: #{@l.title}
-%p #{@l.description}
-%p #{@l.introduction}
+.intro
+  %p #{@l.description}
+  %p #{@l.introduction}
 %hr
-%ul
-  - @l.fc_data[@cur_ptr].split(/#/).each do |item|
-    %li= item
+.lessons
+  %ul
+    - @l.fc_data[@cur_ptr].split(/#/).each do |item|
+      - unless item.empty?
+        %li= item

@@ -197,7 +197,7 @@ html {
 hr {
   border: 0;
   border-top: 1px solid #B2BBBF;
-  padding: 0.5em 0;
+  padding: 0.3em 0;
 }
 
 h1 {
@@ -492,6 +492,39 @@ a#left-prev, a#right-next {
 
 a#right-next {
   text-align: right;
+}
+
+.intro {
+  margin: 0 auto;
+  width: 95%;
+  color: #263238;
+  background-color: #FFF8E1;
+  border: 1px solid #FFECB3;
+}
+.intro p {
+  font-size: 80% !important;
+  padding: 0.5em !important;
+  line-height: 1.1 !important;
+}
+
+.lessons {
+  margin: 0.3em auto;
+  width: 100%;
+}
+.lessons p {
+  line-height: 1 !important;
+  font-size: 80% !important;
+  padding: 0.2em 0 !important;
+}
+.lessons ul {
+  padding: 0;
+}
+.lessons ul li {
+  padding: 0.2em 0;
+  font-size: 85%;
+  margin-left: 1em;
+  list-style: disc;
+  list-style-position: outside;
 }
 
 .list {
