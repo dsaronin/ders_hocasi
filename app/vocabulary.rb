@@ -21,13 +21,6 @@ class Vocabulary
   #  ------------------------------------------------------------
 
   #  ------------------------------------------------------------
-  #  default_topic  -- returns the first topic in keys list
-  #  ------------------------------------------------------------
-  def self.default_topic
-    return @@database.keys.first
-  end
-
-  #  ------------------------------------------------------------
   #  find_topic -- returns the vocabulary obj associated with a key; 
   #  else nil if not found 
   #     (flash_manager.initialize will generate an exception)

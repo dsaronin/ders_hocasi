@@ -37,6 +37,13 @@ module Sources
     end
 
     #  ------------------------------------------------------------
+    #  default_topic  -- returns the first topic in keys list
+    #  ------------------------------------------------------------
+    def default_topic
+      return self.class_variable_get(:@@database).keys.first
+    end
+
+    #  ------------------------------------------------------------
     #  sorted_keys -- returns array of keys (data entries) for 
     #  a given database
     #  ------------------------------------------------------------

@@ -197,8 +197,8 @@ module Sinatra
       flash[:error] = "Invalid Topic or Source"
       redirect '/'
     elsif !card.listable? 
-      flash[:error] = "Cannot list Dictionary; too big!"
-      redirect '/'
+      flash[:error] = "Cannot list Lessons nor Dictionary!"
+      redirect '/source'
     else
         # setup variables for player display
       @action_box = :action_player   # use special action box
@@ -227,9 +227,11 @@ module Sinatra
   # ------------------------------------------------------
   # 
   # ------------------------------------------------------
-  def helper_prep_lessons
+  def helper_prep_lessons( default=false )
 
     helper_get_settings
+    @settings[:topic] = Lessons.default_topic if default
+
     @settings[:source] = "Lessons"    # spoof the source
     card = prep_flashcards( false, @settings )
 

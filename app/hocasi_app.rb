@@ -36,6 +36,10 @@ class HocasiApp < Sinatra::Application
     haml :source
   end
 
+  get '/lessons/def' do
+    helper_prep_lessons( true )
+  end
+
   get '/lessons' do
     helper_prep_lessons
   end
@@ -134,7 +138,6 @@ class HocasiApp < Sinatra::Application
 
   post '/source' do
     parms = params[:source]
-    puts "Submit value is: #{params[:submit]}"
     helper_get_settings
     @settings[:entry] = parms[:entry]
     helper_player_or_list(params[:submit], @settings)
