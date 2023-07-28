@@ -95,7 +95,6 @@ class FlashManager
     if @my_source.nil?
       raise EntryError, "Source for topic: #{topic} not found"
     end
-    puts "FLASHMGR: source: #{@my_source.class}, my_topic: #{@my_source.my_topic}" 
     reset_if_start
   end
 
