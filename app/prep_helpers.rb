@@ -198,7 +198,7 @@ module Sinatra
       redirect '/'
     elsif !card.listable? 
       flash[:error] = "Cannot list Lessons nor Dictionary!"
-      redirect '/source'
+      redirect '/settings'
     else
         # setup variables for player display
       @action_box = :action_player   # use special action box
@@ -230,7 +230,11 @@ module Sinatra
   def helper_prep_lessons( default=false )
 
     helper_get_settings
-    @settings[:topic] = Lessons.default_topic if default
+
+    if default
+      @settings[:topic] = Lessons.default_topic 
+      @settings[:cur_ptr] = 0
+    end
 
     @settings[:source] = "Lessons"    # spoof the source
     card = prep_flashcards( false, @settings )
@@ -246,7 +250,7 @@ module Sinatra
       @l   = card.my_source     # @l is the "lesson"
       @cur_ptr = card.my_settings[:cur_ptr]
 
-      if @l.nil? || @cur_ptr.nil?
+      if @l.nil? || @cur_ptr.nil?  || @l.my_topic != @settings[:topic]
         flash[:error] = "Missing Topic for Lessons; choose another."
         redirect '/'
       else

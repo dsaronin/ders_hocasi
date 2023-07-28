@@ -79,6 +79,7 @@ class FlashManager
 
     key.gsub!( /:/, "")  # remove misguided attemps at making a symbol
     topic = ( key =~ /^def(ault)?$/  ?  @my_settings[:topic]  : key )
+    Environ.log_info "FLASHMGR: source: #{@my_settings[:source]}, topic: #{topic}, entry: #{@my_settings[:entry]}"
     @my_topic = Vocabulary.find_topic( topic )
 
     if @my_topic.nil?
@@ -94,7 +95,7 @@ class FlashManager
     if @my_source.nil?
       raise EntryError, "Source for topic: #{topic} not found"
     end
-    
+    puts "FLASHMGR: source: #{@my_source.class}, my_topic: #{@my_source.my_topic}" 
     reset_if_start
   end
 

@@ -17,6 +17,7 @@ module Sources
     EMPTY_DATA = [["boş","tupu"]]
 
     attr_reader :recording
+    attr_accessor  :my_topic
 
   #  ------------------------------------------------------------
   #  ------------------------------------------------------------
@@ -26,9 +27,13 @@ module Sources
 
   module ClassMethods
 
+
     def find_or_new( key, entry = nil )
-      obj = self.find( key, entry ) || allocate
-      obj.send(:initialize, key)
+      obj = self.find( key, entry ) 
+      if obj.nil?
+        allocate
+        obj.send(:initialize, key)
+      end
 
       if self.class_variable_get(:@@database).nil?
         self.class_variable_set(:@@database, obj) 
@@ -95,7 +100,14 @@ module Sources
         use_key = ( entry.nil?  ?  key  :  entry )
         obj = db[ ( use_key.is_a?(Symbol) ? use_key : use_key.to_sym ) ]
 
-        return ( obj.nil?  ? db[db.keys.first] : obj ) 
+        if obj.nil?
+          use_key = db.keys.first
+          obj = db[use_key]
+        end
+
+        obj.my_topic = use_key
+
+        return obj
 
       end
 
@@ -162,6 +174,7 @@ module Sources
   #  ------------------------------------------------------------
   #  ------------------------------------------------------------
   def initialize( topic )
+    @my_topic = topic
   end
 
 end  # module
