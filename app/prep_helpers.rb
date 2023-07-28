@@ -77,9 +77,13 @@ module Sinatra
 
   #  ------------------------------------------------------------
   #  prep_flashcards  -- DRY prep & start flashcards
+  #  args:
+  #    restore_session -- true if restore state from prev session
+  #    no_lessons -- true if don't allow Source as Lessons
+  #    new_settings  -- nil (if default or restore), else updated settings
   #  returns flashcard obj
   #  ------------------------------------------------------------
-  def prep_flashcards(restore_session, new_settings)
+  def prep_flashcards(restore_session, no_lessons, new_settings)
     settings = (
       !restore_session || session[:settings].nil? ? 
       new_settings  :  
@@ -87,6 +91,11 @@ module Sinatra
     )
 
     topic = ( settings && settings[:topic]  ?  settings[:topic]  : "def" )
+
+    if no_lessons  &&  !settings.nil?  &&  settings[:source] == "Lessons"
+      settings[:source] = "Vocabulary"
+      flash[:error] = "Source set to Vocabulary."
+    end
 
       # ok even if settings==nil at this point
     return HOCASI.do_flashcards( [topic.to_s], settings )
@@ -105,7 +114,7 @@ module Sinatra
     @redirect_to_source = false
 
       # ok even if settings==nil at this point
-    player = prep_flashcards(restore_session, new_settings).start_card_player
+    player = prep_flashcards(restore_session, true, new_settings).start_card_player
 
     if player.nil?  # due to exception
       loop = false
@@ -191,7 +200,7 @@ module Sinatra
   # ------------------------------------------------------
   def helper_prep_lists(restore_session = true, new_settings=nil)
 
-    card = prep_flashcards(restore_session, new_settings)
+    card = prep_flashcards(restore_session, true, new_settings)
 
     if card.nil?    # due to exception
       flash[:error] = "Invalid Topic or Source"
@@ -227,7 +236,7 @@ module Sinatra
   # ------------------------------------------------------
   # 
   # ------------------------------------------------------
-  def helper_prep_lessons( default=false )
+  def helper_prep_lessons( default=false, incr = 0 )
 
     helper_get_settings
 
@@ -237,7 +246,7 @@ module Sinatra
     end
 
     @settings[:source] = "Lessons"    # spoof the source
-    card = prep_flashcards( false, @settings )
+    card = prep_flashcards( false, false, @settings )
 
     if card.nil?    # due to exception
       flash[:error] = "Invalid Topic or Source"
@@ -248,9 +257,13 @@ module Sinatra
       @skip_menu = true    # skips player menu
 
       @l   = card.my_source     # @l is the "lesson"
-      @cur_ptr = card.my_settings[:cur_ptr]
+      @cur_ptr = card.my_settings[:cur_ptr]  || 0
 
-      if @l.nil? || @cur_ptr.nil?  || @l.my_topic != @settings[:topic]
+        puts "HELPER-LIST: incr: #{incr}, cur_ptr is: #{@cur_ptr}"
+
+      @cur_ptr += incr
+
+      if @l.nil? ||  @l.my_topic != @settings[:topic]
         flash[:error] = "Missing Topic for Lessons; choose another."
         redirect '/'
       else
@@ -258,6 +271,9 @@ module Sinatra
         @time   = 0
 
         @cur_ptr = 0 if @cur_ptr >= @l.fc_data.length
+        @cur_ptr = @l.fc_data.length - 1 if  @cur_ptr < 0
+
+        card.cur_ptr = @cur_ptr
 
            # save state in user's session
         session[:settings] = YAML.dump(  

@@ -40,6 +40,14 @@ class HocasiApp < Sinatra::Application
     helper_prep_lessons( true )
   end
 
+  get '/lessons/p' do     # prev page (if any)
+    helper_prep_lessons(false, -1)
+  end
+
+  get '/lessons/n' do     # next page (if any)
+    helper_prep_lessons(false, 1)
+  end
+
   get '/lessons' do
     helper_prep_lessons
   end

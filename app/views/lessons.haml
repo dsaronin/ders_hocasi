@@ -8,3 +8,7 @@
     - @l.fc_data[@cur_ptr].split(/#/).each do |item|
       - unless item.empty?
         %li= item
+  %p &emsp;
+  = link_to( "&laquo;", "/lessons/p", { :id => "left-prev" } )
+  = link_to( "&raquo;", "/lessons/n", { :id => "right-next" } )
+

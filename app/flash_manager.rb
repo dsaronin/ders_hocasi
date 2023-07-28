@@ -22,6 +22,7 @@ class FlashManager
   require_relative 'lessons'
 
   attr_reader :my_settings, :my_source
+  attr_accessor  :cur_ptr
  
   SOURCE_TYPES   = %w{Vocabulary Opposites Sentences Phrases Dialogs Readings Dictionary}
   SELECTOR_TYPES = %w{ordered shuffled}
