@@ -45,9 +45,9 @@ module Sinatra
   end
 
   #  ------------------------------------------------------------
-  #  helper_ready_haml_stuff  -- stuff to get ready for view
+  #  helper_flashcard_haml_stuff  -- stuff to get ready for view
   #  ------------------------------------------------------------
-  def helper_ready_haml_stuff( card, show )
+  def helper_flashcard_haml_stuff( card, show )
     @action_box = :action_player   # use special action box
     @dark_background = true
 
@@ -77,6 +77,12 @@ module Sinatra
     end
 
     helper_font_sizing
+
+      # save state in user's session
+    session[:settings] = YAML.dump(  
+      card.prep_serialize_settings  # capture state
+    )
+
   end
 
   #  ------------------------------------------------------------
@@ -129,16 +135,8 @@ module Sinatra
         # have the player do a command
       (loop, show) = player.commands( [playcmd] )
 
-        # setup variables for player display
-      if loop
-        helper_ready_haml_stuff( player.card, show )
-      end  # inner if
-
-        # save state in user's session
-      session[:settings] = YAML.dump(  
-        player.card.prep_serialize_settings  # capture state
-      )
-
+      # setup variables for player display
+      helper_flashcard_haml_stuff( player.card, show )
     end  # outer if
 
     return loop
@@ -200,6 +198,31 @@ module Sinatra
   end
 
   # ------------------------------------------------------
+  # ------------------------------------------------------
+  def helper_list_haml_stuff(card)
+      # setup variables for player display
+    @action_box = :action_player   # use special action box
+    @skip_menu = true    # skips player menu
+    @topic  = card.my_settings[:topic]
+    @source = card.my_settings[:source]
+    @list   = card.my_source.fc_data[0..50]
+    @text   = card.text_or_bullets
+    @recording_file = card.my_source.recording
+    @time   = 0
+
+    if @source == "Opposites"
+      @subchar = [/::/, " &harr; "]
+    end
+
+       # save state in user's session
+    session[:settings] = YAML.dump(  
+      card.prep_serialize_settings  # capture state
+    )
+
+    haml :lists
+  end
+
+  # ------------------------------------------------------
   # topic, source, list
   # ------------------------------------------------------
   def helper_prep_lists(restore_session = true, new_settings=nil)
@@ -213,28 +236,41 @@ module Sinatra
       flash[:error] = "Cannot list Lessons nor Dictionary!"
       redirect '/settings'
     else
-        # setup variables for player display
-      @action_box = :action_player   # use special action box
-      @skip_menu = true    # skips player menu
-      @topic  = card.my_settings[:topic]
-      @source = card.my_settings[:source]
-      @list   = card.my_source.fc_data[0..50]
-      @text   = card.text_or_bullets
-      @recording_file = card.my_source.recording
+      helper_list_haml_stuff(card)
+    end  # outer if
+
+  end
+
+  # ------------------------------------------------------
+  # ------------------------------------------------------
+  def helper_lessons_haml_stuff(card,incr)
+      # setup variables for player display
+    @action_box = :action_player   # use special action box
+    @skip_menu = true    # skips player menu
+
+    @l   = card.my_source     # @l is the "lesson"
+    @cur_ptr = card.my_settings[:cur_ptr]  || 0
+    @cur_ptr += incr
+
+    if @l.nil? ||  @l.my_topic != @settings[:topic]
+      flash[:error] = "Missing Topic for Lessons; choose another."
+      redirect '/'
+    else
+      @recording_file = @l.recording
       @time   = 0
 
-      if @source == "Opposites"
-        @subchar = [/::/, " &harr; "]
-      end
+      @cur_ptr = 0 if @cur_ptr >= @l.fc_data.length
+      @cur_ptr = @l.fc_data.length - 1 if  @cur_ptr < 0
+
+      card.cur_ptr = @cur_ptr
 
          # save state in user's session
       session[:settings] = YAML.dump(  
         card.prep_serialize_settings  # capture state
       )
 
-      haml :lists
-    end  # outer if
-
+      haml :lessons
+    end
   end
 
   # ------------------------------------------------------
@@ -256,33 +292,7 @@ module Sinatra
       flash[:error] = "Invalid Topic or Source"
       redirect '/'
     else
-        # setup variables for player display
-      @action_box = :action_player   # use special action box
-      @skip_menu = true    # skips player menu
-
-      @l   = card.my_source     # @l is the "lesson"
-      @cur_ptr = card.my_settings[:cur_ptr]  || 0
-      @cur_ptr += incr
-
-      if @l.nil? ||  @l.my_topic != @settings[:topic]
-        flash[:error] = "Missing Topic for Lessons; choose another."
-        redirect '/'
-      else
-        @recording_file = @l.recording
-        @time   = 0
-
-        @cur_ptr = 0 if @cur_ptr >= @l.fc_data.length
-        @cur_ptr = @l.fc_data.length - 1 if  @cur_ptr < 0
-
-        card.cur_ptr = @cur_ptr
-
-           # save state in user's session
-        session[:settings] = YAML.dump(  
-          card.prep_serialize_settings  # capture state
-        )
-
-        haml :lessons
-      end
+      helper_lessons_haml_stuff(card, incr)
     end  # outer if
 
   end
