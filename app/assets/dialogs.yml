@@ -180,6 +180,7 @@
     title: visiting doctor with a cold
     level: A2
     date: 20220326
+    has_glossary: health
     recording: dialog-klinikta_hasta.ogg
     fc_data:
       -  ["A: Merhaba", "A: Hello", 0]
@@ -199,29 +200,6 @@
       -  ["B: Reçete numaranız bu kağıtta yazıyor, eczaneden direkt alabilirsiniz.", "B: Your prescription number is written on this paper, you can get it directly from the pharmacy.", 0]
       -  ["A: Teşekkür ederim, iyi günler.", "A: Thank you, have a nice day.", 0]
       -  ["B: Sağlıklı günler dilerim, iyi günler.", "B: I wish you a good day, have a nice day.", 0]
-      -  ["-sedye yatmak", "lie on a stretcher", 0]
-      -  ["derin", "deep", 0]
-      -  ["ilaç", "medicine", 0]
-      -  ["eczane", "pharmacy", 0]
-      -  ["söktürücü", "expectorant", 0]
-      -  ["ağrı kesici", "painkiller", 0]
-      -  ["şikayet", "complaint", 0]
-      -  ["öksürük", "cough", 0]
-      -  ["soğuk algınlık", "colds", 0]
-      -  ["iltihap A: söktürücü", "inflammation A: expectorant", 0]
-      -  ["balgam A: söktürücü", "expectorant A: expectorant", 0]
-      -  ["ahşap çubuğu", "wooden stick", 0]
-      -  ["ağız", "mouth", 0]
-      -  ["sırt", "back", 0]
-      -  ["bademcikler", "tonsils", 0]
-      -  ["ciğerler", "lungs", 0]
-      -  ["omuzlar", "shoulders", 0]
-      -  ["-hasta hissetmek", "feeling sick", 0]
-      -  ["-nefes almak", "breath", 0]
-      -  ["-ilaçları yazmak", "prescribing drugs", 0]
-      -  ["-iltihaplanmak", "get inflamed", 0]
-      -  ["-söktürmek", "make up", 0]
-      -  ["-sokmak", "sting", 0]
                      
 :müzik:
   !ruby/object:Dialogs
@@ -231,6 +209,7 @@
     title: talking with friend about music
     level: A2
     date: 20220402
+    has_glossary: müzik
     fc_data:
       - ["A: Merhaba", "A: Hello", 0]
       - ["B: Merhaba, nereye gidelim?", "B: Hello, where should we go?", 0]
@@ -278,15 +257,6 @@
       - ["C: Tabii. Şifrenizi girin lütfen.", "A: Sure. Please enter your password.", 0]
       - ["A: Teşekkürler, kolay gelsin.", "A: Thanks, take it easy.", 0]
       - ["C: Sağolun, iyi günler.", "A: Thanks, good day.", 0]
-      - ["zevk", "pleasure", 0]
-      - ["ne hoş", "how nice", 0]
-      - ["favori", "favorite", 0]
-      - ["görüşmeyeli", "since we haven't met", 0]
-      - ["ruh halime göre", "Depends on my mood", 0]
-      - ["-enteresan gelmek", "to be interesting", 0]
-      - ["-hoşuma gitmek", "i like it", 0]
-      - ["-müzik çalmak", "playing music", 0]
-      - ["-shazamlamak", "shazam", 0]
 
 :mağazada:
   !ruby/object:Dialogs
@@ -326,6 +296,7 @@
     title: chatting about technology using adverbs
     date: 20230718
     level: A2
+    has_glossary: adverbs
     recording: dialog-adverbs.ogg
     fc_data:
       - ["_: İlker ve Ahmet teknoloji hakkında tartışıyorlar.", "_: İlker and Ahmet are discussing technology.", 0]
@@ -338,26 +309,5 @@
       - ["A: Bu doğru. Teknolojiyi sorumlu bir şekilde kullanmak lazım.", "A: That's correct. Technology should be used responsibly.", 60]
       - ["B: Bence teknoloji bizim için iyi bir şey. Hayatımızı daha kolay ve daha eğlenceli hale getiriyor.", "B: I think technology is a good thing for us. It makes our life easier and more fun.", 66]
       - ["A: Ben de katılıyorum. Teknoloji bizim için harika bir şey.", "A: I also agree. Technology is a great thing for us.", 73]
-      - ["gelişmiş", "advanced", 0]
-      - ["inanılmaz", "unbelievable", 0]
-      - ["eskiden", "once", 0]
-      - ["örnegin", "for example", 0]
-      - ["yanımızda", "at our side", 0]
-      - ["-taşı", "carry sth", 0]
-      - ["güçlü", "strong", 0]
-      - ["sorumlu", "responsible", 0]
-      - ["-kolaylaştır", "make easier", 0]
-      - ["faydalı", "beneficial", 0]
-      - ["araç", "tool vehicle", 0]
-      - ["amaçlar", "purposes", 0]
-      - ["şekil", "form", 0]
-      - ["bir şekilde", "in some way", 0]
-      - ["-hale gelmek", "become state", 0]
-      - ["-hale getirmek", "render/make state", 0]
-      - ["-hayal etmek", "dream, imagine", 0]
-      - ["-hayal edemediklerimiz", "things which we were unable to dream", 0]
-      - ["-tartış", "discuss together", 0]
-      - ["-internete bağlanmak", "internet connect", 0]
-      - ["yaşamımız", "our lives", 0]
-             
+            
 
