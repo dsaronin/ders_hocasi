@@ -1,0 +1,15 @@
+%h6 FlashCard Player
+.flashcard#front
+  = link_to( "&laquo;", "/prev", { :id => "left-prev" } )
+  %h1{ :id => "#{@fontsize}" }= @front 
+  = link_to( "&raquo;", "/next", { :id => "right-next" } )
+- if @show_rear
+  .flashcard#rear
+    - if @rear.kind_of? Array
+      - @rear.each do |defn|
+        %p= defn
+    - else
+      %p= @rear
+    %hr
+    - @examples.each do |example|
+      %p= example

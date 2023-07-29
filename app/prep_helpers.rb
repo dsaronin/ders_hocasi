@@ -65,6 +65,10 @@ module Sinatra
     @settings = card.my_settings
     @source = card.my_settings[:source]
     @recording_file = card.my_source.recording
+    unless @rear_toggle.nil?
+      card.show_rear ^= @rear_toggle
+    end
+    @show_rear = card.show_rear   # pick up switch for rear display
 
     case @source
       when /Dialogs/    then prep_dialog
@@ -125,15 +129,15 @@ module Sinatra
         # have the player do a command
       (loop, show) = player.commands( [playcmd] )
 
-        # save state in user's session
-      session[:settings] = YAML.dump(  
-        player.card.prep_serialize_settings  # capture state
-      )
-
         # setup variables for player display
       if loop
         helper_ready_haml_stuff( player.card, show )
       end  # inner if
+
+        # save state in user's session
+      session[:settings] = YAML.dump(  
+        player.card.prep_serialize_settings  # capture state
+      )
 
     end  # outer if
 
@@ -147,7 +151,7 @@ module Sinatra
   #  ------------------------------------------------------------
   def helper_do_player( cmd )
     if helper_prep_player(cmd, true)
-      haml :start_player
+      haml :flashcards
     elsif @redirect_to_source
         flash[:error] = "Invalid Topic or Source"
         redirect '/source'
@@ -165,7 +169,7 @@ module Sinatra
   #  ------------------------------------------------------------
   def helper_start_player(settings = nil)
     if helper_prep_player( Player::PCMD_CURR, false, settings )
-      haml :start_player
+      haml :flashcards
     elsif @redirect_to_source
         flash[:error] = "Invalid Topic or Source"
         redirect '/source'
@@ -258,9 +262,6 @@ module Sinatra
 
       @l   = card.my_source     # @l is the "lesson"
       @cur_ptr = card.my_settings[:cur_ptr]  || 0
-
-        puts "HELPER-LIST: incr: #{incr}, cur_ptr is: #{@cur_ptr}"
-
       @cur_ptr += incr
 
       if @l.nil? ||  @l.my_topic != @settings[:topic]

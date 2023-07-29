@@ -22,7 +22,7 @@ class FlashManager
   require_relative 'lessons'
 
   attr_reader :my_settings, :my_source
-  attr_accessor  :cur_ptr
+  attr_accessor  :cur_ptr, :show_rear
  
   SOURCE_TYPES   = %w{Vocabulary Opposites Sentences Phrases Dialogs Readings Dictionary}
   SELECTOR_TYPES = %w{ordered shuffled}
@@ -58,7 +58,8 @@ class FlashManager
     :side     => SIDE_TYPES[0],
     :answer   => ANSWER_TYPES[0],
     :speed    => SPEED_TYPES[0],
-    :player   => PLAYER_TYPES[0]
+    :player   => PLAYER_TYPES[0],
+    :rear     => true          # true -- show rear of card
   }
 
   def FlashManager.show_defaults()
@@ -126,6 +127,7 @@ class FlashManager
     else
         # restore from user's previous session
       @cur_ptr   = @my_settings[:cur_ptr]
+      @show_rear = @my_settings[:rear]
       @group_dex = @my_settings[:group_dex]
       @shuffle_indexes = @my_settings[:shuffle_indexes]
     end  # if.then.else
@@ -136,6 +138,7 @@ class FlashManager
   def reset         # --resets all internals
     unshuffle
     @group_dex  = 0   # index at start of first group
+    @show_rear = true   # default: show rear of card
   end
 
   #  ------------------------------------------------------------
@@ -259,6 +262,7 @@ class FlashManager
   def prep_serialize_settings
       # save current state
     @my_settings[:cur_ptr] = @cur_ptr
+    @my_settings[:rear]    = @show_rear
     @my_settings[:group_dex] = @group_dex
     @my_settings[:shuffle_indexes] = @shuffle_indexes
  

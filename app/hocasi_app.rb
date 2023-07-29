@@ -65,6 +65,12 @@ class HocasiApp < Sinatra::Application
     haml :settings
   end
 
+  get '/rear' do
+    # toggle rear show/hide state
+    @rear_toggle = true   # acts as a global; will be seen by helpers
+    helper_do_player( Player::PCMD_CURR )
+  end
+
   #  ------------------------------------------------------------
   #  ------------------------------------------------------------
   get '/start' do
