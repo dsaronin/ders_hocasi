@@ -20,12 +20,12 @@ class FlashManager
   require_relative 'opposites'
   require_relative 'dictionary'
   require_relative 'lessons'
-  require_relative 'glossary'
+  require_relative 'glossaries'
 
   attr_reader :my_settings, :my_source
   attr_accessor  :cur_ptr, :show_rear
  
-  SOURCE_TYPES   = %w{Vocabulary Opposites Sentences Phrases Dialogs Readings Glossary Dictionary}
+  SOURCE_TYPES   = %w{Vocabulary Opposites Sentences Phrases Dialogs Readings Glossaries Dictionary}
   SELECTOR_TYPES = %w{ordered shuffled}
   SIZER_TYPES    = [5, 10, 15, 25, 50]
   GROUP_SIZES    = %w{5 10 15 25 50}   # display for html select

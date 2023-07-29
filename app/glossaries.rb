@@ -6,7 +6,7 @@
 
   require "yaml"
 
-class Glossary
+class Glossaries
   include Sources
 
   #  ------------------------------------------------------------
@@ -14,11 +14,11 @@ class Glossary
   #  CLASS-LEVEL actions & methods
   #  ------------------------------------------------------------
   #  ------------------------------------------------------------
-  # input GLOSSARY database here if not done already 
+  # input GLOSSARIES database here if not done already 
 
-  @@database ||= YAML.unsafe_load_file( "app/assets/glossary.yml" )
-  Environ.log_info( "Glossary data loaded: #{@@database.length} entries" )
+  @@database ||= YAML.unsafe_load_file( "app/assets/glossaries.yml" )
+  Environ.log_info( "Glossaries data loaded: #{@@database.length} entries" )
  
-end # Glossary
+end # Glossaries
 
 

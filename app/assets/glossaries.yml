@@ -5,7 +5,7 @@
 #
 # ----------------------------------------------
 :health:
-  !ruby/object:Glossary
+  !ruby/object:Glossaries
     belongs_to:
       - Dialogs
       - klinikta_hasta
@@ -36,7 +36,7 @@
       -  ["-sokmak", "sting", 0]
  
 :müzik:
-  !ruby/object:Glossary
+  !ruby/object:Glossaries
     belongs_to:
       - Dialogs
       - klinikta_hasta
@@ -53,7 +53,7 @@
       - ["-shazamlamak", "shazam", 0]
 
 :adverbs:
-  !ruby/object:Glossary
+  !ruby/object:Glossaries
     belongs_to:
       - Dialogs
       - adverbs
