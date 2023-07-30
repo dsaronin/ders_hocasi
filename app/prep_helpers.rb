@@ -10,6 +10,27 @@ module Sinatra
   module AssetHelpers
 # ------------------------------------------------------
 # ------------------------------------------------------
+
+  #  ------------------------------------------------------------
+  #  save_session_state -- save state in user's session
+  #  ------------------------------------------------------------
+  def save_session_state(card)
+    session[:settings] = YAML.dump(  
+      card.prep_serialize_settings  # capture state
+    )
+  end
+
+  def get_glossary( obj )
+    return nil if obj.has_glossary.nil?
+
+    source = Glossaries.find_glossary( obj.has_glossary )
+    return source.fc_data unless source.nil?
+
+    flash[:error] = "Glossary <#{obj.has_glossary}> not found; typo?"
+    return nil
+
+  end
+
   #  ------------------------------------------------------------
   #  ------------------------------------------------------------
   def prep_dialog
@@ -45,9 +66,9 @@ module Sinatra
   end
 
   #  ------------------------------------------------------------
-  #  helper_flashcard_haml_stuff  -- stuff to get ready for view
+  #  helper_flashcard_display  -- stuff to get ready for view
   #  ------------------------------------------------------------
-  def helper_flashcard_haml_stuff( card, show )
+  def helper_flashcard_display( card, show )
     @action_box = :action_player   # use special action box
     @dark_background = true
 
@@ -71,18 +92,13 @@ module Sinatra
     @show_rear = card.show_rear   # pick up switch for rear display
 
     case @source
-      when /Dialogs/    then prep_dialog
-      when /Opposites/  then prep_opposites
+      when /Dialogs/     then prep_dialog
+      when /Opposites/   then prep_opposites
       when /Dictionary/  then prep_dictionary
     end
 
     helper_font_sizing
-
-      # save state in user's session
-    session[:settings] = YAML.dump(  
-      card.prep_serialize_settings  # capture state
-    )
-
+    save_session_state(card)
   end
 
   #  ------------------------------------------------------------
@@ -136,7 +152,7 @@ module Sinatra
       (loop, show) = player.commands( [playcmd] )
 
       # setup variables for player display
-      helper_flashcard_haml_stuff( player.card, show )
+      helper_flashcard_display( player.card, show )
     end  # outer if
 
     return loop
@@ -199,25 +215,23 @@ module Sinatra
 
   # ------------------------------------------------------
   # ------------------------------------------------------
-  def helper_list_haml_stuff(card)
+  def helper_list_display(card)
       # setup variables for player display
     @action_box = :action_player   # use special action box
     @skip_menu = true    # skips player menu
     @topic  = card.my_settings[:topic]
     @source = card.my_settings[:source]
-    @list   = card.my_source.fc_data[0..50]
+    @list   = card.my_source.fc_data[0..80]
     @text   = card.text_or_bullets
     @recording_file = card.my_source.recording
     @time   = 0
+    @glossary = get_glossary( card.my_source )
 
     if @source == "Opposites"
       @subchar = [/::/, " &harr; "]
     end
 
-       # save state in user's session
-    session[:settings] = YAML.dump(  
-      card.prep_serialize_settings  # capture state
-    )
+    save_session_state(card)
 
     haml :lists
   end
@@ -236,14 +250,14 @@ module Sinatra
       flash[:error] = "Cannot list Lessons nor Dictionary!"
       redirect '/settings'
     else
-      helper_list_haml_stuff(card)
+      helper_list_display(card)
     end  # outer if
 
   end
 
   # ------------------------------------------------------
   # ------------------------------------------------------
-  def helper_lessons_haml_stuff(card,incr)
+  def helper_lessons_display(card,incr)
       # setup variables for player display
     @action_box = :action_player   # use special action box
     @skip_menu = true    # skips player menu
@@ -264,10 +278,7 @@ module Sinatra
 
       card.cur_ptr = @cur_ptr
 
-         # save state in user's session
-      session[:settings] = YAML.dump(  
-        card.prep_serialize_settings  # capture state
-      )
+      save_session_state(card)
 
       haml :lessons
     end
@@ -292,7 +303,7 @@ module Sinatra
       flash[:error] = "Invalid Topic or Source"
       redirect '/'
     else
-      helper_lessons_haml_stuff(card, incr)
+      helper_lessons_display(card, incr)
     end  # outer if
 
   end

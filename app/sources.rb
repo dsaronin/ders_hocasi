@@ -16,7 +16,7 @@ module Sources
 
     EMPTY_DATA = [["boş","tupu"]]
 
-    attr_reader :recording
+    attr_reader :recording, :has_glossary, :belongs_to
     attr_accessor  :my_topic
 
   #  ------------------------------------------------------------
