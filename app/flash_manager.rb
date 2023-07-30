@@ -68,7 +68,7 @@ class FlashManager
   end
 
   def FlashManager.default_settings
-    return @@defaults
+    return @@defaults.clone
   end
 
   #  ------------------------------------------------------------
@@ -78,7 +78,7 @@ class FlashManager
   #  exception if topic not found.
   #  ------------------------------------------------------------
   def initialize( key, settings )
-    @my_settings = ( settings || @@defaults.clone )    # set my settings from defaults
+    @my_settings = ( settings || FlashManager.default_settings )    # set my settings from defaults
 
     key.gsub!( /:/, "")  # remove misguided attemps at making a symbol
     topic = ( key =~ /^def(ault)?$/  ?  @my_settings[:topic]  : key )
