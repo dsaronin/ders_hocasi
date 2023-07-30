@@ -20,6 +20,23 @@ module Sinatra
     )
   end
 
+  def is_valid_class(name)
+    Object.const_defined?(name) && Object.const_get(name).is_a?(Class)
+  end
+
+  def get_parent_source_path( obj )
+    return nil if obj.belongs_to.nil? || obj.belongs_to.empty?
+    (source, key) = obj.belongs_to
+    return nil unless is_valid_class(source) && !key.nil? && !key.empty?
+    return nil unless Module.const_get(source).respond_to? :get_item
+    return nil if Module.const_get(source).get_item(key).nil?
+
+    return "#{source}\##{key}"
+  end
+
+  #  ------------------------------------------------------------
+  #  get_glossary  -- returns array of glossary items else nil
+  #  ------------------------------------------------------------
   def get_glossary( obj )
     return nil if obj.has_glossary.nil?
 
@@ -28,7 +45,6 @@ module Sinatra
 
     flash[:error] = "Glossary <#{obj.has_glossary}> not found; typo?"
     return nil
-
   end
 
   #  ------------------------------------------------------------
@@ -90,6 +106,7 @@ module Sinatra
       card.show_rear ^= @rear_toggle
     end
     @show_rear = card.show_rear   # pick up switch for rear display
+    @parent_path = get_parent_source_path(card.my_source)
 
     case @source
       when /Dialogs/     then prep_dialog

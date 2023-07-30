@@ -43,7 +43,7 @@ class FlashManager
   EXAMPLE_TYPES   = %w{Phrases Dialogs Sentences Readings Dictionary}
   # text types get shown without bullets in lists
   TEXT_TYPES   = %w{Dialogs Readings}
-  LIST_TYPES   = %w{Vocabulary Sentences Phrases Opposites Readings Dialogs Glossary}
+  LIST_TYPES   = %w{Vocabulary Sentences Phrases Opposites Readings Dialogs Glossaries}
 
   #  ------------------------------------------------------------
   #  ------------------------------------------------------------

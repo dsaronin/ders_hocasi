@@ -18,3 +18,4 @@
       var audio = document.querySelector('audio');
       audio.currentTime = #{@time};
     %source{ :src => "/recordings/#{@recording_file}", :type => "audio/ogg"}
+-# unless @parent_path.nil?

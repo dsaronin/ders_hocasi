@@ -6,9 +6,7 @@
 # ----------------------------------------------
 :health:
   !ruby/object:Glossaries
-    belongs_to:
-      - Dialogs
-      - klinikta_hasta
+    belongs_to: ["Dialogs", "klinikta_hasta"]
     recording: ~
     fc_data:
       -  ["-sedye yatmak", "lie on a stretcher", 0]
@@ -37,9 +35,7 @@
  
 :müzik:
   !ruby/object:Glossaries
-    belongs_to:
-      - Dialogs
-      - klinikta_hasta
+    belongs_to: ["Dialogs", "müzik"]
     recording: ~
     fc_data:
       - ["zevk", "pleasure", 0]
@@ -54,9 +50,7 @@
 
 :adverbs:
   !ruby/object:Glossaries
-    belongs_to:
-      - Dialogs
-      - adverbs
+    belongs_to: ["Dialogs", "adverbs"]
     recording: ~
     fc_data:
       - ["gelişmiş", "advanced", 0]

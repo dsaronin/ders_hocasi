@@ -27,6 +27,16 @@ module Sources
 
   module ClassMethods
 
+    def get_item( key )
+      obj = nil
+
+      db = self.class_variable_get(:@@database)
+      if !db.nil? && db.kind_of?( Hash )
+        obj = db[ ( key.is_a?(Symbol) ? key : key.to_sym ) ]
+      end
+      return obj
+    end
+
 
     def find_or_new( key, entry = nil )
       obj = self.find( key, entry ) 

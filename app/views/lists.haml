@@ -7,3 +7,9 @@
     - xleft = @list.length.div(2)
     = haml :list_column, :locals => {:mylist => @list[0..xleft-1]}
     = haml :list_column, :locals => {:mylist => @list[xleft..@list.length-1]}
+  - unless @glossary.nil?
+    %h6 Glossary
+    - xleft = @glossary.length.div(2)
+    = haml :list_column, :locals => {:mylist => @glossary[0..xleft-1]}
+    = haml :list_column, :locals => {:mylist => @glossary[xleft..@glossary.length-1]}
+
