@@ -48,6 +48,16 @@ module Sinatra
   end
 
   #  ------------------------------------------------------------
+  #  get_glossary_path  -- returns path for glossary
+  #  ------------------------------------------------------------
+  def get_glossary_path( obj )
+    return nil if obj.has_glossary.nil?
+    return nil if Glossaries.find_glossary( obj.has_glossary ).nil?
+    return "Glossaries\##{obj.has_glossary}"
+  end
+
+
+  #  ------------------------------------------------------------
   #  ------------------------------------------------------------
   def prep_dialog
     @front = @front.gsub( /^.: / , "" )
@@ -106,7 +116,8 @@ module Sinatra
       card.show_rear ^= @rear_toggle
     end
     @show_rear = card.show_rear   # pick up switch for rear display
-    @parent_path = get_parent_source_path(card.my_source)
+    @aux_path = get_parent_source_path(card.my_source)  || 
+                get_glossary_path( card.my_source )
 
     case @source
       when /Dialogs/     then prep_dialog
