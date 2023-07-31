@@ -71,6 +71,14 @@ class HocasiApp < Sinatra::Application
     helper_do_player( Player::PCMD_CURR )
   end
 
+  get '/auxfc/:path' do
+    helper_start_player( helper_load_path )
+  end
+
+  get '/auxlist/:path' do
+    helper_prep_lists( helper_load_path )
+  end
+
   #  ------------------------------------------------------------
   #  ------------------------------------------------------------
   get '/start' do

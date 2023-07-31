@@ -20,18 +20,18 @@ module Sinatra
     )
   end
 
-  def is_valid_class(name)
+  def is_valid_class?(name)
     Object.const_defined?(name) && Object.const_get(name).is_a?(Class)
   end
 
   def get_parent_source_path( obj )
     return nil if obj.belongs_to.nil? || obj.belongs_to.empty?
     (source, key) = obj.belongs_to
-    return nil unless is_valid_class(source) && !key.nil? && !key.empty?
+    return nil unless is_valid_class?(source) && !key.nil? && !key.empty?
     return nil unless Module.const_get(source).respond_to? :get_item
     return nil if Module.const_get(source).get_item(key).nil?
 
-    return "#{source}\##{key}"
+    return "#{source}__#{key}"
   end
 
   #  ------------------------------------------------------------
@@ -53,9 +53,30 @@ module Sinatra
   def get_glossary_path( obj )
     return nil if obj.has_glossary.nil?
     return nil if Glossaries.find_glossary( obj.has_glossary ).nil?
-    return "Glossaries\##{obj.has_glossary}"
+    return "Glossaries__#{obj.has_glossary}"
   end
 
+  #  ------------------------------------------------------------
+  #  helper_load_path -- DRY work to get path, decode, stuff in settings
+  #  ------------------------------------------------------------
+  def helper_load_path()
+    helper_get_settings
+    path = params[:path]
+    if path.nil?
+      flash[:error] = "aux path params missing."
+    else
+      (source,key) = path.split(/__/)
+      puts "PATH: source: #{source}, key: #{key}"
+      if !is_valid_class?(source)  ||  key.nil?  || key.empty?
+        flash[:error] = "aux source or key invalid/missing."
+      else
+        @settings[:source] = source
+        @settings[:topic]  = key
+      end  # if.then.else source/key checks
+    end   # if.then.else path missing
+
+    return @settings
+  end
 
   #  ------------------------------------------------------------
   #  ------------------------------------------------------------
@@ -116,6 +137,7 @@ module Sinatra
       card.show_rear ^= @rear_toggle
     end
     @show_rear = card.show_rear   # pick up switch for rear display
+    @aux_type = "fc"
     @aux_path = get_parent_source_path(card.my_source)  || 
                 get_glossary_path( card.my_source )
 
@@ -223,7 +245,7 @@ module Sinatra
   #  ------------------------------------------------------------
   #  ------------------------------------------------------------
   def helper_get_settings()
-    @settings = ( session[:settings].nil?  ?
+    return @settings = ( session[:settings].nil?  ?
       FlashManager.default_settings :
       YAML.load( session[:settings] ) 
     )
@@ -254,6 +276,8 @@ module Sinatra
     @recording_file = card.my_source.recording
     @time   = 0
     @glossary = get_glossary( card.my_source )
+    @aux_type = "list"
+    @aux_path = get_parent_source_path(card.my_source)
 
     if @source == "Opposites"
       @subchar = [/::/, " &harr; "]
