@@ -1,6 +1,6 @@
-%h5 Select an entry from #{@settings[:source]}
+%h5 Select a title from #{@settings[:source]}
 = form('/source', method=:post) do |f|
-  = f.label(:entry, 'Source entry:&emsp;')
+  = f.label(:entry, 'Title:&emsp;')
   = f.select(:entry, @key_list, {:value => @entry_def } )
   = link_to( 'cancel', "/", { :id => "cancel", :title => "cancel setting changes" } )
   = submit( 'player', :value => 'flashcards »' )
