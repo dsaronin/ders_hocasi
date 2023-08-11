@@ -71,7 +71,7 @@ module Sinatra
         flash[:error] = "aux source or key invalid/missing."
       else
         @settings[:source] = source
-        @settings[:topic]  = key
+        @settings[:entry]  = key
       end  # if.then.else source/key checks
     end   # if.then.else path missing
 
