@@ -1,0 +1,9 @@
+---
+# 
+# DrillTutor -- basics notes
+# Copyright (c) 2023 David S Anderson, All Rights Reserved
+#
+:dummy:
+  !ruby/object:Glossaries
+    fc_data:
+      - ["dummy", "dummy"]
