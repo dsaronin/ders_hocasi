@@ -11,12 +11,12 @@
 :kanda-za-mikoa:
   !ruby/object:Vocabulary
     fc_data:
-      - ["kanda ya kati", "dodoma, singida, tabora"]
-      - ["kanda ya pwani", "dar es salaam, lindi, morogoro, mtwara, pwani"]
-      - ["kanda ya ziwa", "geita, kagera, mara, mwanza, shinyanga, simiyu"]
+      - ["kanda ya ziwa", "kagera, geita, shinyanga, simiyu, mara, mwanza"]
       - ["kanda ya kaskazini", "arusha, kilimanjaro, manyara, tanga"]
-      - ["kanda ya nyanda za juu kusini", "iringa, mbeya, njombe, rukwa, ruvuma, songwe"]
-      - ["kanda ya magharibi", "katavi, kigoma  (kanda)"]
+      - ["kanda ya pwani", "pwani, lindi, mtwara, morogoro, dar es salaam"]
+      - ["kanda ya nyanda za juu kusini", "rukwa, songwe, mbeya, iringa, njombe, ruvuma"]
+      - ["kanda ya magharibi", "kigoma, katavi"]
+      - ["kanda ya kati", "tabora, singida, dodoma"]
       - ["kanda ya zanzibar", "mjini magharibi, pemba kaskazini, pemba kusini, unguja kaskazini, unguja kusini"]
 
 :mkoa-wa-kanda:
